@@ -34,7 +34,7 @@ TODO: DESCRIBE A DATASET DESCRIPTION
 | 7    | As a user I would like to view any owned transfer. | [GET] One of the transfers (COMPLETED, CANCELED, BOOKED) is retrieved. |
 | 8    | As a user I would like to edit any owned transfer in the future. | [PUT] Any (BOOKED) transfer description is updated. |
 | 9    | As a user I would like to cancel any owned transfer in the future. | [PUT] Any (BOOKED) transfer is canceled (CANCELED).  |
-| 10   | Repeat (1) - (9) every 30 minutes for each user. | |
+| 10   | Repeat (1) - (9) every 4 hours for each user. | |
 
 The application is a transportation service.
 
