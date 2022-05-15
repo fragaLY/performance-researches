@@ -22,6 +22,9 @@ The purposes of this research are next:
 
 The definition of database [init scrip](./database/docker/database_definition.sql) and [docker-compose](./database/docker/docker-compose.yml) file.
 
+To connect via pgadmin follow [pgadmin](localhost:5050) enter "user@user.com" and "password".
+Create server and attach to host `docker inspect $(docker ps -aqf "name=postgres") | grep IPAddress`, port 5432, db "postgres" with "user" and "password" credentials.
+
 |       UNIT      | AMOUNT |
 |:----------------|:-------|
 | Countries       | 1      |
@@ -32,7 +35,9 @@ The definition of database [init scrip](./database/docker/database_definition.sq
 | Users_Transfers | 500000 |
 
 Database size: ? MB
+
 Database dump size: ? MB
+
 Docker image with predefined data: ? MB
 
 ### USE CASES
