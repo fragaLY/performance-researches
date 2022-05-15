@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+
+  postgres:
+    image: postgres:14.2-alpine
+    container_name: postgres
+    hostname: postgres
+    restart: on-failure
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=a2b
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database_definition.sql:/docker-entrypoint-initdb.d/database_definition.sql
+
+  pgadmin:
+    image: dpage/pgadmin4:6.9
+    container_name: pgadmin4
+    restart: on-failure
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@user.com
+      PGADMIN_DEFAULT_PASSWORD: "password"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
