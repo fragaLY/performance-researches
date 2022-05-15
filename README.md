@@ -19,7 +19,21 @@ The purposes of this research are next:
 ![](./database/database-structure.png)
 
 ### DATASET DESCRIPTION
-TODO: DESCRIBE A DATASET DESCRIPTION
+
+The definition of database [init scrip](./database/docker/database_definition.sql) and [docker-compose](./database/docker/docker-compose.yml) file.
+
+|       UNIT      | AMOUNT |
+|:----------------|:-------|
+| Countries       | 1      |
+| Cities          | 6      |
+| Locations       | 100    |
+| Transfers       | 15000  |
+| Users           | 200000 |
+| Users_Transfers | 500000 |
+
+Database size: ? MB
+Database dump size: ? MB
+Docker image with predefined data: ? MB
 
 ### USE CASES
 
