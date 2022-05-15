@@ -34,11 +34,15 @@ Create server and attach to host `docker inspect $(docker ps -aqf "name=postgres
 | Users           | 200000 |
 | Users_Transfers | 500000 |
 
-Database size: ? MB
+For a generation of the dataset, I've created the other module [datagen](./datagen). I will not dive deeper into data generation.
+You could easily check out how it works in sources. After that, I got DB size, and DB dump, and created a separate docker image with the predefined dataset.
+This docker image is located in every tested module directory.
 
-Database dump size: ? MB
+The DB metrics:
 
-Docker image with predefined data: ? MB
+* Database size: ? MB
+* Database dump size: ? MB
+* Docker image with predefined data: ? MB
 
 ### USE CASES
 
