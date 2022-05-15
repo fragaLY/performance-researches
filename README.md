@@ -52,6 +52,6 @@ As a result, we will have 16 per day and 112 hours of load per week.
 
 ### SUPPORT THE PROJECT
 
-TON: EQB3lxe8IlUGocilOCzuFhALm71XElZjcyJoFl08Tupx6lfe
-BTC: 35ruuFbGjjsh4fed32hZKTAaLzVb3q7KjX
-ETH: 0x7a19d2e4e978e473f3c3d762d097f94e8a546eef
+* TON: EQB3lxe8IlUGocilOCzuFhALm71XElZjcyJoFl08Tupx6lfe
+* BTC: 35ruuFbGjjsh4fed32hZKTAaLzVb3q7KjX
+* ETH: 0x7a19d2e4e978e473f3c3d762d097f94e8a546eef
