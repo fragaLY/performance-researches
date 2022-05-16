@@ -1,1 +1,35 @@
+spring:
+  main:
+    web-application-type: none
+    banner-mode: off
+    lazy-initialization: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/a2b?currentSchema=a2b"
+    username: "user"
+    password: "password"
+    hikari:
+      connection-timeout: 1000
+      pool-name: "hikari-pool"
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: deferred
+    jpa:
+      open-in-view: false
+      database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+      hibernate:
+        ddl-auto: none
+      generate-ddl: false
+      properties:
+        hibernate:
+          default_schema: "a2b"
+          jdbc:
+            batch_size: 25
+          order_inserts: false
+      show-sql: false
 
+logging.level:
+  ROOT: info
+  by.vk.datagen: info
+  org.springframework: info

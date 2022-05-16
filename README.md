@@ -29,12 +29,12 @@ Create server and attach to host `docker inspect $(docker ps -aqf "name=postgres
 |:----------------|:-------|
 | Countries       | 1      |
 | Cities          | 6      |
-| Locations       | 100    |
-| Transfers       | 15000  |
+| Locations       | 120    |
+| Transfers       | 12000  |
 | Users           | 200000 |
 | Users_Transfers | 500000 |
 
-For a generation of the dataset, I've created the other module [datagen](./datagen). I will not dive deeper into data generation.
+For a generation of the dataset, I've created the other module [datagen](./datagen). I will not dive deeper into data generation process.
 You could easily check out how it works in sources. After that, I got DB size, and DB dump, and created a separate docker image with the predefined dataset.
 This docker image is located in every tested module directory.
 
