@@ -27,7 +27,5 @@ public class DatagenApplication implements CommandLineRunner {
         var country = countryGenerator.generate();
 
 
-
-
     }
 }

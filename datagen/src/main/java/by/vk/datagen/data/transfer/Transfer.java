@@ -1,7 +1,6 @@
 package by.vk.datagen.data.transfer;
 
 import by.vk.datagen.data.location.Location;
-import by.vk.datagen.data.userstransfers.UsersTransfers;
 import com.vladmihalcea.hibernate.type.range.Range;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,7 +20,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,7 +27,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
-import java.util.Set;
 
 @Table(schema = "a2b", name = "transfers")
 @Entity
