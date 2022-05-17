@@ -2,10 +2,8 @@ package by.vk.datagen.data.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
@@ -37,6 +35,11 @@ public class User {
 
 //    @OneToMany(mappedBy = "user")
 //    private Set<UsersTransfers> transfers;
+
+
+    public User(Long id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {

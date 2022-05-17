@@ -11,10 +11,9 @@ public class CountryGenerator {
 
     private final CountryRepository repository;
 
-    public Country generate() {
+    public void generate() {
         log.info("[COUNTRY GENERATION] Started.");
-        var savedCountry = repository.save(new Country(null, "Republic of Belarus", "BY"));
+        repository.save(new Country(null, "Republic of Belarus", "BY"));
         log.info("[COUNTRY GENERATION] Ended.");
-        return savedCountry;
     }
 }

@@ -14,13 +14,13 @@ import java.util.stream.IntStream;
 @AllArgsConstructor
 @Slf4j
 public class LocationGenerator {
+    private static final int LOCATIONS_PER_CITY_AMOUNT = 20;
     private final LocationRepository repository;
 
-    public Iterable<Location> generate(City city, int amount) {
+    public void generate() {
         log.info("[LOCATIONS GENERATION] Started.");
-        var savedLocations = repository.saveAll(IntStream.rangeClosed(1, amount).parallel().mapToObj(it -> new Location(null, new Point(ThreadLocalRandom.current().nextDouble(0.0, 180.0), ThreadLocalRandom.current().nextDouble(0.0, 180.0)), city))
+        repository.saveAll(IntStream.rangeClosed(1, LOCATIONS_PER_CITY_AMOUNT).parallel().mapToObj(it -> new Location(null, new Point(ThreadLocalRandom.current().nextDouble(0.0, 180.0), ThreadLocalRandom.current().nextDouble(0.0, 180.0)), new City(ThreadLocalRandom.current().nextLong(1, 7))))
                 .collect(Collectors.toList()));
         log.info("[LOCATIONS GENERATION] Ended.");
-        return savedLocations;
     }
 }

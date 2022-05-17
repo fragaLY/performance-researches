@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
@@ -31,6 +30,10 @@ public class Country {
     private Long id;
     private String name;
     private String code;
+
+    public Country(Long id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {

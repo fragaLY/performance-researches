@@ -12,19 +12,18 @@ import java.util.List;
 @Slf4j
 public class CityGenerator {
 
-    private final CityRepository repository;
+    private final CityRepository cityRepository;
 
-    public Iterable<City> generate(Country country) {
+    public void generate() {
         log.info("[CITY GENERATION] Started.");
-        var mogilev = new City(null, "Mogilev", "22", country);
-        var gomel = new City(null, "Gomel", "23", country);
-        var vitebsk = new City(null, "Vitebsk", "21", country);
-        var brest = new City(null, "Brest", "16", country);
-        var grodno = new City(null, "Grodno", "15", country);
-        var minsk = new City(null, "Minsk", "17", country);
+        var mogilev = new City(null, "Mogilev", "22", new Country(1L));
+        var gomel = new City(null, "Gomel", "23", new Country(1L));
+        var vitebsk = new City(null, "Vitebsk", "21", new Country(1L));
+        var brest = new City(null, "Brest", "16", new Country(1L));
+        var grodno = new City(null, "Grodno", "15", new Country(1L));
+        var minsk = new City(null, "Minsk", "17", new Country(1L));
         var cities = List.of(mogilev, gomel, vitebsk, brest, grodno, minsk);
-        var savedCities = repository.saveAll(cities);
+        var savedCities = cityRepository.saveAll(cities);
         log.info("[CITY GENERATION] Ended.");
-        return savedCities;
     }
 }

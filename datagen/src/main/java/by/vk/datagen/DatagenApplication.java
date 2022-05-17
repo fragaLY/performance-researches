@@ -11,13 +11,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.stream.StreamSupport;
-
 @SpringBootApplication
 @AllArgsConstructor
 public class DatagenApplication implements CommandLineRunner {
 
-    private static final int LOCATIONS_PER_CITY_AMOUNT = 20;
     private final CountryGenerator countryGenerator;
     private final CityGenerator cityGenerator;
     private final LocationGenerator locationGenerator;
@@ -31,12 +28,11 @@ public class DatagenApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var users = StreamSupport.stream(userGenerator.generate().spliterator(), true).toList();
-        var country = countryGenerator.generate();
-        var cities = StreamSupport.stream(cityGenerator.generate(country).spliterator(), true).toList();
-        var locations = cities.parallelStream()
-                .flatMap(city -> StreamSupport.stream(locationGenerator.generate(city, LOCATIONS_PER_CITY_AMOUNT).spliterator(), false)).toList();
-        var transfers = StreamSupport.stream(transferGenerator.generate(locations).spliterator(), true).toList();
-        var usersTransfers = usersTransfersGenerator.generate(users, transfers);
+//      userGenerator.generate();
+//      countryGenerator.generate();
+//      cityGenerator.generate();
+        locationGenerator.generate();
+        transferGenerator.generate();
+        usersTransfersGenerator.generate();
     }
 }

@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -20,13 +19,12 @@ public class UsersTransfersGenerator {
     private final Faker faker;
     private final UsersTransfersRepository repository;
 
-    public Iterable<UsersTransfers> generate(List<User> users, List<Transfer> transfers) {
+    public void generate() {
         log.info("[USERS_TRANSFERS GENERATION] Started.");
-        var savedUsersTransfers = repository.saveAll(
+        repository.saveAll(
                 IntStream.rangeClosed(1, 500_000).parallel()
-                        .mapToObj(it -> new UsersTransfers(null, users.get(ThreadLocalRandom.current().nextInt(0, 200_000)), transfers.get(ThreadLocalRandom.current().nextInt(0, 15_000)), State.values()[ThreadLocalRandom.current().nextInt(0, 2)], faker.backToTheFuture().quote()))
+                        .mapToObj(it -> new UsersTransfers(null, new User(ThreadLocalRandom.current().nextLong(1, 200_001)), new Transfer(ThreadLocalRandom.current().nextLong(1, 15_001)), State.values()[ThreadLocalRandom.current().nextInt(0, 2)], faker.backToTheFuture().quote()))
                         .collect(Collectors.toList()));
         log.info("[USERS_TRANSFERS GENERATION] Ended.");
-        return savedUsersTransfers;
     }
 }

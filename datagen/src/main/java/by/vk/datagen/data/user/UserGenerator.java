@@ -16,14 +16,13 @@ public class UserGenerator {
     private final Faker faker;
     private final UserRepository repository;
 
-    public Iterable<User> generate() {
+    public void generate() {
         log.info("[USERS GENERATION] Started.");
-        var savedUsers = repository.saveAll(
+        repository.saveAll(
                 IntStream.rangeClosed(1, 200_000).parallel()
                         .mapToObj(it -> new User(null, faker.name().firstName(), faker.name().lastName(), faker.funnyName().name() + it + "@gmail.com", faker.phoneNumber().phoneNumber()))
                         .collect(Collectors.toList())
         );
         log.info("[USERS GENERATION] Ended.");
-        return savedUsers;
     }
 }

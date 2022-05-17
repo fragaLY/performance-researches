@@ -6,12 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,12 +40,12 @@ public class Transfer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "origin", nullable = false)
     @ToString.Exclude
     private Location origin;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "destination", nullable = false)
     @ToString.Exclude
     private Location destination;
@@ -68,6 +66,10 @@ public class Transfer {
 //    @OneToMany(mappedBy = "transfer")
 //    @ToString.Exclude
 //    private Set<UsersTransfers> transfers;
+
+    public Transfer(Long id) {
+        this.id = id;
+    }
 
     @Override
     public boolean equals(Object o) {
