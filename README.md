@@ -51,16 +51,18 @@ The DB metrics:
 | 1    | As a user I would like to choose the country. | [GET] The list of available countries is presented. |
 | 2    | As a user I would like to choose the city. | [GET] The list of available cities is presented. |
 | 3    | As a user I would like to choose the origin. | [GET] The list of available origins is presented. |
-| 4    | As a user I would like to choose the destination. | [GET] The list of available destinations except the origin is presented.  |
+| 4    | As a user I would like to choose the destination. | [GET] The list of available destinations is presented.  |
 | 5    | As a user I would like to choose the date of transfer. | [GET] [NO LOAD] The future dates for the current month are presented. |
-| 6    | As a user I would like to see all available transfers and their common information for this date. | [GET] The list of available transfers by selected origin, destination, and date is presented. |
-| 7    | As a user I would like to book the cheapest transfer. | [POST] The cheapest transfer is booked in the system. |
+| 6    | As a user I would like to see all available transfers from 'origin', to 'destination' for selected this date. | [GET] The list of available transfers by selected origin, destination, and date is presented. |
+| 7    | As a user I would like to book a transfer. | [POST] The transfer is booked in the system. |
 | 8    | As a user I would like to see all my transfers. | [GET] The list of all my transfers (COMPLETED, CANCELED, BOOKED) is presented. |
 | 9    | As a user I would like to view any owned transfer. | [GET] One of the transfers (COMPLETED, CANCELED, BOOKED) is retrieved. |
 | 10   | As a user I would like to edit any owned transfer in the future. | [PUT] Any (BOOKED) transfer description is updated. |
 | 11   | As a user I would like to cancel any owned transfer in the future. | [PUT] Any (BOOKED) transfer is canceled (CANCELED).  |
 | 12   | As a user I would like to complete any owned transfer in the past. | [PUT] Any (BOOKED) transfer is completed (COMPLETED).  |
-| 13   | Repeat (1) - (9) every 4 hours for each user. | |
+| 13   | As a user I would like to see my profile. | [GET] User is retrieved with her/his transfers data. |
+| 14   | As a user I would like to update my profile. | [GET] User updates with her/his own data. |
+| 15   | Repeat (1) - (9) every 4 hours for each user. | |
 
 The application is a transportation service.
 
