@@ -15,10 +15,18 @@ public class UsersTransfersId implements Serializable {
     private static final long serialVersionUID = 419403237500196989L;
 
     @Column(name = "user_id")
-    Long userId;
+    public Long userId;
 
     @Column(name = "transfer_id")
-    Long transferId;
+    public Long transferId;
+
+    public UsersTransfersId() {
+    }
+
+    public UsersTransfersId(Long userId, Long transferId) {
+        this.userId = userId;
+        this.transferId = transferId;
+    }
 
     @Override
     public boolean equals(Object o) {

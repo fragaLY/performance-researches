@@ -21,10 +21,16 @@ public class UsersTransfersGenerator {
 
     public void generate() {
         log.info("[USERS_TRANSFERS GENERATION] Started.");
-        repository.saveAll(
+        var usersTransfers =
                 IntStream.rangeClosed(1, 500_000).parallel()
-                        .mapToObj(it -> new UsersTransfers(null, new User(ThreadLocalRandom.current().nextLong(1, 200_001)), new Transfer(ThreadLocalRandom.current().nextLong(1, 15_001)), State.values()[ThreadLocalRandom.current().nextInt(0, 2)], faker.backToTheFuture().quote()))
-                        .collect(Collectors.toList()));
+                        .mapToObj(it -> {
+                            var user = new User(ThreadLocalRandom.current().nextLong(1, 200_001));
+                            var transfer = new Transfer(ThreadLocalRandom.current().nextLong(1, 12_001));
+                            var state = State.values()[ThreadLocalRandom.current().nextInt(0, 2)];
+                            return new UsersTransfers(new UsersTransfersId(user.getId(), transfer.getId()), user, transfer, state, faker.backToTheFuture().quote());
+                        })
+                        .collect(Collectors.toList());
+        repository.saveAll(usersTransfers);
         log.info("[USERS_TRANSFERS GENERATION] Ended.");
     }
 }

@@ -28,9 +28,9 @@ public class DatagenApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//      userGenerator.generate();
-//      countryGenerator.generate();
-//      cityGenerator.generate();
+        userGenerator.generate();
+        countryGenerator.generate();
+        cityGenerator.generate();
         locationGenerator.generate();
         transferGenerator.generate();
         usersTransfersGenerator.generate();

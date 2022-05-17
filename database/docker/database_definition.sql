@@ -44,7 +44,7 @@ CREATE TABLE locations
 (
     id                    bigserial             NOT NULL,
     city_id               bigint                NOT NULL,
-    location              point                 NOT NULL,
+    location              jsonb                 NOT NULL,
 
     CONSTRAINT "pk_domain_location.location" PRIMARY KEY (id),
     FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE
