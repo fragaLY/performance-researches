@@ -4,6 +4,10 @@ info:
   title: A2B Service
   description: API Specification for A2B Service. Goal of service is to aggregate all a2b logic.
   version: 1.0.0
+  contact:
+    name: Vadzim Kavalkou
+    url: https://www.linkedin.com/in/vadzimkavalkou/
+    email: vadzim.kavalkou@gmail.com
   license:
     name: GPL 3.0
 
@@ -11,8 +15,8 @@ servers:
   - url: http://localhost:8080/api/v1/
 
 tags:
-  - name: ChallengeService
-    description: Challenge Service Open API specification
+  - name: A2BService
+    description: A2B Service Open API specification
 
 paths:
   /countries:
@@ -45,10 +49,11 @@ paths:
       parameters:
         - name: id
           in: path
-          description: ID of country
+          description: Id of country
           required: true
           schema:
             type: integer
+            format: int64
       responses:
         "200":
           description: Cities details
@@ -62,12 +67,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestException'
-        "404":
-          description: Country not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundException'
         "500":
           description: General application error
           content:
@@ -84,16 +83,18 @@ paths:
       parameters:
         - name: countryId
           in: path
-          description: ID of country
+          description: Id of country
           required: true
           schema:
             type: integer
+            format: int64
         - name: cityId
           in: path
-          description: ID of city
+          description: Id of city
           required: true
           schema:
             type: integer
+            format: int64
       responses:
         "200":
           description: Locations details
@@ -107,211 +108,131 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestException'
-        "404":
-          description: Country or city not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundException'
         "500":
           description: General application error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerException'
-    put:
+  /transfers:
+    get:
       tags:
-        - Challenge Service
-      summary: Update Challenge's details
-      description: Update Challenge's details
-      operationId: updateChallenge
-      requestBody:
-        required: true
-        content:
-          application/json;charset=UTF-8:
-            schema:
-              $ref: '#/components/schemas/ChallengeEditionDto'
+        - A2B Service
+      summary: Get all transfers for selected origin, destination, date
+      description: Get all available transfers. Transfers are retrieved.
+      operationId: transfersRetrieving
       parameters:
-        - name: id
-          in: path
-          description: ID of Challenge
+        - name: originId
+          in: query
+          description: Id of origin
           required: true
           schema:
             type: integer
+            format: int64
+        - name: destinationId
+          in: query
+          description: Id of destination
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: date
+          in: query
+          description: Date of transfer
+          required: true
+          schema:
+            type: string
+            format: date
       responses:
-        "204":
-          description: Challenge details updated
+        "200":
+          description: Transfers for selected origin, destination, date
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transfers"
         "400":
-          description: Badrequest
+          description: Bad request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestException'
-        "401":
-          description: User is unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedException'
-        "403":
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ForbiddenException'
-        "404":
-          description: Challenge not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundException'
         "500":
           description: General application error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerException'
-    delete:
+  /users/{userId}/transfers:
+    get:
       tags:
-        - Challenge Service
-      summary: Delete Challenge
-      description: Delete Challenge
-      operationId: deleteChallenge
+        - A2B Service
+      summary: Get user's transfers
+      description: Get user's transfers. User's transfers are retrieved.
+      operationId: userTransfersRetrieving
       parameters:
-        - name: id
+        - name: userId
           in: path
-          description: ID of Challenge
+          description: Id of user
           required: true
           schema:
             type: integer
+            format: int64
       responses:
-        "204":
-          description: Challenge deleted
+        "200":
+          description: User's transfers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UsersTransfers"
         "400":
-          description: Badrequest
+          description: Bad request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestException'
-        "401":
-          description: User is unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedException'
-        "403":
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ForbiddenException'
-        "404":
-          description: Challenge not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundException'
         "500":
           description: General application error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerException'
-  /challenges/{id}/state:
-    put:
-      tags:
-        - Challenge Service
-      summary: Update Challenge's status
-      description: Update Challenge's status
-      operationId: updateChallengeStatus
-      requestBody:
-        required: true
-        content:
-          application/json;charset=UTF-8:
-            schema:
-              $ref: '#/components/schemas/ChallengeReviewDto'
-      parameters:
-        - name: id
-          in: path
-          description: ID of Challenge
-          required: true
-          schema:
-            type: integer
-      responses:
-        "204":
-          description: Challenge status updated
-        "400":
-          description: Badrequest
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BadRequestException'
-        "401":
-          description: User is unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedException'
-        "403":
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ForbiddenException'
-        "404":
-          description: Challenge not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NotFoundException'
-        "500":
-          description: General application error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ServerException'
-
-  /challenges/{id}/proof:
+  /users/{userId}/transfers{transferId}:
     post:
       tags:
-        - Challenge Service
-      summary: Add the proof of challenge
-      description: Add the proof of challenge
-      operationId: addChallengeApprove
+        - A2B Service
+      summary: Assign the transfer to user
+      description: Assign the transfer to user
+      operationId: assignTransferToUser
       requestBody:
         required: true
         content:
           application/json;charset=UTF-8:
             schema:
-              $ref: '#/components/schemas/Proof'
+              $ref: '#/components/schemas/TransferAssigning'
       parameters:
-        - name: id
+        - name: userId
           in: path
-          description: ID of Challenge
+          description: Id of user
           required: true
           schema:
             type: integer
+            format: int64
+        - name: transferId
+          in: path
+          description: Id of transfer
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        "204":
-          description: Challenge proof added
+        "201":
+          description: Transfer had been assigned
         "400":
-          description: Badrequest
+          description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestException'
-        "401":
-          description: User is unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedException'
-        "403":
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ForbiddenException'
         "404":
           description: Challenge not found
           content:
@@ -324,48 +245,159 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ServerException'
+    get:
+      tags:
+        - A2B Service
+      summary: Get user's transfer
+      description: Get user's transfer. User's transfer is retrieved.
+      operationId: userTransferRetrieving
+      parameters:
+        - name: userId
+          in: path
+          description: Id of user
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: transferId
+          in: path
+          description: Id of transfer
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: User's transfers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserTransfer"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
     put:
       tags:
-        - Challenge Service
-      summary: Review proof
-      description: Review proof by donator
-      operationId: review
+        - A2B Service
+      summary: Update user's transfer
+      description: Update user's transfer
+      operationId: updateUserTransfer
       requestBody:
         required: true
         content:
           application/json;charset=UTF-8:
             schema:
-              $ref: '#/components/schemas/ProofReviewDto'
+              $ref: '#/components/schemas/UserTransferEdition'
       parameters:
-        - name: id
+        - name: userId
           in: path
-          description: ID of Challenge
+          description: Id of user
           required: true
           schema:
             type: integer
+            format: int64
+        - name: transferId
+          in: path
+          description: Id of transfer
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
-        "201":
-          description: Challenge proof reviewed
+        "204":
+          description: User transfer updated
         "400":
-          description: Badrequest
+          description: Bad Request
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/BadRequestException'
-        "401":
-          description: User is unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnauthorizedException'
-        "403":
-          description: Forbidden.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ForbiddenException'
         "404":
-          description: Challenge not found
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+  /users/{userId}:
+    get:
+      tags:
+        - A2B Service
+      summary: Get user's profile
+      description: Get user's profile. User's profile is retrieved.
+      operationId: userProfileRetrieving
+      parameters:
+        - name: userId
+          in: path
+          description: Id of user
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "200":
+          description: User's profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+    put:
+      tags:
+        - A2B Service
+      summary: Update user's profile
+      description: Update user's profile
+      operationId: updateUserProfile
+      requestBody:
+        required: true
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/UserProfileEdition'
+      parameters:
+        - name: userId
+          in: path
+          description: Id of user
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        "204":
+          description: User profile updated
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "404":
+          description: User not found
           content:
             application/json:
               schema:
@@ -386,6 +418,7 @@ components:
         properties:
           id:
             type: integer
+            format: int64
             example: 1
           name:
             type: string
@@ -404,9 +437,11 @@ components:
         properties:
           id:
             type: integer
+            format: int64
             example: 1
           countryId:
             type: integer
+            format: int64
             example: 2
           name:
             type: string
@@ -424,6 +459,7 @@ components:
         properties:
           cityId:
             type: integer
+            format: int64
             example: 1
           point:
             type: object
@@ -442,6 +478,132 @@ components:
                 maximum: 180
                 exclusiveMinimum: true
                 exclusiveMaximum: true
+    Transfers:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+            example: 1
+          origin:
+            type: integer
+            format: int64
+            example: 2
+          destination:
+            type: integer
+            format: int64
+            example: 3
+          capacity:
+            type: integer
+            example: 26
+          duration:
+            type: string
+            example: "[2022-04-20 02:00:00,2022-05-11 09:00:00]"
+          price:
+            type: number
+            format: double
+            example: 99.9
+          description:
+            type: string
+            example: "We are not waiting for you. We are angry."
+    TransferAssigning:
+      type: object
+      properties:
+        description:
+          type: string
+          example: "I would like to have a cup of coffee."
+    UserTransfer:
+      type: object
+      properties:
+        userId:
+          type: integer
+          format: int64
+          example: 1
+        transferId:
+          type: integer
+          format: int64
+          example: 2
+        destination:
+          type: integer
+          format: int64
+          example: 3
+        state:
+          type: string
+          enum: [ "COMPLETED", "CANCELED", "BOOKED" ]
+        description:
+          type: string
+          example: "I would like to have a cup of coffee."
+    UsersTransfers:
+      type: array
+      items:
+        type: object
+        properties:
+          userId:
+            type: integer
+            format: int64
+            example: 1
+          transferId:
+            type: integer
+            format: int64
+            example: 2
+          destination:
+            type: integer
+            format: int64
+            example: 3
+          state:
+            type: string
+            enum: ["COMPLETED", "CANCELED", "BOOKED"]
+          description:
+            type: string
+            example: "I would like to have a cup of coffee."
+    UserTransferEdition:
+      type: object
+      properties:
+        state:
+          type: string
+          enum: [ "COMPLETED", "CANCELED", "BOOKED" ]
+        description:
+          type: string
+          example: "I would like to have a cup of tea."
+      required:
+        - state
+        - description
+    UserProfile:
+      type: object
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 50
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 50
+        email:
+          type: string
+          format: email
+          minLength: 1
+          maxLength: 50
+        phone:
+          type: string
+          minLength: 1
+          maxLength: 50
+    UserProfileEdition:
+      type: object
+      properties:
+        firstName:
+          type: string
+          minLength: 1
+          maxLength: 50
+        lastName:
+          type: string
+          minLength: 1
+          maxLength: 50
+      required:
+        - firstName
+        - lastName
     BadRequestException:
       type: object
       properties:
