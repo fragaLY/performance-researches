@@ -40,9 +40,9 @@ This docker image is located in every tested module directory.
 
 The DB metrics:
 
-* Database size: ? MB
-* Database dump size: ? MB
-* Docker image with predefined data: ? MB
+* Database size: 153 MB
+* Database dump size: 130.8 MB
+* Docker image with predefined data: 160.01 MB
 
 ### USE CASES
 
