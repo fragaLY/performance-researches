@@ -15,19 +15,19 @@ spring:
     jpa:
       repositories:
         bootstrap-mode: deferred
-    jpa:
-      open-in-view: false
-      database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    properties:
       hibernate:
-        ddl-auto: none
-      generate-ddl: false
-      properties:
-        hibernate:
-          default_schema: "a2b"
-          jdbc:
-            batch_size: 25
-          order_inserts: false
-      show-sql: false
+        default_schema: "a2b"
+        jdbc:
+          batch_size: 25
+        order_inserts: false
+    show-sql: false
 
 logging.level:
   ROOT: info
