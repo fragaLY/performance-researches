@@ -1,0 +1,498 @@
+openapi: 3.0.3
+
+info:
+  title: A2B Service
+  description: API Specification for A2B Service. Goal of service is to aggregate all a2b logic.
+  version: 1.0.0
+  license:
+    name: GPL 3.0
+
+servers:
+  - url: http://localhost:8080/api/v1/
+
+tags:
+  - name: ChallengeService
+    description: Challenge Service Open API specification
+
+paths:
+  /countries:
+    get:
+      tags:
+        - A2B Service
+      summary: Get all countries in system
+      description: Get all countries. Countries are retrieved.
+      operationId: countriesRetrieving
+      responses:
+        "200":
+          description: List of countries
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Countries"
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+  /countries/{id}/cities:
+    get:
+      tags:
+        - A2B Service
+      summary: Get all cities for country in system
+      description: Get all cities for country. Cities are retrieved.
+      operationId: citiesRetrieving
+      parameters:
+        - name: id
+          in: path
+          description: ID of country
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Cities details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cities"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "404":
+          description: Country not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+  /countries/{countryId}/cities/{cityId}/locations:
+    get:
+      tags:
+        - A2B Service
+      summary: Get all cities locations for country in system
+      description: Get all cities locations for country. Locations are retrieved.
+      operationId: locationsRetrieving
+      parameters:
+        - name: countryId
+          in: path
+          description: ID of country
+          required: true
+          schema:
+            type: integer
+        - name: cityId
+          in: path
+          description: ID of city
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Locations details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Locations"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "404":
+          description: Country or city not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+    put:
+      tags:
+        - Challenge Service
+      summary: Update Challenge's details
+      description: Update Challenge's details
+      operationId: updateChallenge
+      requestBody:
+        required: true
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ChallengeEditionDto'
+      parameters:
+        - name: id
+          in: path
+          description: ID of Challenge
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Challenge details updated
+        "400":
+          description: Badrequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "401":
+          description: User is unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        "403":
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        "404":
+          description: Challenge not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+    delete:
+      tags:
+        - Challenge Service
+      summary: Delete Challenge
+      description: Delete Challenge
+      operationId: deleteChallenge
+      parameters:
+        - name: id
+          in: path
+          description: ID of Challenge
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Challenge deleted
+        "400":
+          description: Badrequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "401":
+          description: User is unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        "403":
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        "404":
+          description: Challenge not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+  /challenges/{id}/state:
+    put:
+      tags:
+        - Challenge Service
+      summary: Update Challenge's status
+      description: Update Challenge's status
+      operationId: updateChallengeStatus
+      requestBody:
+        required: true
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ChallengeReviewDto'
+      parameters:
+        - name: id
+          in: path
+          description: ID of Challenge
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Challenge status updated
+        "400":
+          description: Badrequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "401":
+          description: User is unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        "403":
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        "404":
+          description: Challenge not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+
+  /challenges/{id}/proof:
+    post:
+      tags:
+        - Challenge Service
+      summary: Add the proof of challenge
+      description: Add the proof of challenge
+      operationId: addChallengeApprove
+      requestBody:
+        required: true
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/Proof'
+      parameters:
+        - name: id
+          in: path
+          description: ID of Challenge
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Challenge proof added
+        "400":
+          description: Badrequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "401":
+          description: User is unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        "403":
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        "404":
+          description: Challenge not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+    put:
+      tags:
+        - Challenge Service
+      summary: Review proof
+      description: Review proof by donator
+      operationId: review
+      requestBody:
+        required: true
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ProofReviewDto'
+      parameters:
+        - name: id
+          in: path
+          description: ID of Challenge
+          required: true
+          schema:
+            type: integer
+      responses:
+        "201":
+          description: Challenge proof reviewed
+        "400":
+          description: Badrequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestException'
+        "401":
+          description: User is unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnauthorizedException'
+        "403":
+          description: Forbidden.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenException'
+        "404":
+          description: Challenge not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFoundException'
+        "500":
+          description: General application error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerException'
+
+components:
+  schemas:
+    Countries:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          name:
+            type: string
+            example: "Republic of Belarus"
+            minLength: 1
+            maxLength: 50
+          code:
+            type: string
+            example: "BY"
+            minLength: 1
+            maxLength: 10
+    Cities:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            example: 1
+          countryId:
+            type: integer
+            example: 2
+          name:
+            type: string
+            example: "Mogilev"
+            minLength: 1
+            maxLength: 50
+          code:
+            type: string
+            example: "22"
+            minLength: 1
+    Locations:
+      type: array
+      items:
+        type: object
+        properties:
+          cityId:
+            type: integer
+            example: 1
+          point:
+            type: object
+            properties:
+              latitude:
+                type: number
+                format: double
+                minimum: -90
+                maximum: 90
+                exclusiveMinimum: true
+                exclusiveMaximum: true
+              longitude:
+                type: number
+                format: double
+                minimum: -180
+                maximum: 180
+                exclusiveMinimum: true
+                exclusiveMaximum: true
+    BadRequestException:
+      type: object
+      properties:
+        status:
+          type: string
+          default: BAD_REQUEST
+          example: "BAD_REQUEST"
+        code:
+          type: integer
+          default: 400
+          example: 400
+        message:
+          type: string
+          example: "Incorrect request data"
+      required:
+        - status
+        - code
+        - message
+    NotFoundException:
+      type: object
+      properties:
+        status:
+          type: string
+          default: NOT_FOUND
+          example: "NOT_FOUND"
+        code:
+          type: integer
+          default: 404
+          example: 404
+        message:
+          type: string
+          example: "Challenge not found"
+      required:
+        - status
+        - code
+        - message
+    ServerException:
+      type: object
+      properties:
+        status:
+          type: string
+          default: INTERNAL_SERVER_ERROR
+          example: "INTERNAL_SERVER_ERROR"
+        code:
+          type: integer
+          default: 500
+          example: 500
+        message:
+          type: string
+          example: "Huston we have a problem"
+      required:
+        - status
+        - code
+        - message
