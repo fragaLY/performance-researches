@@ -1,8 +1,7 @@
-
 package by.vk.springbootweb.transfer.api;
 
 import by.vk.springbootweb.transfer.TransferService;
-import by.vk.springbootweb.transfer.dto.TransferResponse;
+import by.vk.springbootweb.transfer.api.response.TransferResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

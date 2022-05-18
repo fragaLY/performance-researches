@@ -1,0 +1,23 @@
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: "jdbc:postgresql://localhost:5432/a2b?currentSchema=a2b"
+    username: "user"
+    password: "password"
+    hikari:
+      pool-name: "hikari-pool"
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: "a2b"
+
+logging.level:
+  ROOT: info
+  by.vk.springbootweb: info
+  org.springframework: info

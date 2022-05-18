@@ -1,6 +1,6 @@
-package by.vk.springbootweb.transfer.dto;
+package by.vk.springbootweb.transfer.api.response;
 
-import by.vk.springbootweb.location.dto.LocationResponse;
+import by.vk.springbootweb.location.api.response.LocationResponse;
 import by.vk.springbootweb.transfer.repository.Transfer;
 import com.vladmihalcea.hibernate.type.range.Range;
 

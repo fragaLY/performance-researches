@@ -1,8 +1,8 @@
 package by.vk.springbootweb.location;
 
-import by.vk.springbootweb.location.dto.CityResponse;
-import by.vk.springbootweb.location.dto.CountryResponse;
-import by.vk.springbootweb.location.dto.LocationResponse;
+import by.vk.springbootweb.location.api.response.CityResponse;
+import by.vk.springbootweb.location.api.response.CountryResponse;
+import by.vk.springbootweb.location.api.response.LocationResponse;
 import by.vk.springbootweb.location.repository.city.CityRepository;
 import by.vk.springbootweb.location.repository.country.CountryRepository;
 import by.vk.springbootweb.location.repository.location.LocationRepository;
@@ -15,8 +15,10 @@ import java.util.stream.StreamSupport;
 
 @Slf4j
 @Service
-public record LocationService(CountryRepository countryRepository, CityRepository cityRepository,
+public record LocationService(CountryRepository countryRepository,
+                              CityRepository cityRepository,
                               LocationRepository locationRepository) {
+
     public List<CountryResponse> countries() {
         log.info("[LOCATION SERVICE] Retrieving countries");
         return StreamSupport.stream(countryRepository.findAll().spliterator(), true)

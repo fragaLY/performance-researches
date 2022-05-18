@@ -1,4 +1,4 @@
-package by.vk.springbootweb.location.dto;
+package by.vk.springbootweb.location.api.response;
 
 import by.vk.springbootweb.location.repository.country.Country;
 

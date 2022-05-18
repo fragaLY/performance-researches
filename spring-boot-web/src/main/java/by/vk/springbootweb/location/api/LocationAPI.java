@@ -1,10 +1,9 @@
-
 package by.vk.springbootweb.location.api;
 
 import by.vk.springbootweb.location.LocationService;
-import by.vk.springbootweb.location.dto.CityResponse;
-import by.vk.springbootweb.location.dto.CountryResponse;
-import by.vk.springbootweb.location.dto.LocationResponse;
+import by.vk.springbootweb.location.api.response.CityResponse;
+import by.vk.springbootweb.location.api.response.CountryResponse;
+import by.vk.springbootweb.location.api.response.LocationResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +27,7 @@ public record LocationAPI(LocationService service) {
     @GetMapping("/{countryId}/cities")
     @ResponseStatus(HttpStatus.OK)
     public List<CityResponse> cities(
-            @NotNull(message = "The id of country should not be null") @PathVariable Long countryId){
+            @NotNull(message = "The id of country should not be null") @PathVariable Long countryId) {
         return service.cities(countryId);
     }
 
@@ -36,7 +35,7 @@ public record LocationAPI(LocationService service) {
     @ResponseStatus(HttpStatus.OK)
     List<LocationResponse> locations(
             @NotNull(message = "The id of country should not be null") @PathVariable Long countryId,
-            @NotNull(message = "The id of city should not be null") @PathVariable Long cityId){
+            @NotNull(message = "The id of city should not be null") @PathVariable Long cityId) {
         return service.locations(countryId, cityId);
     }
 
