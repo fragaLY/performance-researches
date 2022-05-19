@@ -4,8 +4,8 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     url: "jdbc:postgresql://localhost:5432/a2b?currentSchema=a2b"
-    username: "user"
-    password: "password"
+    username: "postgres"
+    password: "postgres"
     hikari:
       pool-name: "hikari-pool"
   jpa:
@@ -16,6 +16,27 @@ spring:
     properties:
       hibernate:
         default_schema: "a2b"
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-components: never
+      show-details: never
+      group:
+        readiness:
+          include: readinessState, db
+    metrics.enabled: true
+    prometheus.enabled: true
+  endpoints.web.exposure.include: "*"
+  metrics.export.prometheus.enabled: true
 
 logging.level:
   ROOT: info

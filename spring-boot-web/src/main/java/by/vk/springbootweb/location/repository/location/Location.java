@@ -39,7 +39,7 @@ public class Location {
     @Type(type = "jsonb")
     private Point location;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id", nullable = false)
     @ToString.Exclude
     private City city;

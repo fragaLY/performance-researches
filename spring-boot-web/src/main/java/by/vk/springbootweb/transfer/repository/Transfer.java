@@ -40,12 +40,12 @@ public class Transfer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "origin", nullable = false)
     @ToString.Exclude
     private Location origin;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "destination", nullable = false)
     @ToString.Exclude
     private Location destination;

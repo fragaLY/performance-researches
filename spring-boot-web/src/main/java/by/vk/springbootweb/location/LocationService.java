@@ -35,7 +35,7 @@ public record LocationService(CountryRepository countryRepository,
     }
 
     public List<LocationResponse> locations(Long countryId, Long cityId) {
-        log.info("[LOCATION SERVICE] Retrieving locations for city with id [{}]", cityId);
+        log.info("[LOCATION SERVICE] Retrieving locations for country with id [{}] and  city with id [{}]", countryId, cityId);
         return locationRepository.findByCityId(cityId)
                 .parallelStream()
                 .map(LocationResponse::from)

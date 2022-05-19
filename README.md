@@ -10,6 +10,7 @@ The purposes of this research are next:
 
 * I disabled all application levels caches to get clear performance metrics of the server as it is;
 * The database and application are running in the same network to avoid net lags and penalties;
+* The fetching strategy is `EAGER`. First, to do a higher load and non-optimized queries to database. Second, not to spend time to setup entity graphs.
 * The average time to boot up the service will not depend on the database structure due to the fact that I am not using any database migration tools such as [Flyway](https://flywaydb.org/) or [Liquibase](https://www.liquibase.org/);
 * All database structures had been already prepared and filled with faked data;
 * As a load testing tool I chose [Gatling](https://gatling.io/);
