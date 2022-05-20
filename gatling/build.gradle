@@ -1,10 +1,19 @@
 plugins {
     id 'java'
-    id 'io.gatling.gradle' version '3.7.6.3'
+    id 'io.gatling.gradle' version '3.7.6'
 }
 
 group 'by.vk'
 version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.gatling:gatling-core:3.7.6'
+    implementation 'io.gatling:gatling-core-java:3.7.6'
+}
 
 gatling {
     logLevel = 'WARN' // logback root level
