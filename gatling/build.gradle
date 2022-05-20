@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+    id 'io.gatling.gradle' version '3.7.6.3'
+}
+
+group 'by.vk'
+version '1.0-SNAPSHOT'
+
+gatling {
+    logLevel = 'WARN' // logback root level
+    logHttp = 'ALL' // set to 'ALL' for all HTTP traffic in TRACE, 'FAILURES' for failed HTTP traffic in DEBUG
+}
