@@ -11,7 +11,7 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=a2b
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - ./database_definition.sql:/docker-entrypoint-initdb.d/database_definition.sql
 
@@ -26,3 +26,19 @@ services:
       - "5050:80"
     depends_on:
       - postgres
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
