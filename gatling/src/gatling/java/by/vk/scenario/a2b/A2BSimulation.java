@@ -20,16 +20,15 @@ import static io.gatling.javaapi.core.CoreDsl.rampUsersPerSec;
 import static io.gatling.javaapi.core.CoreDsl.scenario;
 import static io.gatling.javaapi.http.HttpDsl.http;
 
-public class A2BScenario extends Simulation {
+public class A2BSimulation extends Simulation {
 
-    private static final Logger LOGGER = Logger.getLogger(A2BScenario.class.getSimpleName());
+    private static final Logger LOGGER = Logger.getLogger(A2BSimulation.class.getSimpleName());
 
-    private Iterator<Map<String, Object>> feeder;
+    private static final Iterator<Map<String, Object>> FEEDER = Stream.generate((Supplier<Map<String, Object>>) () -> Collections.singletonMap("userId", ThreadLocalRandom.current().nextLong(1, 200_001))).iterator();
 
     @Override
     public void before() {
         LOGGER.info("[A2B] Simulation starting.");
-        this.feeder = Stream.generate((Supplier<Map<String, Object>>) () -> Collections.singletonMap("userId", ThreadLocalRandom.current().nextLong(1, 200_001))).iterator();
     }
 
     final HttpProtocolBuilder protocol = http
@@ -41,7 +40,7 @@ public class A2BScenario extends Simulation {
             .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36");
 
     final ScenarioBuilder scenario = scenario("A2B simulation")
-            .feed(feeder)
+            .feed(FEEDER)
             .exec(http("[GET] The list of available countries is presented.")
                     .get("/countries")
                     .check(jsonPath("$..countryId").findRandom().saveAs("countryId"))

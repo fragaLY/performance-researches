@@ -12,15 +12,34 @@ repositories {
 
 dependencies {
     //region gatling
-    implementation("io.gatling.highcharts:gatling-charts-highcharts:3.7.6")
-    //endregion
-    //region logback
-    implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
-    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
+    implementation("io.gatling:gatling-core:3.7.6")
+    implementation("io.gatling:gatling-http:3.7.6")
+    implementation("io.gatling:gatling-app:3.7.6")
+    implementation("io.gatling:gatling-metrics:2.3.1")
+    gatlingRuntimeOnly("io.gatling:gatling-charts:3.7.6")
+    gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.7.6")
     //endregion
 }
 
 gatling {
-    logLevel = 'WARN' // logback root level
-    logHttp = 'ALL' // set to 'ALL' for all HTTP traffic in TRACE, 'FAILURES' for failed HTTP traffic in DEBUG
+    logLevel = 'WARN'
+    logHttp = 'ALL'
+    systemProperties = ['file.encoding': 'UTF-8']
+    jvmArgs = [
+            '-server',
+            '-Xss256k',
+            '-Xms1024m',
+            '-Xmx2G',
+            '-XX:MaxMetaspaceSize=128m',
+            '-XX:+HeapDumpOnOutOfMemoryError',
+            '-XX:+UseG1GC',
+            '-XX:+ParallelRefProcEnabled',
+            '-XX:MaxInlineLevel=20',
+            '-XX:MaxTrivialSize=12',
+            '-XX:+ExitOnOutOfMemoryError',
+            '-XX:+UseStringDeduplication',
+            '-XX:+ExitOnOutOfMemoryError',
+            '-XX:+OptimizeStringConcat',
+            '-XX:HeapDumpPath=/opt/tmp/heapdump.bin'
+    ]
 }
