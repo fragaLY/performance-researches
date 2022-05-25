@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Supplier;
-import java.util.logging.Logger;
 import java.util.stream.Stream;
 
 import static io.gatling.javaapi.core.CoreDsl.StringBody;
@@ -21,15 +20,7 @@ import static io.gatling.javaapi.core.CoreDsl.scenario;
 import static io.gatling.javaapi.http.HttpDsl.http;
 
 public class A2BSimulation extends Simulation {
-
-    private static final Logger LOGGER = Logger.getLogger(A2BSimulation.class.getSimpleName());
-
     private static final Iterator<Map<String, Object>> FEEDER = Stream.generate((Supplier<Map<String, Object>>) () -> Collections.singletonMap("userId", ThreadLocalRandom.current().nextLong(1, 200_001))).iterator();
-
-    @Override
-    public void before() {
-        LOGGER.info("[A2B] Simulation starting.");
-    }
 
     final HttpProtocolBuilder protocol = http
             .warmUp("https://www.google.com")
@@ -43,27 +34,27 @@ public class A2BSimulation extends Simulation {
             .feed(FEEDER)
             .exec(http("[GET] The list of available countries is presented.")
                     .get("/countries")
-                    .check(jsonPath("$..countryId").findRandom().saveAs("countryId"))
+                    .check(jsonPath("$[:].countryId").findRandom(1, true).saveAs("countryId"))
             )
             .pause(1, 3)
             .exec(http("[GET] The list of available cities is presented.")
                     .get("/countries/{countryId}/cities")
-                    .check(jsonPath("$..cityId").findRandom().saveAs("cityOriginId"))
+                    .check(jsonPath("$[:].cityId").findRandom(1, true).saveAs("cityOriginId"))
             )
             .pause(1, 3)
             .exec(http("[GET] The list of available origins is presented.")
                     .get("/countries/{countryId}/cities/{cityOriginId}/locations")
-                    .check(jsonPath("$..locationId").findRandom().saveAs("originId"))
+                    .check(jsonPath("$[:].locationId").findRandom(1, true).saveAs("originId"))
             )
             .pause(3, 5)
             .exec(http("[GET] The list of available cities is presented.")
                     .get("/countries/{countryId}/cities")
-                    .check(jsonPath("$..cityId").findRandom().saveAs("cityDestinationId"))
+                    .check(jsonPath("$[:].cityId").findRandom(1, true).saveAs("cityDestinationId"))
             )
             .pause(1, 3)
             .exec(http("[GET] The list of available destinations is presented.")
                     .get("/countries/{countryId}/cities/{cityDestinationId}/locations")
-                    .check(jsonPath("$..locationId").findRandom().saveAs("destinationId"))
+                    .check(jsonPath("$[:].locationId").findRandom(1, true).saveAs("destinationId"))
             )
             .pause(3, 5)
             .exec(http("[GET] The list of available transfers by selected origin, destination, and date is presented.")
@@ -71,7 +62,7 @@ public class A2BSimulation extends Simulation {
                     .queryParam("originId", "{originId}")
                     .queryParam("destinationId", "{destinationId}")
                     .queryParam("date", "1970-01-01")
-                    .check(jsonPath("$..transferId").findRandom().saveAs("transferId"))
+                    .check(jsonPath("$[:].transferId").findRandom(1, true).saveAs("transferId"))
             )
             .pause(3, 5)
             .exec(http("[POST] The transfer is booked in the system.")
@@ -81,7 +72,7 @@ public class A2BSimulation extends Simulation {
             .pause(1, 3)
             .exec(http("[GET] The list of all my transfers (COMPLETED, CANCELED, BOOKED) is presented.")
                     .get("/users/{userId}/transfers")
-                    .check(jsonPath("$..transfer.transferId").saveAs("selectedUserTransferId"))
+                    .check(jsonPath("$[:].transfer.transferId").findRandom(1, true).saveAs("selectedUserTransferId"))
             )
             .pause(1, 3)
             .exec(http("[GET] One of the transfers (COMPLETED, CANCELED, BOOKED) is retrieved.")
@@ -114,11 +105,7 @@ public class A2BSimulation extends Simulation {
             .pause(1, 5);
 
     {
-        setUp(scenario.injectOpen(rampUsersPerSec(100).to(200_000).during(Duration.ofHours(1)).randomized()).protocols(protocol));
+        setUp(scenario.injectOpen(rampUsersPerSec(1).to(10).during(Duration.ofMinutes(5)).randomized()).protocols(protocol)).maxDuration(Duration.ofMinutes(10));
     }
 
-    @Override
-    public void after() {
-        LOGGER.info("[A2B] Simulation is finished.");
-    }
 }
