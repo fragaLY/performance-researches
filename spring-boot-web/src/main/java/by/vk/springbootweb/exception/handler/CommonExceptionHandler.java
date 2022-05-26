@@ -4,6 +4,7 @@ import by.vk.springbootweb.exception.BadRequestException;
 import by.vk.springbootweb.exception.ExceptionInformation;
 import by.vk.springbootweb.exception.NotFoundException;
 import by.vk.springbootweb.exception.util.MessageBeautifier;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,19 +22,24 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestControllerAdvice
+@Slf4j
 public class CommonExceptionHandler {
 
     @ExceptionHandler(ServletException.class)
     @ResponseStatus(INTERNAL_SERVER_ERROR)
     public ExceptionInformation handleServletException(ServletException exception) {
-        return new ExceptionInformation(
+        var info = new ExceptionInformation(
                 INTERNAL_SERVER_ERROR, INTERNAL_SERVER_ERROR.value(), "Huston, we have a problem");
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(BAD_REQUEST)
     public ExceptionInformation handleIllegalArgumentException(IllegalArgumentException exception) {
-        return new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), exception.toString());
+        var info = new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), exception.toString());
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 
     @ExceptionHandler(NotFoundException.class)
@@ -43,7 +49,9 @@ public class CommonExceptionHandler {
                 exception.getMessage() != null
                         ? MessageBeautifier.beautify(exception.getMessage(), "[", "]")
                         : "Not Found";
-        return new ExceptionInformation(NOT_FOUND, NOT_FOUND.value(), message);
+        var info = new ExceptionInformation(NOT_FOUND, NOT_FOUND.value(), message);
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 
     @ExceptionHandler(BadRequestException.class)
@@ -53,7 +61,9 @@ public class CommonExceptionHandler {
                 exception.getMessage() != null
                         ? MessageBeautifier.beautify(exception.getMessage(), "[", "]")
                         : "Bad Request";
-        return new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        var info = new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -64,7 +74,9 @@ public class CommonExceptionHandler {
                 exception.getBindingResult().getAllErrors().stream()
                         .map(DefaultMessageSourceResolvable::getDefaultMessage)
                         .collect(Collectors.joining(", "));
-        return new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        var info = new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
@@ -75,7 +87,9 @@ public class CommonExceptionHandler {
                 exception.getLocalizedMessage() != null
                         ? MessageBeautifier.beautify(exception.getLocalizedMessage(), "[", "]")
                         : "Bad Request";
-        return new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        var info = new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -86,6 +100,8 @@ public class CommonExceptionHandler {
                 exception.getConstraintViolations().stream()
                         .map(ConstraintViolation::getMessage)
                         .collect(Collectors.joining(", "));
-        return new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        var info = new ExceptionInformation(BAD_REQUEST, BAD_REQUEST.value(), message);
+        log.error("[EXCEPTION] {}", info);
+        return info;
     }
 }
