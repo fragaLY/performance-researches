@@ -40,20 +40,12 @@ public class A2BSimulation extends Simulation {
                     .check(jsonPath("$[:].countryId").findRandom().saveAs("countryId"))
             )
             .exitHereIfFailed()
-            .exec(session -> {
-                System.out.println(session.getString("countryId") + "; " + session.getString("cityOriginId"));
-                return session;
-            })
             .pause(1, 3)
             .exec(http("[GET] The list of available cities is presented.")
                     .get("/countries/#{countryId}/cities")
                     .check(status().is(HttpResponseStatus.OK.code()))
                     .check(jsonPath("$[:].cityId").findRandom().saveAs("cityOriginId"))
             )
-            .exec(session -> {
-                System.out.println(session.getString("countryId") + "; " + session.getString("cityOriginId"));
-                return session;
-            })
             .exitHereIfFailed()
             .pause(1, 3)
             .exec(http("[GET] The list of available origins is presented.")
