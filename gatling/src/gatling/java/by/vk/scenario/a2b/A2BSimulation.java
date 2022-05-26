@@ -133,7 +133,7 @@ public class A2BSimulation extends Simulation {
             .pause(1, 5);
 
     {
-        setUp(scenario.injectOpen(rampUsersPerSec(100).to(200_000).during(Duration.ofSeconds(1000)).randomized()).protocols(protocol)).maxDuration(Duration.ofSeconds(2000));
+        setUp(scenario.injectOpen(rampUsersPerSec(100 ).to(200).during(Duration.ofSeconds(1000)).randomized()).protocols(protocol)).maxDuration(Duration.ofSeconds(2000));
     }
 
 }

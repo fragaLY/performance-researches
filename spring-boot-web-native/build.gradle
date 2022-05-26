@@ -1,9 +1,9 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.7'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-    id 'org.springframework.experimental.aot' version '0.11.5'
-    id 'org.hibernate.orm'
+    id("java")
+    id("org.springframework.boot") version "2.7.0"
+    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.springframework.experimental.aot") version "0.11.5"
+    id("org.hibernate.orm")
 }
 
 group = 'by.vk'
@@ -16,14 +16,27 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
+    //region spring
+    implementation("com.vladmihalcea:hibernate-types-55:2.16.2")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("org.springframework:spring-context-indexer")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.8")
+    //endregion
+    //region logback
+    implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
+    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
+    //endregion
+    //region lombok
+    annotationProcessor("org.projectlombok:lombok")
+    implementation("org.projectlombok:lombok")
+    //endregion
+    //region postgres
+    runtimeOnly("org.postgresql:postgresql")
+    //endregion
 }
 
 tasks.named('bootBuildImage') {
