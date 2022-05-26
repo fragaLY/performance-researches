@@ -78,8 +78,8 @@ public class A2BSimulation extends Simulation {
             .pause(3, 5)
             .exec(http("[GET] The list of available transfers by selected origin, destination, and date is presented.")
                     .get("/transfers")
-                    .queryParam("originId", "{originId}")
-                    .queryParam("destinationId", "{destinationId}")
+                    .queryParam("originId", "#{originId}")
+                    .queryParam("destinationId", "#{destinationId}")
                     .queryParam("date", "1970-01-01")
                     .check(status().is(HttpResponseStatus.OK.code()))
                     .check(jsonPath("$[:].transferId").findRandom().saveAs("transferId"))
@@ -130,7 +130,7 @@ public class A2BSimulation extends Simulation {
             .exec(http("[PUT] User updates with her/his own data.")
                     .post("/users/#{userId}")
                     .check(status().is(HttpResponseStatus.NO_CONTENT.code()))
-                    .body(StringBody("{ \"firstName\": \" NewFirstName{userId} \", \"lastName\": \"NewLastName{userId}\" }"))
+                    .body(StringBody("{ \"firstName\": \" NewFirstName#{userId} \", \"lastName\": \"NewLastName#{userId}\" }"))
             )
             .pause(1, 5);
 
