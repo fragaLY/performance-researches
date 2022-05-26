@@ -1,10 +1,9 @@
 package by.vk.springbootwebnative.exception.handler;
 
-import by.vk.springbootweb.exception.BadRequestException;
-import by.vk.springbootweb.exception.ExceptionInformation;
-import by.vk.springbootweb.exception.NotFoundException;
-import by.vk.springbootweb.exception.util.MessageBeautifier;
+import by.vk.springbootwebnative.exception.BadRequestException;
 import by.vk.springbootwebnative.exception.ExceptionInformation;
+import by.vk.springbootwebnative.exception.NotFoundException;
+import by.vk.springbootwebnative.exception.util.MessageBeautifier;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.converter.HttpMessageNotReadableException;

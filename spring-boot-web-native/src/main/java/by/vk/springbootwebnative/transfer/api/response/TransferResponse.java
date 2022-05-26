@@ -1,7 +1,7 @@
 package by.vk.springbootwebnative.transfer.api.response;
 
-import by.vk.springbootweb.location.api.response.LocationResponse;
-import by.vk.springbootweb.transfer.repository.Transfer;
+import by.vk.springbootwebnative.location.api.response.LocationResponse;
+import by.vk.springbootwebnative.transfer.repository.Transfer;
 import com.vladmihalcea.hibernate.type.range.Range;
 
 import java.math.BigDecimal;

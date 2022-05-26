@@ -1,6 +1,6 @@
 package by.vk.springbootwebnative.location.repository.city;
 
-import by.vk.springbootweb.location.repository.country.Country;
+import by.vk.springbootwebnative.location.repository.country.Country;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

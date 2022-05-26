@@ -1,9 +1,9 @@
 package by.vk.springbootwebnative.location.api;
 
-import by.vk.springbootweb.location.LocationService;
-import by.vk.springbootweb.location.api.response.CityResponse;
-import by.vk.springbootweb.location.api.response.CountryResponse;
-import by.vk.springbootweb.location.api.response.LocationResponse;
+import by.vk.springbootwebnative.location.LocationService;
+import by.vk.springbootwebnative.location.api.response.CityResponse;
+import by.vk.springbootwebnative.location.api.response.CountryResponse;
+import by.vk.springbootwebnative.location.api.response.LocationResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

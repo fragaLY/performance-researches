@@ -1,6 +1,6 @@
 package by.vk.springbootwebnative.transfer.repository;
 
-import by.vk.springbootweb.location.repository.location.Location;
+import by.vk.springbootwebnative.location.repository.location.Location;
 import com.vladmihalcea.hibernate.type.range.Range;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

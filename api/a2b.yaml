@@ -554,7 +554,7 @@ components:
             example: 3
           state:
             type: string
-            enum: ["COMPLETED", "CANCELED", "BOOKED"]
+            enum: [ "COMPLETED", "CANCELED", "BOOKED" ]
           description:
             type: string
             example: "I would like to have a cup of coffee."

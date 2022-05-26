@@ -1,6 +1,6 @@
 package by.vk.springbootwebnative.location.api.response;
 
-import by.vk.springbootweb.location.repository.location.Location;
+import by.vk.springbootwebnative.location.repository.location.Location;
 
 public record LocationResponse(Long locationId, CityResponse city, Double latitude, Double longitude) {
     public static LocationResponse from(Location entity) {

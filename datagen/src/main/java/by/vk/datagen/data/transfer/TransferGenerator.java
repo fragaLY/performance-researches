@@ -12,7 +12,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -43,7 +42,7 @@ public class TransferGenerator {
             var endTime = LocalTime.MIDNIGHT.plusHours(ThreadLocalRandom.current().nextLong(6, 12));
             var endDateTime = LocalDateTime.of(LocalDate.ofEpochDay(endDay), endTime);
             log.info("[TRANSFER RANGE] Start {}, End {}", formatter.format(startDateTime), formatter.format(endDateTime));
-            var duration = Range.localDateTimeRange("[" + formatter.format(startDateTime) +"," + formatter.format(endDateTime)+"]");
+            var duration = Range.localDateTimeRange("[" + formatter.format(startDateTime) + "," + formatter.format(endDateTime) + "]");
             log.info("[DURATION] {}", duration);
             var origin = new Location(ThreadLocalRandom.current().nextLong(1, 121));
             var destination = new Location(ThreadLocalRandom.current().nextLong(1, 121));

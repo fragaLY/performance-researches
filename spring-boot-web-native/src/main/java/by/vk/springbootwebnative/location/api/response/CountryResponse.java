@@ -1,6 +1,6 @@
 package by.vk.springbootwebnative.location.api.response;
 
-import by.vk.springbootweb.location.repository.country.Country;
+import by.vk.springbootwebnative.location.repository.country.Country;
 
 public record CountryResponse(Long countryId, String name, String code) {
 

@@ -1,8 +1,9 @@
 package by.vk.springbootwebnative.user.api.response;
 
-import by.vk.springbootweb.transfer.api.response.TransferResponse;
-import by.vk.springbootweb.user.repository.usertransfer.State;
-import by.vk.springbootweb.user.repository.usertransfer.UsersTransfers;
+
+import by.vk.springbootwebnative.transfer.api.response.TransferResponse;
+import by.vk.springbootwebnative.user.repository.usertransfer.State;
+import by.vk.springbootwebnative.user.repository.usertransfer.UsersTransfers;
 
 public record UserTransferResponse(UserResponse user, TransferResponse transfer, State state, String description) {
     public static UserTransferResponse from(UsersTransfers entity) {

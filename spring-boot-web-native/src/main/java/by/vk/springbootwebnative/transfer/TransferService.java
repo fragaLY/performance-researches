@@ -1,7 +1,7 @@
 package by.vk.springbootwebnative.transfer;
 
-import by.vk.springbootweb.transfer.api.response.TransferResponse;
-import by.vk.springbootweb.transfer.repository.TransferRepository;
+import by.vk.springbootwebnative.transfer.api.response.TransferResponse;
+import by.vk.springbootwebnative.transfer.repository.TransferRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

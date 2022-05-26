@@ -1,11 +1,11 @@
 package by.vk.springbootwebnative.location;
 
-import by.vk.springbootweb.location.api.response.CityResponse;
-import by.vk.springbootweb.location.api.response.CountryResponse;
-import by.vk.springbootweb.location.api.response.LocationResponse;
-import by.vk.springbootweb.location.repository.city.CityRepository;
-import by.vk.springbootweb.location.repository.country.CountryRepository;
-import by.vk.springbootweb.location.repository.location.LocationRepository;
+import by.vk.springbootwebnative.location.api.response.CityResponse;
+import by.vk.springbootwebnative.location.api.response.CountryResponse;
+import by.vk.springbootwebnative.location.api.response.LocationResponse;
+import by.vk.springbootwebnative.location.repository.city.CityRepository;
+import by.vk.springbootwebnative.location.repository.country.CountryRepository;
+import by.vk.springbootwebnative.location.repository.location.LocationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

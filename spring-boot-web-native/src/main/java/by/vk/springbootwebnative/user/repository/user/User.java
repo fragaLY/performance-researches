@@ -1,6 +1,6 @@
 package by.vk.springbootwebnative.user.repository.user;
 
-import by.vk.springbootweb.user.repository.usertransfer.UsersTransfers;
+import by.vk.springbootwebnative.user.repository.usertransfer.UsersTransfers;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,17 +1,17 @@
 package by.vk.springbootwebnative.user;
 
-import by.vk.springbootweb.exception.NotFoundException;
-import by.vk.springbootweb.transfer.repository.TransferRepository;
-import by.vk.springbootweb.user.api.payload.UserEditionPayload;
-import by.vk.springbootweb.user.api.payload.UserTransferCreationPayload;
-import by.vk.springbootweb.user.api.payload.UserTransferEditionPayload;
-import by.vk.springbootweb.user.api.response.UserResponse;
-import by.vk.springbootweb.user.api.response.UserTransferResponse;
-import by.vk.springbootweb.user.repository.user.UserRepository;
-import by.vk.springbootweb.user.repository.usertransfer.State;
-import by.vk.springbootweb.user.repository.usertransfer.UsersTransfers;
-import by.vk.springbootweb.user.repository.usertransfer.UsersTransfersId;
-import by.vk.springbootweb.user.repository.usertransfer.UsersTransfersRepository;
+import by.vk.springbootwebnative.exception.NotFoundException;
+import by.vk.springbootwebnative.transfer.repository.TransferRepository;
+import by.vk.springbootwebnative.user.api.payload.UserEditionPayload;
+import by.vk.springbootwebnative.user.api.payload.UserTransferCreationPayload;
+import by.vk.springbootwebnative.user.api.payload.UserTransferEditionPayload;
+import by.vk.springbootwebnative.user.api.response.UserResponse;
+import by.vk.springbootwebnative.user.api.response.UserTransferResponse;
+import by.vk.springbootwebnative.user.repository.user.UserRepository;
+import by.vk.springbootwebnative.user.repository.usertransfer.State;
+import by.vk.springbootwebnative.user.repository.usertransfer.UsersTransfers;
+import by.vk.springbootwebnative.user.repository.usertransfer.UsersTransfersId;
+import by.vk.springbootwebnative.user.repository.usertransfer.UsersTransfersRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

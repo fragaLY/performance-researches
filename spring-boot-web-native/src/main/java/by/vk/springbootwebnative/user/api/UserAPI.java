@@ -1,11 +1,11 @@
 package by.vk.springbootwebnative.user.api;
 
-import by.vk.springbootweb.user.UserService;
-import by.vk.springbootweb.user.api.payload.UserEditionPayload;
-import by.vk.springbootweb.user.api.payload.UserTransferCreationPayload;
-import by.vk.springbootweb.user.api.payload.UserTransferEditionPayload;
-import by.vk.springbootweb.user.api.response.UserResponse;
-import by.vk.springbootweb.user.api.response.UserTransferResponse;
+import by.vk.springbootwebnative.user.UserService;
+import by.vk.springbootwebnative.user.api.payload.UserEditionPayload;
+import by.vk.springbootwebnative.user.api.payload.UserTransferCreationPayload;
+import by.vk.springbootwebnative.user.api.payload.UserTransferEditionPayload;
+import by.vk.springbootwebnative.user.api.response.UserResponse;
+import by.vk.springbootwebnative.user.api.response.UserTransferResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

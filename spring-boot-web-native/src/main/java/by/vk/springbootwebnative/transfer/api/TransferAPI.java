@@ -1,7 +1,7 @@
 package by.vk.springbootwebnative.transfer.api;
 
-import by.vk.springbootweb.transfer.TransferService;
-import by.vk.springbootweb.transfer.api.response.TransferResponse;
+import by.vk.springbootwebnative.transfer.TransferService;
+import by.vk.springbootwebnative.transfer.api.response.TransferResponse;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
