@@ -22,6 +22,7 @@ import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 
 public class A2BSimulation extends Simulation {
+
     private static final Iterator<Map<String, Object>> FEEDER = Stream.generate((Supplier<Map<String, Object>>) () -> Collections.singletonMap("userId", ThreadLocalRandom.current().nextLong(1, 200_001))).iterator();
 
     final HttpProtocolBuilder protocol = http
@@ -132,7 +133,7 @@ public class A2BSimulation extends Simulation {
             .pause(1, 5);
 
     {
-        setUp(scenario.injectOpen(rampUsersPerSec(1).to(10).during(Duration.ofMinutes(5)).randomized()).protocols(protocol)).maxDuration(Duration.ofMinutes(10));
+        setUp(scenario.injectOpen(rampUsersPerSec(100).to(200_000).during(Duration.ofSeconds(1000)).randomized()).protocols(protocol)).maxDuration(Duration.ofSeconds(2000));
     }
 
 }
