@@ -18,6 +18,9 @@ spring:
     properties:
       hibernate:
         default_schema: "a2b"
+        types:
+          print:
+            banner: false
 
 management:
   health:
