@@ -37,7 +37,7 @@ public class A2BSimulation extends Simulation {
             .exec(http("[GET] The list of available countries is presented.")
                     .get("/countries")
                     .check(status().is(HttpResponseStatus.OK.code()))
-                    .check(jsonPath("$[:].countryId").findRandom(1, true).saveAs("countryId"))
+                    .check(jsonPath("$[:].countryId").findRandom().saveAs("countryId"))
             )
             .exitHereIfFailed()
             .exec(session -> {
@@ -48,7 +48,7 @@ public class A2BSimulation extends Simulation {
             .exec(http("[GET] The list of available cities is presented.")
                     .get("/countries/#{countryId}/cities")
                     .check(status().is(HttpResponseStatus.OK.code()))
-                    .check(jsonPath("$[:].cityId").findRandom(1, true).saveAs("cityOriginId"))
+                    .check(jsonPath("$[:].cityId").findRandom().saveAs("cityOriginId"))
             )
             .exec(session -> {
                 System.out.println(session.getString("countryId") + "; " + session.getString("cityOriginId"));
@@ -56,29 +56,23 @@ public class A2BSimulation extends Simulation {
             })
             .exitHereIfFailed()
             .pause(1, 3)
-            .exec(session -> {
-                        http("[GET] The list of available origins is presented.")
-                                .get("/countries/#{countryId}/cities/#{cityOriginId}/locations")
-                                .check(status().is(HttpResponseStatus.OK.code()))
-                                .check(jsonPath("$[:].locationId").findRandom(1, true).saveAs("originId"));
-                        return session;
-                    }
+            .exec(http("[GET] The list of available origins is presented.")
+                    .get("/countries/#{countryId}/cities/#{cityOriginId}/locations")
+                    .check(status().is(HttpResponseStatus.OK.code()))
+                    .check(jsonPath("$[:].locationId").findRandom().saveAs("originId"))
             )
             .pause(3, 5)
-            .exec(session -> {
-                        http("[GET] The list of available cities is presented.")
-                                .get("/countries/#{countryId}/cities")
-                                .check(status().is(HttpResponseStatus.OK.code()))
-                                .check(jsonPath("$[:].cityId").findRandom(1, true).saveAs("cityDestinationId"));
-                        return session.set("cityDestinationId", 2);
-                    }
+            .exec(http("[GET] The list of available cities is presented.")
+                    .get("/countries/#{countryId}/cities")
+                    .check(status().is(HttpResponseStatus.OK.code()))
+                    .check(jsonPath("$[:].cityId").findRandom().saveAs("cityDestinationId"))
             )
             .exitHereIfFailed()
             .pause(1, 3)
             .exec(http("[GET] The list of available destinations is presented.")
                     .get("/countries/#{countryId}/cities/#{cityDestinationId}/locations")
                     .check(status().is(HttpResponseStatus.OK.code()))
-                    .check(jsonPath("$[:].locationId").findRandom(1, true).saveAs("destinationId"))
+                    .check(jsonPath("$[:].locationId").findRandom().saveAs("destinationId"))
             )
             .exitHereIfFailed()
             .pause(3, 5)
@@ -88,7 +82,7 @@ public class A2BSimulation extends Simulation {
                     .queryParam("destinationId", "{destinationId}")
                     .queryParam("date", "1970-01-01")
                     .check(status().is(HttpResponseStatus.OK.code()))
-                    .check(jsonPath("$[:].transferId").findRandom(1, true).saveAs("transferId"))
+                    .check(jsonPath("$[:].transferId").findRandom().saveAs("transferId"))
             )
             .exitHereIfFailed()
             .pause(3, 5)
@@ -101,7 +95,7 @@ public class A2BSimulation extends Simulation {
             .exec(http("[GET] The list of all my transfers (COMPLETED, CANCELED, BOOKED) is presented.")
                     .get("/users/#{userId}/transfers")
                     .check(status().is(HttpResponseStatus.OK.code()))
-                    .check(jsonPath("$[:].transfer.transferId").findRandom(1, true).saveAs("selectedUserTransferId"))
+                    .check(jsonPath("$[:].transfer.transferId").findRandom().saveAs("selectedUserTransferId"))
             )
             .exitHereIfFailed()
             .pause(1, 3)

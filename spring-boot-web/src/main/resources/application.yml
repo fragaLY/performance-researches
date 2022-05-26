@@ -41,6 +41,6 @@ management:
   metrics.export.prometheus.enabled: true
 
 logging.level:
-  ROOT: info
-  by.vk.springbootweb: info
-  org.springframework: info
+  ROOT: debug
+  by.vk.springbootweb: debug
+  org.springframework: debug
