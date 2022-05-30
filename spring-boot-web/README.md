@@ -39,8 +39,8 @@ server:
    enabled: true
  jetty:
    threads:
-     max: 200 # default
-     min: 8 # default
+     max: 200 # default: 200
+     min: 8 # default: 8
 
 ```
 
@@ -61,9 +61,9 @@ server:
 
 |SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|TOMCAT  |3,94       |8168        |418,715|1568            |325          |94               |12         |225          |99              |
-|JETTY   |3,83       |10224       |429,825|1463            |853          |94               |16         |223          |99              |
-|UNDERTOW|3,59       |10221       |426.859|1709            |658          |94               |14         |33           |99              |
+|TOMCAT  |3,94       |8168        |418,715|1568            |565          |94               |12         |225          |99              |
+|JETTY   |3,83       |10201       |421.816|1662            |1137         |94               |14         |224          |99              |
+|UNDERTOW|3,59       |10221       |426.859|1709            |658          |94               |11         |33           |99              |
 
 TOMCAT
 
@@ -71,7 +71,7 @@ TOMCAT
 
 JETTY
 
-![](./static/jetty.png)
+ ![](./static/jetty.png)
 
 UNDERTOW
 
