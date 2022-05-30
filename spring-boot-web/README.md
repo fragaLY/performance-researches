@@ -13,11 +13,21 @@
 
 * Base Setup
 
-|JDK|GC|Gradle|
-|:--|:-|:-----|
-|17 |G1|7.4.1 |
+|JDK|GC|Gradle|Spring Boot|
+|:--|:-|:-----|:----------|
+|17 |G1|7.4.1 |2.7.0      |
 
-* Tomcat
+* OVERALL
+
+Average build time between 5-6 seconds.
+
+|SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|TOMCAT  |3,94       |8168        |418,715|1568            |:white_check_mark: 365          |94               |12         |226          |99              |
+|JETTY   |3,83       |10201       |421.816|1662            |1137         |94               |14         |224          |99              |
+|UNDERTOW|:white_check_mark: 3,59       |:white_check_mark: 10221       |:white_check_mark: 426.859|:white_check_mark: 1709            |658          |94               |:white_check_mark: 11         |:white_check_mark: 33           |99              |
+
+* TOMCAT
 
 ``` yaml
 server:
@@ -31,7 +41,9 @@ server:
 
 ```
 
-* Jetty
+ ![](./static/tomcat.png)
+
+* JETTY
 
 ``` yaml
 server:
@@ -44,7 +56,9 @@ server:
 
 ```
 
-* Undertow
+ ![](./static/jetty.png)
+
+* UNDERTOW
 
 ``` yaml
 server:
@@ -56,23 +70,5 @@ server:
      worker: 8 # default: 8
 
 ```
-
-* OVERALL
-
-|SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|TOMCAT  |3,94       |8168        |418,715|1568            |:white_check_mark: 365          |94               |12         |226          |99              |
-|JETTY   |3,83       |10201       |421.816|1662            |1137         |94               |14         |224          |99              |
-|UNDERTOW|:white_check_mark: 3,59       |:white_check_mark: 10221       |:white_check_mark: 426.859|:white_check_mark: 1709            |658          |94               |:white_check_mark: 11         |:white_check_mark: 33           |99              |
-
-TOMCAT
-
- ![](./static/tomcat.png)
-
-JETTY
-
- ![](./static/jetty.png)
-
-UNDERTOW
 
  ![](./static/undertow.png)
