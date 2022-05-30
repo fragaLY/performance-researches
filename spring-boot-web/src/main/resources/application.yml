@@ -1,3 +1,10 @@
+server:
+  tomcat:
+    accept-count: 100 # default: 100
+    threads:
+      max: 100 # default: 200
+      min-spare: 10 # default: 10
+
 spring:
   main:
     banner-mode: off
@@ -9,7 +16,13 @@ spring:
     username: "postgres"
     password: "postgres"
     hikari:
+      minimumIdle: 4 # default: same as maximumPoolSize
+      maximumPoolSize: 8 # cores * 2; default is 10
+      connection-timeout: 35000 #default 30000
       pool-name: "hikari-pool"
+      idle-timeout: 10000 # default: 600000 (10 minutes)
+      max-lifetime: 35000 # default: 1800000 (30 minutes)
+      keepaliveTime: 30000 # default: 0 (disabled)
   jpa:
     open-in-view: false
     database-platform: org.hibernate.dialect.PostgreSQL95Dialect
@@ -17,6 +30,11 @@ spring:
       ddl-auto: none
     properties:
       hibernate:
+        cache:
+          use_query_cache: false
+          use_second_level_cache: false
+          use_structured_entries: false
+          use_minimal_puts: false
         default_schema: "a2b"
         types:
           print:
