@@ -14,9 +14,9 @@ Memory:	32 GB
 * Initial Setup
 
 * Base Setup *
-|JDK|GC|Server|Gradle|
-|:--|:-|:-----|:-----|
-|17 |G1|Tomcat|7.4.1 |
+|JDK|GC|Gradle|
+|:--|:-|:-----|
+|17 |G1|7.4.1 |
 
 * Tomcat
 
@@ -32,11 +32,6 @@ server:
 
 ```
 
-* OVERALL
-|BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|3,94       |8250        |436,715|1730            |311          |94               |18         |225          |90              |
-
 * Jetty
 
 ``` yaml
@@ -50,25 +45,22 @@ server:
 
 ```
 
-* OVERALL
-|BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|3,83       |10224       |429,825|1463            |853          |94               |16         |223          |90              |
-
 * Undertow
 
 ``` yaml
 server:
  compression:
    enabled: true
- jetty:
+ undertow:
    threads:
-     max: 200 # default
-     min: 8 # default
+     io: 4 # default: equals to cores count
+     worker: 8 # default: 8
 
 ```
 
 * OVERALL
-|BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|3,83       |10224       |429,825|1463            |829          |94               |16         |223          |90              |
+|SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|TOMCAT  |3,94       |8250        |428,715|1730            |311          |94               |18         |225          |90              |
+|JETTY   |3,83       |10224       |429,825|1463            |853          |94               |16         |223          |90              |
+|UNDERTOW|3,59       |10221       |426.859|1709            |658          |93               |14         |33           |95              |
