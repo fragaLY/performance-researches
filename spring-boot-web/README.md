@@ -1,19 +1,17 @@
 ### SPRING BOOT WEB PERFORMANCE REPORT
 
-`Model Name:	MacBook Pro`
-`Model Identifier: MacBookPro16,2`
-`Processor Name:	Quad-Core Intel Core i7`
-`Processor Speed: 2,3 GHz`
-`Number of Processors: 1`
-`Total Number of Cores: 4`
-`L2 Cache (per Core): 512 KB`
-`L3 Cache: 8 MB`
-`Hyper-Threading Technology: Enabled`
-`Memory:	32 GB`
+- `Model Name: MacBook Pro`
+- `Model Identifier: MacBookPro16,2`
+- `Processor Name: Quad-Core Intel Core i7`
+- `Processor Speed: 2,3 GHz`
+- `Number of Processors: 1`
+- `Total Number of Cores: 4`
+- `L2 Cache (per Core): 512 KB`
+- `L3 Cache: 8 MB`
+- `Hyper-Threading Technology: Enabled`
+- `Memory:	32 GB`
 
-* Initial Setup
-
-* Base Setup *
+* Base Setup
 
 |JDK|GC|Gradle|
 |:--|:-|:-----|
@@ -60,6 +58,7 @@ server:
 ```
 
 * OVERALL
+
 |SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
 |TOMCAT  |3,94       |8250        |428,715|1730            |311          |94               |18         |225          |90              |
