@@ -18,58 +18,57 @@ Memory:	32 GB
 |:--|:-|:-----|:-----|
 |17 |G1|Tomcat|7.4.1 |
 
-* OVERALL
-|BOOT UP (s)|ACTIVE USERS|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:----------|:-----------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|3,94       |8250        |1385            |350          |94               |27         |230          |90              |
-
-* BEFORE SATURATION POINT
-|RESPONSE TIME MAX (ms)|REQUESTS PER SECOND|RESPONSES PER SECOND|
-|:---------------------|:------------------|:-------------------|
-|50                    |499                |499                 |
-
-* AFTER SATURATION POINT
-|RESPONSE TIME MAX [99th pct] (ms)|REQUESTS PER SECOND|RESPONSES PER SECOND|
-|:--------------------------------|:------------------|:-------------------|
-|25968                            |684                |527                 |
-
-* Tomcat Tuning
+* Tomcat
 
 ``` yaml
 server:
-  tomcat:
-    accept-count: 100 # default: 100
-    threads:
-      max: 100 # default: 200
-      min-spare: 10 # default: 10
+ compression:
+   enabled: true
+ tomcat:
+ accept-count: 100 # default: 100
+ threads:
+   max: 200 # default: 200
+   min-spare: 10 # default: 10
 
 ```
 
 * OVERALL
-|ACTIVE USERS|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:-----------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|8250        |1730            |311          |94               |18         |128          |90              |
+|BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|3,94       |8250        |436,715|1730            |311          |94               |18         |225          |90              |
 
-* BEFORE SATURATION POINT
-|RESPONSE TIME MAX (ms)|REQUESTS PER SECOND|RESPONSES PER SECOND|
-|:---------------------|:------------------|:-------------------|
-|30                    |649                |648                 |
-
-* AFTER SATURATION POINT
-|RESPONSE TIME MAX [99th pct] (ms)|REQUESTS PER SECOND|RESPONSES PER SECOND|
-|:--------------------------------|:------------------|:-------------------|
-|52215                            |681                |423                 |
-
-* Jetty Tuning
+* Jetty
 
 ``` yaml
 server:
-  tomcat:
-    accept-count: 100 # default: 100
-    threads:
-      max: 100 # default: 200
-      min-spare: 10 # default: 10
+ compression:
+   enabled: true
+ jetty:
+   threads:
+     max: 200 # default
+     min: 8 # default
 
 ```
 
-* Undertow Tuning
+* OVERALL
+|BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|3,83       |10224       |429,825|1463            |853          |94               |16         |223          |90              |
+
+* Undertow
+
+``` yaml
+server:
+ compression:
+   enabled: true
+ jetty:
+   threads:
+     max: 200 # default
+     min: 8 # default
+
+```
+
+* OVERALL
+|BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|3,83       |10224       |429,825|1463            |829          |94               |16         |223          |90              |

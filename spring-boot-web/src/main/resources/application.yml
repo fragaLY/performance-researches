@@ -1,9 +1,10 @@
 server:
-  tomcat:
-    accept-count: 100 # default: 100
-    threads:
-      max: 100 # default: 200
-      min-spare: 10 # default: 10
+ compression:
+   enabled: true
+ jetty:
+   threads:
+     max: 200 # default
+     min: 8 # default
 
 spring:
   main:
