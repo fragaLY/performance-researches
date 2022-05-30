@@ -21,7 +21,7 @@ Memory:	32 GB
 * OVERALL
 |BOOT UP (s)|ACTIVE USERS|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:----------|:-----------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|           |8250        |1385            |350          |94               |27         |230          |90              |
+|3,94       |8250        |1385            |350          |94               |27         |230          |90              |
 
 * BEFORE SATURATION POINT
 |RESPONSE TIME MAX (ms)|REQUESTS PER SECOND|RESPONSES PER SECOND|
@@ -46,9 +46,9 @@ server:
 ```
 
 * OVERALL
-|BOOT UP (s)|ACTIVE USERS|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:----------|:-----------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|3,94       |8250        |1730            |311          |94               |18         |128          |90              |
+|ACTIVE USERS|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:-----------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|8250        |1730            |311          |94               |18         |128          |90              |
 
 * BEFORE SATURATION POINT
 |RESPONSE TIME MAX (ms)|REQUESTS PER SECOND|RESPONSES PER SECOND|
