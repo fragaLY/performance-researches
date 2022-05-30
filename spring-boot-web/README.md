@@ -9,10 +9,15 @@
 > Processor Speed: 2,3 GHz
 
 > Number of Processors: 1
+
 > Total Number of Cores: 4
+
 > L2 Cache (per Core): 512 KB
+
 > L3 Cache: 8 MB
+
 > Hyper-Threading Technology: Enabled
+
 > Memory:	32 GB
 
 #### BASE SETUP
