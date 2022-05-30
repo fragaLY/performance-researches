@@ -30,9 +30,9 @@
 
 Average build time between x-x minutes.
 
-|SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|UNDERTOW|3,59       |10221       |426.859|1709            |658          |94               |11         |33           |99              |
+|SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:-------|:----------|:-----------|:------|:---------------|:-------|:-------|:------------|:---------------|
+|UNDERTOW|3,59       |10221       |426.859|1709            |94      |11      |33           |99              |
 
 * UNDERTOW
 
