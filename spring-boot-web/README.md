@@ -14,6 +14,7 @@ Memory:	32 GB
 * Initial Setup
 
 * Base Setup *
+
 |JDK|GC|Gradle|
 |:--|:-|:-----|
 |17 |G1|7.4.1 |
