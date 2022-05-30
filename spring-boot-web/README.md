@@ -21,13 +21,13 @@
 
 ``` yaml
 server:
- compression:
-   enabled: true
- tomcat:
- accept-count: 100 # default: 100
- threads:
-   max: 200 # default: 200
-   min-spare: 10 # default: 10
+  compression:
+    enabled: true
+  tomcat:
+    accept-count: 100 # default: 100
+    threads:
+      max: 200 # default: 200
+      min-spare: 10 # default: 10
 
 ```
 
@@ -61,7 +61,7 @@ server:
 
 |SERVER  |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:-------|:----------|:-----------|:------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|TOMCAT  |3,94       |8168        |418,715|1568            |565          |94               |12         |225          |99              |
+|TOMCAT  |3,94       |8168        |418,715|1568            |365          |94               |12         |226          |99              |
 |JETTY   |3,83       |10201       |421.816|1662            |1137         |94               |14         |224          |99              |
 |UNDERTOW|3,59       |10221       |426.859|1709            |658          |94               |11         |33           |99              |
 
