@@ -28,8 +28,7 @@
 
 ####  OVERALL
 
-Average build time between 9-11 minutes with a build pack.
-Average build time between x-x minutes with GraalVM native image.
+Average build time between 9-11 minutes with a build pack, and x-x minutes with GraalVM native image.
 
 |TYPE      |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:---------|:----------|:-----------|:------|:---------------|:-------|:-------|:------------|:---------------|
