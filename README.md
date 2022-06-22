@@ -21,7 +21,7 @@ The purposes of this research are next:
 
 ### DATASET DESCRIPTION
 
-The definition of database [init script](./database/docker/database_definition.sql) and [docker-compose](./database/docker/docker-compose.yml) file.
+The definition of database [init script](./env/database/docker/database_definition.sql) and [docker-compose](./env/database/docker/docker-compose.yml) file.
 
 To connect via pgadmin follow [pgadmin](localhost:5050) enter "user@user.com" and "password".
 Create server and attach to host `docker inspect $(docker ps -aqf "name=postgres") | grep IPAddress`, port "5432", db "postgres" with "user" and "password" credentials.
@@ -70,7 +70,7 @@ The application is a transportation service.
 Let's assume that the average user has the biggest interest to book the transfer from 8:00 till 00:00.
 As a result, we will have 16 per day and 112 hours of load per week.
 
-I've described all use cases endpoints via [OpenAPI](./api/a2b.yaml).
+I've described all use cases endpoints via [OpenAPI](./env/api/a2b.yaml).
 
 ### RESULTS
 
