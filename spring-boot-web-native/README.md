@@ -30,10 +30,10 @@
 
 Average build time between 9-11 minutes with a build pack, and x-x minutes with GraalVM native image.
 
-|TYPE      |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:---------|:----------|:-----------|:------|:---------------|:-------|:-------|:------------|:---------------|
-|DOCKER    |3,59       |10221       |426.859|1709            |94      |11      |33           |99              |
-|DOCKERLESS|3,59       |10221       |426.859|1709            |94      |11      |33           |99              |
+|TYPE              |BOOT UP (s)|ACTIVE USERS|RPS    |SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:-----------------|:----------|:-----------|:------|:---------------|:-------|:-------|:------------|:---------------|
+|BUILD PACK        |3,59       |10221       |426.859|1709            |94      |11      |33           |99              |
+|NATIVE BUILD TOOLS|3,59       |10221       |426.859|1709            |94      |11      |33           |99              |
 
 * UNDERTOW
 

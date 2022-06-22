@@ -1,8 +1,8 @@
 package by.vk.datagen.data.user;
 
-import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.datafaker.Faker;
 import org.springframework.stereotype.Service;
 
 import java.util.stream.Collectors;

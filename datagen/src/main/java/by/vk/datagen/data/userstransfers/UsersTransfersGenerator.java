@@ -2,9 +2,9 @@ package by.vk.datagen.data.userstransfers;
 
 import by.vk.datagen.data.transfer.Transfer;
 import by.vk.datagen.data.user.User;
-import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.datafaker.Faker;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.ThreadLocalRandom;
