@@ -1,5 +1,7 @@
 ### SPRING BOOT WEB PERFORMANCE REPORT
 
+[![Spring Boot Web CI](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-web.yml/badge.svg?branch=master)](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-web.yml)
+
 > Model Name: MacBook Pro
 
 > Model Identifier: MacBookPro16,2
