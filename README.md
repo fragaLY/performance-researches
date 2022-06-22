@@ -17,7 +17,7 @@ The purposes of this research are next:
 * The versions of all languages, frameworks, libraries, and databases are the latest LTS at the moment of testing.
 
 ### DATABASE STRUCTURE
-![](./database/database-structure.png)
+![](./env/database/database-structure.png)
 
 ### DATASET DESCRIPTION
 
