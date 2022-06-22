@@ -15,24 +15,24 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @AllArgsConstructor
 public class DatagenApplication implements CommandLineRunner {
 
-    private final CountryGenerator countryGenerator;
-    private final CityGenerator cityGenerator;
-    private final LocationGenerator locationGenerator;
-    private final UserGenerator userGenerator;
-    private final TransferGenerator transferGenerator;
-    private final UsersTransfersGenerator usersTransfersGenerator;
+  private final CountryGenerator countryGenerator;
+  private final CityGenerator cityGenerator;
+  private final LocationGenerator locationGenerator;
+  private final UserGenerator userGenerator;
+  private final TransferGenerator transferGenerator;
+  private final UsersTransfersGenerator usersTransfersGenerator;
 
-    public static void main(String[] args) {
-        SpringApplication.run(DatagenApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(DatagenApplication.class, args);
+  }
 
-    @Override
-    public void run(String... args) throws Exception {
-        userGenerator.generate();
-        countryGenerator.generate();
-        cityGenerator.generate();
-        locationGenerator.generate();
-        transferGenerator.generate();
-        usersTransfersGenerator.generate();
-    }
+  @Override
+  public void run(String... args) throws Exception {
+    userGenerator.generate();
+    countryGenerator.generate();
+    cityGenerator.generate();
+    locationGenerator.generate();
+    transferGenerator.generate();
+    usersTransfersGenerator.generate();
+  }
 }

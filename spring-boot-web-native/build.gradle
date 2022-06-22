@@ -38,6 +38,6 @@ bootBuildImage {
     buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.19.0"]
     builder = "paketobuildpacks/builder:tiny"
     environment = [
-            "BP_NATIVE_IMAGE" : "true"
+            "BP_NATIVE_IMAGE": "true"
     ]
 }

@@ -1,10 +1,10 @@
 server:
- compression:
-   enabled: true
- undertow:
-   threads:
-     io: 4 # default: equals to cores count
-     worker: 8 # default: 8
+  compression:
+    enabled: true
+  undertow:
+    threads:
+      io: 4 # default: equals to cores count
+      worker: 8 # default: 8
 
 spring:
   main:

@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CommonConfiguration {
 
-    @Bean
-    public Faker faker() {
-        return new Faker();
-    }
+  @Bean
+  public Faker faker() {
+    return new Faker();
+  }
 }

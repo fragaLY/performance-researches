@@ -1,6 +1,6 @@
 @TypeDefs({
-        @TypeDef(defaultForType = Range.class, typeClass = PostgreSQLRangeType.class),
-        @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
+    @TypeDef(defaultForType = Range.class, typeClass = PostgreSQLRangeType.class),
+    @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class),
 })
 package by.vk.springbootweb;
 

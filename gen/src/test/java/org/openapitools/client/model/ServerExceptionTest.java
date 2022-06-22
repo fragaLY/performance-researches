@@ -32,38 +32,39 @@ import org.junit.Test;
  * Model tests for ServerException
  */
 public class ServerExceptionTest {
-    private final ServerException model = new ServerException();
 
-    /**
-     * Model tests for ServerException
-     */
-    @Test
-    public void testServerException() {
-        // TODO: test ServerException
-    }
+  private final ServerException model = new ServerException();
 
-    /**
-     * Test the property 'status'
-     */
-    @Test
-    public void statusTest() {
-        // TODO: test status
-    }
+  /**
+   * Model tests for ServerException
+   */
+  @Test
+  public void testServerException() {
+    // TODO: test ServerException
+  }
 
-    /**
-     * Test the property 'code'
-     */
-    @Test
-    public void codeTest() {
-        // TODO: test code
-    }
+  /**
+   * Test the property 'status'
+   */
+  @Test
+  public void statusTest() {
+    // TODO: test status
+  }
 
-    /**
-     * Test the property 'message'
-     */
-    @Test
-    public void messageTest() {
-        // TODO: test message
-    }
+  /**
+   * Test the property 'code'
+   */
+  @Test
+  public void codeTest() {
+    // TODO: test code
+  }
+
+  /**
+   * Test the property 'message'
+   */
+  @Test
+  public void messageTest() {
+    // TODO: test message
+  }
 
 }

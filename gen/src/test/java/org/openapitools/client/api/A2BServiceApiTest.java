@@ -37,165 +37,165 @@ import java.util.Map;
 @Ignore
 public class A2BServiceApiTest {
 
-    private final A2BServiceApi api = new A2BServiceApi();
+  private final A2BServiceApi api = new A2BServiceApi();
 
 
-    /**
-     * Assign the transfer to user
-     * <p>
-     * Assign the transfer to user
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void assignTransferToUserTest() throws ApiException {
-        Long userId = null;
-        Long transferId = null;
-        TransferAssigning transferAssigning = null;
-        api.assignTransferToUser(userId, transferId, transferAssigning);
+  /**
+   * Assign the transfer to user
+   * <p>
+   * Assign the transfer to user
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void assignTransferToUserTest() throws ApiException {
+    Long userId = null;
+    Long transferId = null;
+    TransferAssigning transferAssigning = null;
+    api.assignTransferToUser(userId, transferId, transferAssigning);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get all cities for country in system
-     * <p>
-     * Get all cities for country. Cities are retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void citiesRetrievingTest() throws ApiException {
-        Long id = null;
-        List<Object> response = api.citiesRetrieving(id);
+  /**
+   * Get all cities for country in system
+   * <p>
+   * Get all cities for country. Cities are retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void citiesRetrievingTest() throws ApiException {
+    Long id = null;
+    List<Object> response = api.citiesRetrieving(id);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get all countries in system
-     * <p>
-     * Get all countries. Countries are retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void countriesRetrievingTest() throws ApiException {
-        List<Object> response = api.countriesRetrieving();
+  /**
+   * Get all countries in system
+   * <p>
+   * Get all countries. Countries are retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void countriesRetrievingTest() throws ApiException {
+    List<Object> response = api.countriesRetrieving();
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get all cities locations for country in system
-     * <p>
-     * Get all cities locations for country. Locations are retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void locationsRetrievingTest() throws ApiException {
-        Long countryId = null;
-        Long cityId = null;
-        List<Object> response = api.locationsRetrieving(countryId, cityId);
+  /**
+   * Get all cities locations for country in system
+   * <p>
+   * Get all cities locations for country. Locations are retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void locationsRetrievingTest() throws ApiException {
+    Long countryId = null;
+    Long cityId = null;
+    List<Object> response = api.locationsRetrieving(countryId, cityId);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get all transfers for selected origin, destination, date
-     * <p>
-     * Get all available transfers. Transfers are retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void transfersRetrievingTest() throws ApiException {
-        Long originId = null;
-        Long destinationId = null;
-        LocalDate date = null;
-        List<Object> response = api.transfersRetrieving(originId, destinationId, date);
+  /**
+   * Get all transfers for selected origin, destination, date
+   * <p>
+   * Get all available transfers. Transfers are retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void transfersRetrievingTest() throws ApiException {
+    Long originId = null;
+    Long destinationId = null;
+    LocalDate date = null;
+    List<Object> response = api.transfersRetrieving(originId, destinationId, date);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Update user&#39;s profile
-     * <p>
-     * Update user&#39;s profile
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUserProfileTest() throws ApiException {
-        Long userId = null;
-        UserProfileEdition userProfileEdition = null;
-        api.updateUserProfile(userId, userProfileEdition);
+  /**
+   * Update user&#39;s profile
+   * <p>
+   * Update user&#39;s profile
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateUserProfileTest() throws ApiException {
+    Long userId = null;
+    UserProfileEdition userProfileEdition = null;
+    api.updateUserProfile(userId, userProfileEdition);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Update user&#39;s transfer
-     * <p>
-     * Update user&#39;s transfer
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void updateUserTransferTest() throws ApiException {
-        Long userId = null;
-        Long transferId = null;
-        UserTransferEdition userTransferEdition = null;
-        api.updateUserTransfer(userId, transferId, userTransferEdition);
+  /**
+   * Update user&#39;s transfer
+   * <p>
+   * Update user&#39;s transfer
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void updateUserTransferTest() throws ApiException {
+    Long userId = null;
+    Long transferId = null;
+    UserTransferEdition userTransferEdition = null;
+    api.updateUserTransfer(userId, transferId, userTransferEdition);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get user&#39;s profile
-     * <p>
-     * Get user&#39;s profile. User&#39;s profile is retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void userProfileRetrievingTest() throws ApiException {
-        Long userId = null;
-        UserProfile response = api.userProfileRetrieving(userId);
+  /**
+   * Get user&#39;s profile
+   * <p>
+   * Get user&#39;s profile. User&#39;s profile is retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void userProfileRetrievingTest() throws ApiException {
+    Long userId = null;
+    UserProfile response = api.userProfileRetrieving(userId);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get user&#39;s transfer
-     * <p>
-     * Get user&#39;s transfer. User&#39;s transfer is retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void userTransferRetrievingTest() throws ApiException {
-        Long userId = null;
-        Long transferId = null;
-        UserTransfer response = api.userTransferRetrieving(userId, transferId);
+  /**
+   * Get user&#39;s transfer
+   * <p>
+   * Get user&#39;s transfer. User&#39;s transfer is retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void userTransferRetrievingTest() throws ApiException {
+    Long userId = null;
+    Long transferId = null;
+    UserTransfer response = api.userTransferRetrieving(userId, transferId);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
-    /**
-     * Get user&#39;s transfers
-     * <p>
-     * Get user&#39;s transfers. User&#39;s transfers are retrieved.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void userTransfersRetrievingTest() throws ApiException {
-        Long userId = null;
-        List<Object> response = api.userTransfersRetrieving(userId);
+  /**
+   * Get user&#39;s transfers
+   * <p>
+   * Get user&#39;s transfers. User&#39;s transfers are retrieved.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void userTransfersRetrievingTest() throws ApiException {
+    Long userId = null;
+    List<Object> response = api.userTransfersRetrieving(userId);
 
-        // TODO: test validations
-    }
+    // TODO: test validations
+  }
 
 }

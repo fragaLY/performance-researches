@@ -31,72 +31,73 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-17T21:21:26.754648+04:00[Asia/Tbilisi]")
 public class TransferAssigning {
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
+
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
 
-    public TransferAssigning description(String description) {
+  public TransferAssigning description(String description) {
 
-        this.description = description;
-        return this;
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   *
+   * @return description
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "I would like to have a cup of coffee.", value = "")
+
+  public String getDescription() {
+    return description;
+  }
+
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get description
-     *
-     * @return description
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "I would like to have a cup of coffee.", value = "")
-
-    public String getDescription() {
-        return description;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    TransferAssigning transferAssigning = (TransferAssigning) o;
+    return Objects.equals(this.description, transferAssigning.description);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(description);
+  }
 
 
-    public void setDescription(String description) {
-        this.description = description;
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class TransferAssigning {\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first
+   * line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        TransferAssigning transferAssigning = (TransferAssigning) o;
-        return Objects.equals(this.description, transferAssigning.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(description);
-    }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class TransferAssigning {\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

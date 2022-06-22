@@ -1,5 +1,11 @@
 package by.vk.datagen.data.user;
 
+import java.util.Objects;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,13 +13,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.Objects;
 
 @Table(schema = "a2b", name = "users")
 @Entity
@@ -25,32 +24,36 @@ import java.util.Objects;
 @AllArgsConstructor
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String phone;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+  private String firstName;
+  private String lastName;
+  private String email;
+  private String phone;
 
 //    @OneToMany(mappedBy = "user")
 //    private Set<UsersTransfers> transfers;
 
 
-    public User(Long id) {
-        this.id = id;
-    }
+  public User(Long id) {
+    this.id = id;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        User user = (User) o;
-        return id != null && Objects.equals(id, user.id);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
+    if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
+      return false;
+    }
+    User user = (User) o;
+    return id != null && Objects.equals(id, user.id);
+  }
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
+  @Override
+  public int hashCode() {
+    return getClass().hashCode();
+  }
 }

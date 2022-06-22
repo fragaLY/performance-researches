@@ -32,46 +32,47 @@ import org.junit.Test;
  * Model tests for UserProfile
  */
 public class UserProfileTest {
-    private final UserProfile model = new UserProfile();
 
-    /**
-     * Model tests for UserProfile
-     */
-    @Test
-    public void testUserProfile() {
-        // TODO: test UserProfile
-    }
+  private final UserProfile model = new UserProfile();
 
-    /**
-     * Test the property 'firstName'
-     */
-    @Test
-    public void firstNameTest() {
-        // TODO: test firstName
-    }
+  /**
+   * Model tests for UserProfile
+   */
+  @Test
+  public void testUserProfile() {
+    // TODO: test UserProfile
+  }
 
-    /**
-     * Test the property 'lastName'
-     */
-    @Test
-    public void lastNameTest() {
-        // TODO: test lastName
-    }
+  /**
+   * Test the property 'firstName'
+   */
+  @Test
+  public void firstNameTest() {
+    // TODO: test firstName
+  }
 
-    /**
-     * Test the property 'email'
-     */
-    @Test
-    public void emailTest() {
-        // TODO: test email
-    }
+  /**
+   * Test the property 'lastName'
+   */
+  @Test
+  public void lastNameTest() {
+    // TODO: test lastName
+  }
 
-    /**
-     * Test the property 'phone'
-     */
-    @Test
-    public void phoneTest() {
-        // TODO: test phone
-    }
+  /**
+   * Test the property 'email'
+   */
+  @Test
+  public void emailTest() {
+    // TODO: test email
+  }
+
+  /**
+   * Test the property 'phone'
+   */
+  @Test
+  public void phoneTest() {
+    // TODO: test phone
+  }
 
 }

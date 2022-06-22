@@ -31,225 +31,228 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-17T21:21:26.754648+04:00[Asia/Tbilisi]")
 public class UserTransfer {
-    public static final String SERIALIZED_NAME_USER_ID = "userId";
-    public static final String SERIALIZED_NAME_TRANSFER_ID = "transferId";
-    public static final String SERIALIZED_NAME_DESTINATION = "destination";
-    public static final String SERIALIZED_NAME_STATE = "state";
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_USER_ID)
-    private Long userId;
-    @SerializedName(SERIALIZED_NAME_TRANSFER_ID)
-    private Long transferId;
-    @SerializedName(SERIALIZED_NAME_DESTINATION)
-    private Long destination;
-    @SerializedName(SERIALIZED_NAME_STATE)
-    private StateEnum state;
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
 
-    public UserTransfer userId(Long userId) {
+  public static final String SERIALIZED_NAME_USER_ID = "userId";
+  public static final String SERIALIZED_NAME_TRANSFER_ID = "transferId";
+  public static final String SERIALIZED_NAME_DESTINATION = "destination";
+  public static final String SERIALIZED_NAME_STATE = "state";
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private Long userId;
+  @SerializedName(SERIALIZED_NAME_TRANSFER_ID)
+  private Long transferId;
+  @SerializedName(SERIALIZED_NAME_DESTINATION)
+  private Long destination;
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private StateEnum state;
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-        this.userId = userId;
-        return this;
+  public UserTransfer userId(Long userId) {
+
+    this.userId = userId;
+    return this;
+  }
+
+  /**
+   * Get userId
+   *
+   * @return userId
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "")
+
+  public Long getUserId() {
+    return userId;
+  }
+
+  public void setUserId(Long userId) {
+    this.userId = userId;
+  }
+
+  public UserTransfer transferId(Long transferId) {
+
+    this.transferId = transferId;
+    return this;
+  }
+
+  /**
+   * Get transferId
+   *
+   * @return transferId
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "2", value = "")
+
+  public Long getTransferId() {
+    return transferId;
+  }
+
+  public void setTransferId(Long transferId) {
+    this.transferId = transferId;
+  }
+
+  public UserTransfer destination(Long destination) {
+
+    this.destination = destination;
+    return this;
+  }
+
+  /**
+   * Get destination
+   *
+   * @return destination
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "3", value = "")
+
+  public Long getDestination() {
+    return destination;
+  }
+
+  public void setDestination(Long destination) {
+    this.destination = destination;
+  }
+
+  public UserTransfer state(StateEnum state) {
+
+    this.state = state;
+    return this;
+  }
+
+  /**
+   * Get state
+   *
+   * @return state
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
+  }
+
+  public UserTransfer description(String description) {
+
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   *
+   * @return description
+   **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "I would like to have a cup of coffee.", value = "")
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UserTransfer userTransfer = (UserTransfer) o;
+    return Objects.equals(this.userId, userTransfer.userId) &&
+        Objects.equals(this.transferId, userTransfer.transferId) &&
+        Objects.equals(this.destination, userTransfer.destination) &&
+        Objects.equals(this.state, userTransfer.state) &&
+        Objects.equals(this.description, userTransfer.description);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(userId, transferId, destination, state, description);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserTransfer {\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
+    sb.append("    transferId: ").append(toIndentedString(transferId)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first
+   * line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Gets or Sets state
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    COMPLETED("COMPLETED"),
+
+    CANCELED("CANCELED"),
+
+    BOOKED("BOOKED");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
     }
 
-    /**
-     * Get userId
-     *
-     * @return userId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "1", value = "")
-
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public UserTransfer transferId(Long transferId) {
-
-        this.transferId = transferId;
-        return this;
-    }
-
-    /**
-     * Get transferId
-     *
-     * @return transferId
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "2", value = "")
-
-    public Long getTransferId() {
-        return transferId;
-    }
-
-    public void setTransferId(Long transferId) {
-        this.transferId = transferId;
-    }
-
-    public UserTransfer destination(Long destination) {
-
-        this.destination = destination;
-        return this;
-    }
-
-    /**
-     * Get destination
-     *
-     * @return destination
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "3", value = "")
-
-    public Long getDestination() {
-        return destination;
-    }
-
-    public void setDestination(Long destination) {
-        this.destination = destination;
-    }
-
-    public UserTransfer state(StateEnum state) {
-
-        this.state = state;
-        return this;
-    }
-
-    /**
-     * Get state
-     *
-     * @return state
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(value = "")
-
-    public StateEnum getState() {
-        return state;
-    }
-
-    public void setState(StateEnum state) {
-        this.state = state;
-    }
-
-    public UserTransfer description(String description) {
-
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return description
-     **/
-    @javax.annotation.Nullable
-    @ApiModelProperty(example = "I would like to have a cup of coffee.", value = "")
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserTransfer userTransfer = (UserTransfer) o;
-        return Objects.equals(this.userId, userTransfer.userId) &&
-                Objects.equals(this.transferId, userTransfer.transferId) &&
-                Objects.equals(this.destination, userTransfer.destination) &&
-                Objects.equals(this.state, userTransfer.state) &&
-                Objects.equals(this.description, userTransfer.description);
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(userId, transferId, destination, state, description);
+    public String getValue() {
+      return value;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserTransfer {\n");
-        sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
-        sb.append("    transferId: ").append(toIndentedString(transferId)).append("\n");
-        sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("}");
-        return sb.toString();
+      return String.valueOf(value);
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+    public static class Adapter extends TypeAdapter<StateEnum> {
+
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(value);
+      }
     }
-
-    /**
-     * Gets or Sets state
-     */
-    @JsonAdapter(StateEnum.Adapter.class)
-    public enum StateEnum {
-        COMPLETED("COMPLETED"),
-
-        CANCELED("CANCELED"),
-
-        BOOKED("BOOKED");
-
-        private String value;
-
-        StateEnum(String value) {
-            this.value = value;
-        }
-
-        public static StateEnum fromValue(String value) {
-            for (StateEnum b : StateEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static class Adapter extends TypeAdapter<StateEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public StateEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return StateEnum.fromValue(value);
-            }
-        }
-    }
+  }
 
 }
 

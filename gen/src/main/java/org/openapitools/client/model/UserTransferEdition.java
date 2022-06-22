@@ -31,142 +31,145 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-17T21:21:26.754648+04:00[Asia/Tbilisi]")
 public class UserTransferEdition {
-    public static final String SERIALIZED_NAME_STATE = "state";
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-    @SerializedName(SERIALIZED_NAME_STATE)
-    private StateEnum state;
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    private String description;
 
-    public UserTransferEdition state(StateEnum state) {
+  public static final String SERIALIZED_NAME_STATE = "state";
+  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+  @SerializedName(SERIALIZED_NAME_STATE)
+  private StateEnum state;
+  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+  private String description;
 
-        this.state = state;
-        return this;
+  public UserTransferEdition state(StateEnum state) {
+
+    this.state = state;
+    return this;
+  }
+
+  /**
+   * Get state
+   *
+   * @return state
+   **/
+  @ApiModelProperty(required = true, value = "")
+
+  public StateEnum getState() {
+    return state;
+  }
+
+  public void setState(StateEnum state) {
+    this.state = state;
+  }
+
+  public UserTransferEdition description(String description) {
+
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * Get description
+   *
+   * @return description
+   **/
+  @ApiModelProperty(example = "I would like to have a cup of tea.", required = true, value = "")
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UserTransferEdition userTransferEdition = (UserTransferEdition) o;
+    return Objects.equals(this.state, userTransferEdition.state) &&
+        Objects.equals(this.description, userTransferEdition.description);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(state, description);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserTransferEdition {\n");
+    sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first
+   * line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+
+  /**
+   * Gets or Sets state
+   */
+  @JsonAdapter(StateEnum.Adapter.class)
+  public enum StateEnum {
+    COMPLETED("COMPLETED"),
+
+    CANCELED("CANCELED"),
+
+    BOOKED("BOOKED");
+
+    private String value;
+
+    StateEnum(String value) {
+      this.value = value;
     }
 
-    /**
-     * Get state
-     *
-     * @return state
-     **/
-    @ApiModelProperty(required = true, value = "")
-
-    public StateEnum getState() {
-        return state;
-    }
-
-    public void setState(StateEnum state) {
-        this.state = state;
-    }
-
-    public UserTransferEdition description(String description) {
-
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return description
-     **/
-    @ApiModelProperty(example = "I would like to have a cup of tea.", required = true, value = "")
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+    public static StateEnum fromValue(String value) {
+      for (StateEnum b : StateEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserTransferEdition userTransferEdition = (UserTransferEdition) o;
-        return Objects.equals(this.state, userTransferEdition.state) &&
-                Objects.equals(this.description, userTransferEdition.description);
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(state, description);
+    public String getValue() {
+      return value;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserTransferEdition {\n");
-        sb.append("    state: ").append(toIndentedString(state)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("}");
-        return sb.toString();
+      return String.valueOf(value);
     }
 
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
+    public static class Adapter extends TypeAdapter<StateEnum> {
+
+      @Override
+      public void write(final JsonWriter jsonWriter, final StateEnum enumeration)
+          throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public StateEnum read(final JsonReader jsonReader) throws IOException {
+        String value = jsonReader.nextString();
+        return StateEnum.fromValue(value);
+      }
     }
-
-    /**
-     * Gets or Sets state
-     */
-    @JsonAdapter(StateEnum.Adapter.class)
-    public enum StateEnum {
-        COMPLETED("COMPLETED"),
-
-        CANCELED("CANCELED"),
-
-        BOOKED("BOOKED");
-
-        private String value;
-
-        StateEnum(String value) {
-            this.value = value;
-        }
-
-        public static StateEnum fromValue(String value) {
-            for (StateEnum b : StateEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            throw new IllegalArgumentException("Unexpected value '" + value + "'");
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static class Adapter extends TypeAdapter<StateEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final StateEnum enumeration) throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public StateEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return StateEnum.fromValue(value);
-            }
-        }
-    }
+  }
 
 }
 

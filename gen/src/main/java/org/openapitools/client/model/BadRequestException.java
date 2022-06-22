@@ -31,127 +31,128 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-17T21:21:26.754648+04:00[Asia/Tbilisi]")
 public class BadRequestException {
-    public static final String SERIALIZED_NAME_STATUS = "status";
-    public static final String SERIALIZED_NAME_CODE = "code";
-    public static final String SERIALIZED_NAME_MESSAGE = "message";
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    private String status = "BAD_REQUEST";
-    @SerializedName(SERIALIZED_NAME_CODE)
-    private Integer code = 400;
-    @SerializedName(SERIALIZED_NAME_MESSAGE)
-    private String message;
+
+  public static final String SERIALIZED_NAME_STATUS = "status";
+  public static final String SERIALIZED_NAME_CODE = "code";
+  public static final String SERIALIZED_NAME_MESSAGE = "message";
+  @SerializedName(SERIALIZED_NAME_STATUS)
+  private String status = "BAD_REQUEST";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private Integer code = 400;
+  @SerializedName(SERIALIZED_NAME_MESSAGE)
+  private String message;
 
 
-    public BadRequestException status(String status) {
+  public BadRequestException status(String status) {
 
-        this.status = status;
-        return this;
+    this.status = status;
+    return this;
+  }
+
+  /**
+   * Get status
+   *
+   * @return status
+   **/
+  @ApiModelProperty(example = "BAD_REQUEST", required = true, value = "")
+
+  public String getStatus() {
+    return status;
+  }
+
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+
+  public BadRequestException code(Integer code) {
+
+    this.code = code;
+    return this;
+  }
+
+  /**
+   * Get code
+   *
+   * @return code
+   **/
+  @ApiModelProperty(example = "400", required = true, value = "")
+
+  public Integer getCode() {
+    return code;
+  }
+
+
+  public void setCode(Integer code) {
+    this.code = code;
+  }
+
+
+  public BadRequestException message(String message) {
+
+    this.message = message;
+    return this;
+  }
+
+  /**
+   * Get message
+   *
+   * @return message
+   **/
+  @ApiModelProperty(example = "Incorrect request data", required = true, value = "")
+
+  public String getMessage() {
+    return message;
+  }
+
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get status
-     *
-     * @return status
-     **/
-    @ApiModelProperty(example = "BAD_REQUEST", required = true, value = "")
-
-    public String getStatus() {
-        return status;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    BadRequestException badRequestException = (BadRequestException) o;
+    return Objects.equals(this.status, badRequestException.status) &&
+        Objects.equals(this.code, badRequestException.code) &&
+        Objects.equals(this.message, badRequestException.message);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(status, code, message);
+  }
 
 
-    public void setStatus(String status) {
-        this.status = status;
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class BadRequestException {\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first
+   * line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-
-    public BadRequestException code(Integer code) {
-
-        this.code = code;
-        return this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return code
-     **/
-    @ApiModelProperty(example = "400", required = true, value = "")
-
-    public Integer getCode() {
-        return code;
-    }
-
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-
-    public BadRequestException message(String message) {
-
-        this.message = message;
-        return this;
-    }
-
-    /**
-     * Get message
-     *
-     * @return message
-     **/
-    @ApiModelProperty(example = "Incorrect request data", required = true, value = "")
-
-    public String getMessage() {
-        return message;
-    }
-
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        BadRequestException badRequestException = (BadRequestException) o;
-        return Objects.equals(this.status, badRequestException.status) &&
-                Objects.equals(this.code, badRequestException.code) &&
-                Objects.equals(this.message, badRequestException.message);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(status, code, message);
-    }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class BadRequestException {\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
-        sb.append("    message: ").append(toIndentedString(message)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

@@ -1,15 +1,7 @@
 package by.vk.springbootwebnative.location.repository.location;
 
 import by.vk.springbootwebnative.location.repository.city.City;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.Hibernate;
-import org.hibernate.annotations.Type;
-
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,7 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.hibernate.Hibernate;
+import org.hibernate.annotations.Type;
 
 @Table(schema = "a2b", name = "locations")
 @Entity
@@ -31,29 +30,33 @@ import java.util.Objects;
 @AllArgsConstructor
 public class Location {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(columnDefinition = "jsonb")
-    @Type(type = "jsonb")
-    private Point location;
+  @Column(columnDefinition = "jsonb")
+  @Type(type = "jsonb")
+  private Point location;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "city_id", nullable = false)
-    @ToString.Exclude
-    private City city;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "city_id", nullable = false)
+  @ToString.Exclude
+  private City city;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Location location = (Location) o;
-        return id != null && Objects.equals(id, location.id);
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
+    if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
+      return false;
     }
+    Location location = (Location) o;
+    return id != null && Objects.equals(id, location.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return getClass().hashCode();
+  }
 }

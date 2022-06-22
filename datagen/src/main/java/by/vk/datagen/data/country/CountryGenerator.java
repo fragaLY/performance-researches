@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class CountryGenerator {
 
-    private final CountryRepository repository;
+  private final CountryRepository repository;
 
-    public void generate() {
-        log.info("[COUNTRY GENERATION] Started.");
-        repository.save(new Country(null, "Republic of Belarus", "BY"));
-        log.info("[COUNTRY GENERATION] Ended.");
-    }
+  public void generate() {
+    log.info("[COUNTRY GENERATION] Started.");
+    repository.save(new Country(null, "Republic of Belarus", "BY"));
+    log.info("[COUNTRY GENERATION] Ended.");
+  }
 }

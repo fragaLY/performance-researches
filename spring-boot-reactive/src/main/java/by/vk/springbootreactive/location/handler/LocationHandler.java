@@ -11,10 +11,10 @@ import reactor.core.publisher.Mono;
 @Component
 public record LocationHandler() {
 
-    public Mono<ServerResponse> country(ServerRequest request) {
-        return ServerResponse
-                .ok()
-                .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromValue(new CountryResponse(1L, "Belarus", "BY")));
-    }
+  public Mono<ServerResponse> country(ServerRequest request) {
+    return ServerResponse
+        .ok()
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(BodyInserters.fromValue(new CountryResponse(1L, "Belarus", "BY")));
+  }
 }

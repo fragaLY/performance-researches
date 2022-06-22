@@ -31,99 +31,100 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-05-17T21:21:26.754648+04:00[Asia/Tbilisi]")
 public class UserProfileEdition {
-    public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
-    public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
-    @SerializedName(SERIALIZED_NAME_FIRST_NAME)
-    private String firstName;
-    @SerializedName(SERIALIZED_NAME_LAST_NAME)
-    private String lastName;
+
+  public static final String SERIALIZED_NAME_FIRST_NAME = "firstName";
+  public static final String SERIALIZED_NAME_LAST_NAME = "lastName";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
 
 
-    public UserProfileEdition firstName(String firstName) {
+  public UserProfileEdition firstName(String firstName) {
 
-        this.firstName = firstName;
-        return this;
+    this.firstName = firstName;
+    return this;
+  }
+
+  /**
+   * Get firstName
+   *
+   * @return firstName
+   **/
+  @ApiModelProperty(required = true, value = "")
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
+  public UserProfileEdition lastName(String lastName) {
+
+    this.lastName = lastName;
+    return this;
+  }
+
+  /**
+   * Get lastName
+   *
+   * @return lastName
+   **/
+  @ApiModelProperty(required = true, value = "")
+
+  public String getLastName() {
+    return lastName;
+  }
+
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
     }
-
-    /**
-     * Get firstName
-     *
-     * @return firstName
-     **/
-    @ApiModelProperty(required = true, value = "")
-
-    public String getFirstName() {
-        return firstName;
+    if (o == null || getClass() != o.getClass()) {
+      return false;
     }
+    UserProfileEdition userProfileEdition = (UserProfileEdition) o;
+    return Objects.equals(this.firstName, userProfileEdition.firstName) &&
+        Objects.equals(this.lastName, userProfileEdition.lastName);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(firstName, lastName);
+  }
 
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class UserProfileEdition {\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces (except the first
+   * line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
     }
-
-
-    public UserProfileEdition lastName(String lastName) {
-
-        this.lastName = lastName;
-        return this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return lastName
-     **/
-    @ApiModelProperty(required = true, value = "")
-
-    public String getLastName() {
-        return lastName;
-    }
-
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        UserProfileEdition userProfileEdition = (UserProfileEdition) o;
-        return Objects.equals(this.firstName, userProfileEdition.firstName) &&
-                Objects.equals(this.lastName, userProfileEdition.lastName);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName);
-    }
-
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class UserProfileEdition {\n");
-        sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
-        sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        if (o == null) {
-            return "null";
-        }
-        return o.toString().replace("\n", "\n    ");
-    }
+    return o.toString().replace("\n", "\n    ");
+  }
 
 }
 

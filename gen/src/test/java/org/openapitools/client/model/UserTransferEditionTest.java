@@ -32,30 +32,31 @@ import org.junit.Test;
  * Model tests for UserTransferEdition
  */
 public class UserTransferEditionTest {
-    private final UserTransferEdition model = new UserTransferEdition();
 
-    /**
-     * Model tests for UserTransferEdition
-     */
-    @Test
-    public void testUserTransferEdition() {
-        // TODO: test UserTransferEdition
-    }
+  private final UserTransferEdition model = new UserTransferEdition();
 
-    /**
-     * Test the property 'state'
-     */
-    @Test
-    public void stateTest() {
-        // TODO: test state
-    }
+  /**
+   * Model tests for UserTransferEdition
+   */
+  @Test
+  public void testUserTransferEdition() {
+    // TODO: test UserTransferEdition
+  }
 
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
+  /**
+   * Test the property 'state'
+   */
+  @Test
+  public void stateTest() {
+    // TODO: test state
+  }
+
+  /**
+   * Test the property 'description'
+   */
+  @Test
+  public void descriptionTest() {
+    // TODO: test description
+  }
 
 }

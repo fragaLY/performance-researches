@@ -32,30 +32,31 @@ import org.junit.Test;
  * Model tests for UserProfileEdition
  */
 public class UserProfileEditionTest {
-    private final UserProfileEdition model = new UserProfileEdition();
 
-    /**
-     * Model tests for UserProfileEdition
-     */
-    @Test
-    public void testUserProfileEdition() {
-        // TODO: test UserProfileEdition
-    }
+  private final UserProfileEdition model = new UserProfileEdition();
 
-    /**
-     * Test the property 'firstName'
-     */
-    @Test
-    public void firstNameTest() {
-        // TODO: test firstName
-    }
+  /**
+   * Model tests for UserProfileEdition
+   */
+  @Test
+  public void testUserProfileEdition() {
+    // TODO: test UserProfileEdition
+  }
 
-    /**
-     * Test the property 'lastName'
-     */
-    @Test
-    public void lastNameTest() {
-        // TODO: test lastName
-    }
+  /**
+   * Test the property 'firstName'
+   */
+  @Test
+  public void firstNameTest() {
+    // TODO: test firstName
+  }
+
+  /**
+   * Test the property 'lastName'
+   */
+  @Test
+  public void lastNameTest() {
+    // TODO: test lastName
+  }
 
 }

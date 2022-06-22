@@ -32,54 +32,55 @@ import org.junit.Test;
  * Model tests for UserTransfer
  */
 public class UserTransferTest {
-    private final UserTransfer model = new UserTransfer();
 
-    /**
-     * Model tests for UserTransfer
-     */
-    @Test
-    public void testUserTransfer() {
-        // TODO: test UserTransfer
-    }
+  private final UserTransfer model = new UserTransfer();
 
-    /**
-     * Test the property 'userId'
-     */
-    @Test
-    public void userIdTest() {
-        // TODO: test userId
-    }
+  /**
+   * Model tests for UserTransfer
+   */
+  @Test
+  public void testUserTransfer() {
+    // TODO: test UserTransfer
+  }
 
-    /**
-     * Test the property 'transferId'
-     */
-    @Test
-    public void transferIdTest() {
-        // TODO: test transferId
-    }
+  /**
+   * Test the property 'userId'
+   */
+  @Test
+  public void userIdTest() {
+    // TODO: test userId
+  }
 
-    /**
-     * Test the property 'destination'
-     */
-    @Test
-    public void destinationTest() {
-        // TODO: test destination
-    }
+  /**
+   * Test the property 'transferId'
+   */
+  @Test
+  public void transferIdTest() {
+    // TODO: test transferId
+  }
 
-    /**
-     * Test the property 'state'
-     */
-    @Test
-    public void stateTest() {
-        // TODO: test state
-    }
+  /**
+   * Test the property 'destination'
+   */
+  @Test
+  public void destinationTest() {
+    // TODO: test destination
+  }
 
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
+  /**
+   * Test the property 'state'
+   */
+  @Test
+  public void stateTest() {
+    // TODO: test state
+  }
+
+  /**
+   * Test the property 'description'
+   */
+  @Test
+  public void descriptionTest() {
+    // TODO: test description
+  }
 
 }

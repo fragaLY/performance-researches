@@ -32,22 +32,23 @@ import org.junit.Test;
  * Model tests for TransferAssigning
  */
 public class TransferAssigningTest {
-    private final TransferAssigning model = new TransferAssigning();
 
-    /**
-     * Model tests for TransferAssigning
-     */
-    @Test
-    public void testTransferAssigning() {
-        // TODO: test TransferAssigning
-    }
+  private final TransferAssigning model = new TransferAssigning();
 
-    /**
-     * Test the property 'description'
-     */
-    @Test
-    public void descriptionTest() {
-        // TODO: test description
-    }
+  /**
+   * Model tests for TransferAssigning
+   */
+  @Test
+  public void testTransferAssigning() {
+    // TODO: test TransferAssigning
+  }
+
+  /**
+   * Test the property 'description'
+   */
+  @Test
+  public void descriptionTest() {
+    // TODO: test description
+  }
 
 }
