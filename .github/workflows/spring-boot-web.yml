@@ -1,10 +1,14 @@
-name: Java CI with Gradle
+name: Spring Boot Web CI
 
 on:
   push:
     branches: [ "master" ]
+    paths:
+      - "spring-boot-web/**"
   pull_request:
     branches: [ "master" ]
+    paths:
+      - "spring-boot-web/**"
 
 permissions:
   contents: read
