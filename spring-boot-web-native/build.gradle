@@ -39,7 +39,8 @@ dependencies {
 }
 
 bootBuildImage {
-    builder = "dashaun/java-native-builder-arm64:latest"
+    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.20.0"]
+    builder = "paketobuildpacks/builder:tiny"
     environment = [
             "BP_NATIVE_IMAGE": "true"
     ]
