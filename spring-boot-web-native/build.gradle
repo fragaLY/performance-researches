@@ -25,6 +25,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
     //endregion
+    //region logback
+    implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
+    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
+    //endregion
     //region lombok
     annotationProcessor("org.projectlombok:lombok")
     implementation("org.projectlombok:lombok")
@@ -35,9 +39,17 @@ dependencies {
 }
 
 bootBuildImage {
-    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.19.0"]
-    builder = "paketobuildpacks/builder:tiny"
+    builder = "dashaun/java-native-builder-arm64:latest"
     environment = [
             "BP_NATIVE_IMAGE": "true"
     ]
+}
+
+hibernate {
+    enhance {
+        enableLazyInitialization= true
+        enableDirtyTracking = true
+        enableAssociationManagement = true
+        enableExtendedEnhancement = false
+    }
 }
