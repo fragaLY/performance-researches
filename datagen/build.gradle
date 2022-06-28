@@ -19,7 +19,7 @@ dependencies {
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
     implementation("net.datafaker:datafaker:1.4.0")
     implementation("org.projectlombok:lombok")
-    implementation("com.vladmihalcea:hibernate-types-55:2.16.2")
+    implementation("com.vladmihalcea:hibernate-types-55:2.16.3")
     annotationProcessor("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
 }
