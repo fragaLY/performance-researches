@@ -1,6 +1,5 @@
 package by.vk.springbootwebnative.user.api.response;
 
-
 import by.vk.springbootwebnative.transfer.api.response.TransferResponse;
 import by.vk.springbootwebnative.user.repository.usertransfer.State;
 import by.vk.springbootwebnative.user.repository.usertransfer.UsersTransfers;

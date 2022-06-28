@@ -69,5 +69,5 @@ management:
 
 logging.level:
   ROOT: info
-  by.vk.springbootweb: info
+  by.vk.springbootwebnative: info
   org.springframework: info

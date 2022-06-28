@@ -1,6 +1,5 @@
 package by.vk.springbootwebnative.user.api.response;
 
-
 import by.vk.springbootwebnative.user.repository.user.User;
 
 public record UserResponse(Long id, String name, String email, String phone) {

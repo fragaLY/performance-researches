@@ -1,6 +1,7 @@
 package by.vk.springbootwebnative.location.repository.location;
 
 import by.vk.springbootwebnative.location.repository.city.City;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +20,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 @Table(schema = "a2b", name = "locations")
 @Entity
@@ -28,6 +30,7 @@ import org.hibernate.annotations.Type;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class Location {
 
   @Id
