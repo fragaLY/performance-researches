@@ -20,11 +20,7 @@ dependencies {
     //region spring
     implementation("com.vladmihalcea:hibernate-types-55:2.16.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web") {
-        exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-core'
-        exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-websocket'
-    }
-    implementation("org.apache.tomcat.experimental:tomcat-embed-programmatic:10.0.20")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-actuator") {
         exclude group: 'io.micrometer', module: 'micrometer-core'
