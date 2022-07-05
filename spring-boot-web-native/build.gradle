@@ -21,12 +21,14 @@ dependencies {
     implementation("com.vladmihalcea:hibernate-types-55:2.16.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web") {
-        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+        exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-core'
+        exclude group: 'org.apache.tomcat.embed', module: 'tomcat-embed-websocket'
     }
-    implementation("org.springframework.boot:spring-boot-starter-undertow")
+    implementation("org.apache.tomcat.experimental:tomcat-embed-programmatic:10.0.20")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-actuator")
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.springframework.boot:spring-boot-starter-actuator") {
+        exclude group: 'io.micrometer', module: 'micrometer-core'
+    }
     implementation("org.springdoc:springdoc-openapi-ui:1.6.9")
     //endregion
     //region logback

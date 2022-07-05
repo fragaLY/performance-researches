@@ -9,7 +9,6 @@ import by.vk.springbootwebnative.exception.ExceptionInformation;
 import by.vk.springbootwebnative.exception.NotFoundException;
 import by.vk.springbootwebnative.exception.util.MessageBeautifier;
 import java.util.stream.Collectors;
-import javax.servlet.ServletException;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
@@ -23,15 +22,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 @Slf4j
 public class CommonExceptionHandler {
-
-  @ExceptionHandler(ServletException.class)
-  @ResponseStatus(INTERNAL_SERVER_ERROR)
-  public ExceptionInformation handleServletException(ServletException exception) {
-    var info = new ExceptionInformation(
-        INTERNAL_SERVER_ERROR, INTERNAL_SERVER_ERROR.value(), "Huston, we have a problem");
-    log.error("[EXCEPTION] {}", info);
-    return info;
-  }
 
   @ExceptionHandler(IllegalArgumentException.class)
   @ResponseStatus(BAD_REQUEST)

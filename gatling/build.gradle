@@ -37,7 +37,6 @@ gatling {
             '-XX:MaxTrivialSize=12',
             '-XX:+ExitOnOutOfMemoryError',
             '-XX:+UseStringDeduplication',
-            '-XX:+ExitOnOutOfMemoryError',
             '-XX:+OptimizeStringConcat',
             '-XX:HeapDumpPath=/opt/tmp/heapdump.bin'
     ]

@@ -1,10 +1,11 @@
 server:
   compression:
     enabled: true
-  undertow:
+  tomcat:
+    connection-timeout: 20s
     threads:
-      io: 4 # default: equals to cores count
-      worker: 8 # default: 8
+      max: 32
+      min-spare: 4
 
 spring:
   main:
