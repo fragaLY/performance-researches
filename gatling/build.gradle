@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "io.gatling.gradle" version "3.7.6.3"
+    id "io.gatling.gradle" version "3.8.0"
 }
 
 group 'by.vk'
