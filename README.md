@@ -24,7 +24,7 @@ The purposes of this research are next:
 The definition of database [init script](./env/database/docker/database_definition.sql) and [docker-compose](./env/database/docker/docker-compose.yml) file.
 
 To connect via pgadmin follow [pgadmin](localhost:5050) enter "user@user.com" and "password".
-Create server and attach to host `docker inspect $(docker ps -aqf "name=postgres") | grep IPAddress`, port "5432", db "postgres" with "user" and "password" credentials.
+Create server and attach to host `docker inspect $(docker ps -aqf "name=postgres") | grep IPAddress`, port "5433", db "postgres" with "user" and "password" credentials.
 
 |       UNIT      | AMOUNT |
 |:----------------|:-------|

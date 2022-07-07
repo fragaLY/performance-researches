@@ -11,4 +11,4 @@ services:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=a2b
     ports:
-      - "5432:5432"
+      - "5433:5432"

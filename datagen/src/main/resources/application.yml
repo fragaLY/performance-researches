@@ -5,7 +5,7 @@ spring:
     lazy-initialization: true
   datasource:
     driverClassName: org.postgresql.Driver
-    url: "jdbc:postgresql://localhost:5432/a2b?currentSchema=a2b"
+    url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b"
     username: "user"
     password: "password"
     hikari:
