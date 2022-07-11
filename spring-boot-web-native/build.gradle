@@ -1,3 +1,5 @@
+import org.springframework.aot.gradle.dsl.AotMode
+
 plugins {
     id("java")
     id("org.springframework.boot") version "2.7.1"
@@ -41,11 +43,21 @@ dependencies {
 }
 
 bootBuildImage {
-    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.20.0"]
+    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.22.0"]
     builder = "paketobuildpacks/builder:tiny"
     environment = [
             "BP_NATIVE_IMAGE": "true"
     ]
+}
+
+springAot {
+    mode = AotMode.NATIVE
+    debugVerify = false
+    removeXmlSupport = true
+    removeSpelSupport = true
+    removeYamlSupport = false
+    removeJmxSupport = true
+    verify = true
 }
 
 hibernate {

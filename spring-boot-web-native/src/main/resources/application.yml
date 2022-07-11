@@ -10,13 +10,11 @@ server:
 spring:
   main:
     banner-mode: off
-    lazy-initialization: true
   cache:
     type: none
   data:
     jpa:
       repositories:
-        bootstrap-mode: deferred
   datasource:
     driverClassName: org.postgresql.Driver
     url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b"
