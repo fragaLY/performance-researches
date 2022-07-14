@@ -21,6 +21,9 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
+import org.springframework.nativex.hint.AccessBits;
+import org.springframework.nativex.hint.TypeAccess;
+import org.springframework.nativex.hint.TypeHint;
 
 @Table(schema = "a2b", name = "locations")
 @Entity
@@ -30,7 +33,6 @@ import org.hibernate.annotations.TypeDef;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class Location {
 
   @Id
@@ -38,7 +40,7 @@ public class Location {
   private Long id;
 
   @Column(columnDefinition = "jsonb")
-  @Type(type = "jsonb")
+  @Type(type = "com.vladmihalcea.hibernate.type.json.JsonBinaryType")
   private Point location;
 
   @ManyToOne(fetch = FetchType.EAGER)

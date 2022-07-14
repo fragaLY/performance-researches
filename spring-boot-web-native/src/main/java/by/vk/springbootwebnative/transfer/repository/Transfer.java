@@ -25,7 +25,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.Type;
 
 @Table(schema = "a2b", name = "transfers")
 @Entity
@@ -35,7 +35,6 @@ import org.hibernate.annotations.TypeDef;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TypeDef(defaultForType = Range.class, typeClass = PostgreSQLRangeType.class)
 public class Transfer {
 
   @Id
@@ -58,6 +57,7 @@ public class Transfer {
   private Date date;
 
   @Column(columnDefinition = "tsrange")
+  @Type(type = "com.vladmihalcea.hibernate.type.range.PostgreSQLRangeType")
   private Range<LocalDateTime> duration;
 
   private BigDecimal price;

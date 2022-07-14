@@ -15,6 +15,7 @@ spring:
   data:
     jpa:
       repositories:
+        bootstrap-mode: default
   datasource:
     driverClassName: org.postgresql.Driver
     url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b"

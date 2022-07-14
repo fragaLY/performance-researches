@@ -1,0 +1,4 @@
+[
+  ["org.hibernate.Session","org.springframework.orm.jpa.EntityManagerProxy"],
+  ["org.hibernate.SessionFactory","org.springframework.orm.jpa.EntityManagerFactoryInfo"]
+]
