@@ -10,8 +10,6 @@ plugins {
 
 group = 'by.vk'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
-targetCompatibility = '17'
 
 repositories {
     maven { url 'https://repo.spring.io/release' }
@@ -20,7 +18,6 @@ repositories {
 
 dependencies {
     //region spring
-    implementation("com.vladmihalcea:hibernate-types-55:2.16.3")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -43,7 +40,7 @@ dependencies {
 }
 
 bootBuildImage {
-    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.22.0"]
+    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.23.0"]
     builder = "paketobuildpacks/builder:tiny"
     environment = [
             "BP_NATIVE_IMAGE": "true"
@@ -62,7 +59,7 @@ springAot {
 
 hibernate {
     enhance {
-        enableLazyInitialization= true
+        enableLazyInitialization = false
         enableDirtyTracking = true
         enableAssociationManagement = true
         enableExtendedEnhancement = false

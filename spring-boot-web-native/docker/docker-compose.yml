@@ -12,12 +12,3 @@ services:
       - POSTGRES_DB=a2b
     ports:
       - "5433:5432"
-
-  service-a2b:
-    image: spring-boot-web-native:0.0.1-SNAPSHOT
-    container_name: service-a2b
-    hostname: service-a2b
-    depends_on: 
-      - postgres-a2b
-    ports:
-      - "8080:8080"

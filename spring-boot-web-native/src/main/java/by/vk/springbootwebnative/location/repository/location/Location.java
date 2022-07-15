@@ -1,7 +1,6 @@
 package by.vk.springbootwebnative.location.repository.location;
 
 import by.vk.springbootwebnative.location.repository.city.City;
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,11 +18,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
-import org.springframework.nativex.hint.AccessBits;
-import org.springframework.nativex.hint.TypeAccess;
-import org.springframework.nativex.hint.TypeHint;
 
 @Table(schema = "a2b", name = "locations")
 @Entity
@@ -40,8 +34,7 @@ public class Location {
   private Long id;
 
   @Column(columnDefinition = "jsonb")
-  @Type(type = "com.vladmihalcea.hibernate.type.json.JsonBinaryType")
-  private Point location;
+  private String location;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "city_id", nullable = false)

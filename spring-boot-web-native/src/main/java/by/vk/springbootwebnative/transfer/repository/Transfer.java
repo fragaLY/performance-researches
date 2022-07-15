@@ -1,10 +1,7 @@
 package by.vk.springbootwebnative.transfer.repository;
 
 import by.vk.springbootwebnative.location.repository.location.Location;
-import com.vladmihalcea.hibernate.type.range.PostgreSQLRangeType;
-import com.vladmihalcea.hibernate.type.range.Range;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -25,7 +22,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
-import org.hibernate.annotations.Type;
 
 @Table(schema = "a2b", name = "transfers")
 @Entity
@@ -57,8 +53,7 @@ public class Transfer {
   private Date date;
 
   @Column(columnDefinition = "tsrange")
-  @Type(type = "com.vladmihalcea.hibernate.type.range.PostgreSQLRangeType")
-  private Range<LocalDateTime> duration;
+  private String duration;
 
   private BigDecimal price;
 
