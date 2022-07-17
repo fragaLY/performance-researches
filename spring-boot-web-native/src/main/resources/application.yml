@@ -2,7 +2,6 @@ server:
   compression:
     enabled: true
   tomcat:
-    connection-timeout: 20s
     threads:
       max: 32
       min-spare: 4

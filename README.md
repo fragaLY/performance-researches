@@ -63,7 +63,7 @@ The DB metrics:
 | 12   | As a user I would like to complete any owned transfer in the past. | [PUT] Any (BOOKED) transfer is completed (COMPLETED).  |
 | 13   | As a user I would like to see my profile. | [GET] User is retrieved with her/his transfers data. |
 | 14   | As a user I would like to update my profile. | [PUT] User updates with her/his own data. |
-| 15   | Repeat (1) - (9) every 1 hours for each user. | |
+| 15   | Repeat (1) - (9) 20 minutes for each user. | |
 
 The application is a transportation service.
 
