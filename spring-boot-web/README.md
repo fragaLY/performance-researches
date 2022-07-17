@@ -34,9 +34,9 @@ Average build time between 5-6 seconds.
 
 |SERVER  |BUILD TIME (s)|BOOT UP (s)|ACTIVE USERS|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:-------|:-------------|:----------|:-----------|:------|:----------------------------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|TOMCAT  |N/A           |3,94       |8168        |418,715|N/A                          |1568            |:white_check_mark: 365|94      |12         |226          |99              |
-|JETTY   |N/A           |3,83       |10201       |421.816|N/A                          |1592            |1137         |94               |14         |224          |99              |
-|UNDERTOW|5             |:white_check_mark: 3,59       |:white_check_mark: 10311       |:white_check_mark: 381.127	|50977       |:white_check_mark: 1611            |658          |94               |:white_check_mark: 11         |:white_check_mark: 33           |99              |
+|TOMCAT  |N/A           |3,94       |8168        |418,715|29289                        |1568            |:white_check_mark: 365|94      |12         |226          |99              |
+|JETTY   |N/A           |3,83       |10201       |:white_check_mark: 421.816|54207|1592|1137            |94               |14         |224          |99              |
+|UNDERTOW|5             |:white_check_mark: 3,59       |:white_check_mark: 10311       |381.127	|50977       |:white_check_mark: 1611            |658          |94               |:white_check_mark: 11         |:white_check_mark: 33           |99              |
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -87,10 +87,6 @@ server:
      worker: 8 # default: 8
 
 ```
-
-------------------------------------------------------------------------------------------------------------------------
-
- ![](./static/undertow.png)
 
 ------------------------------------------------------------------------------------------------------------------------
 
