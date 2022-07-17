@@ -1,5 +1,3 @@
-import com.google.cloud.tools.jib.api.buildplan.ImageFormat
-
 plugins {
     id("java")
     id("org.springframework.boot") version "2.7.1"
@@ -38,16 +36,17 @@ dependencies {
     //endregion
 }
 
-
 jib {
+    to {
+        image = 'service-a2b:latest'
+    }
     from {
         image = "gcr.io/distroless/java:17"
     }
     container {
         jvmFlags = ['-noverify', '-XX:+UseContainerSupport', '-XX:MaxRAMPercentage=75.0', '-XX:InitialRAMPercentage=50.0', '-XX:+OptimizeStringConcat', '-XX:+UseStringDeduplication', '-XX:+ExitOnOutOfMemoryError', '-XX:+AlwaysActAsServerClassMachine', '-Xmx512m', '-Xms128m', '-XX:MaxMetaspaceSize=128m', '-XX:MaxDirectMemorySize=256m', '-XX:+HeapDumpOnOutOfMemoryError', '-XX:HeapDumpPath=/opt/tmp/heapdump.bin']
         ports = ['8080']
-        labels.set([maintainer: 'Vadzim Kavalkou <vadzim.kavalkou@gmail.com>', app - name: 'a2b-service', service - version: '0.0.1-SNAPSHOT'])
+        labels.set([maintainer: 'Vadzim Kavalkou <vadzim.kavalkou@gmail.com>', appname: 'a2b-service', version: '0.0.1-SNAPSHOT'])
         creationTime = 'USE_CURRENT_TIMESTAMP'
-        format = ImageFormat.OCI
     }
 }

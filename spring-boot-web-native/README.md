@@ -30,8 +30,8 @@
 
 |TYPE              |BUILD TIME (s)|ARTIFACT SIZE (MB)|BOOT UP (s)|ACTIVE USERS|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:-----------------|:-------------|:-----------------|:----------|:-----------|:------|:----------------------------|:---------------|:-------|:-------|:------------|:---------------|
-|BUILD PACK        |751           |144,79            |           |            |       |                             |                |        |        |             |99              |
-|NATIVE BUILD TOOLS|:white_check_mark: 210|116,20    |0,310      |8759        |414.785|32175                        |1829            |263     |8       |52           |99              |
+|BUILD PACK        |751           |144,79            |:white_check_mark: 0,285|:white_check_mark: 10201|374.566|47831|584             |310     |12,5    |64           |99              |
+|NATIVE BUILD TOOLS|:white_check_mark: 210|116,20    |0,310      |8759        |:white_check_mark: 414.785|:white_check_mark: 32175|:white_check_mark: 1829|:white_check_mark: 263|:white_check_mark: 8|:white_check_mark: 52|99              |
 
 * TOMCAT
 
