@@ -77,9 +77,9 @@ I've described all use cases endpoints via [OpenAPI](./env/api/a2b.yaml).
 |TYPE              |BUILD TIME (s)|ARTIFACT SIZE (MB)|BOOT UP (s)|ACTIVE USERS|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
 |:-----------------|:-------------|:-----------------|:----------|:-----------|:------|:----------------------------|:---------------|:-------|:-------|:------------|:---------------|
 |BUILD PACK        |751           |144,79            |1,585      |10201       |374.566|47831                        |584             |310     |12,5    |64           |99              |
-|NATIVE BUILD TOOLS|210           |116,20            |0,310      |8759        |414.785|32175                        |1829            |263     |8       |52           |99              |
-|UNDERTOW          |5             |49,70             |3,59       |10311       |381.127|50977                        |1611            |658     |11      |33           |99              |
-|UNDERTOW IN DOCKER|46            |                  |           |            |       |                             |                |        |        |             |                |
+|NATIVE BUILD TOOLS|210           |116,20            |:white_check_mark: 0,310      |8759        |414.785|32175                        |:white_check_mark: 1829            |:white_check_mark: 263     |:white_check_mark: 8       |52           |99              |
+|UNDERTOW          |:white_check_mark: 5             |:white_check_mark: 49,70             |3,59       |:white_check_mark: 10311       |381.127|50977                        |1611            |658     |11      |33           |99              |
+|UNDERTOW IN DOCKER|46            |280               |5,20       |10264       |:white_check_mark: 448.682|:white_check_mark: 29998                        |916             |840     |15      |:white_check_mark: 32           |99              |
 
 :white_check_mark:
 
