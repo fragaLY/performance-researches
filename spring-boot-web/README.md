@@ -32,11 +32,12 @@
 
 Average build time between 5-6 seconds.
 
-|SERVER  |BUILD TIME (s)|BOOT UP (s)|ACTIVE USERS|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:-------|:-------------|:----------|:-----------|:------|:----------------------------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
-|TOMCAT  |N/A           |3,94       |8168        |418,715|29289                        |1568            |:white_check_mark: 365|94      |12         |226          |99              |
-|JETTY   |N/A           |3,83       |10201       |:white_check_mark: 421.816|54207|1592|1137            |94               |14         |224          |99              |
-|UNDERTOW|5             |:white_check_mark: 3,59       |:white_check_mark: 10311       |381.127	|50977       |:white_check_mark: 1611            |658          |94               |:white_check_mark: 11         |:white_check_mark: 33           |99              |
+|TYPE    |BUILD TIME (s)|ARTIFACT SIZE (MB)|BOOT UP (s)|ACTIVE USERS|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|JVM HEAP (MB)|JVM NON-HEAP (MB)|JVM CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
+|:-------|:-------------|:-----------------|:----------|:-----------|:------|:----------------------------|:---------------|:------------|:----------------|:----------|:------------|:---------------|
+|TOMCAT  |N/A           |N/A               |3,94       |8168        |418,715|:white_check_mark: 29289     |1568            |:white_check_mark: 365|94      |12         |226          |99              |
+|JETTY   |N/A           |N/A               |3,83       |10201       |:white_check_mark: 421.816|54207     |1592            |1137         |94               |14         |224          |99              |
+|UNDERTOW|5             |49,70             |:white_check_mark: 3,59|:white_check_mark: 10311|381.127|50977|:white_check_mark: 1611|658   |94               |:white_check_mark: 11|:white_check_mark: 33|99|
+|UNDERTOW IN DOCKER|    |
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -111,6 +112,10 @@ server:
 ------------------------------------------------------------------------------------------------------------------------
 
 ![](./static/response_time_all.png)
+
+------------------------------------------------------------------------------------------------------------------------
+
+![](./static/dive_docker_image.png)
 
 ------------------------------------------------------------------------------------------------------------------------
 
