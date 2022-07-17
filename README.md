@@ -81,8 +81,6 @@ I've described all use cases endpoints via [OpenAPI](./env/api/a2b.yaml).
 |UNDERTOW          |:white_check_mark: 5             |:white_check_mark: 49,70             |3,59       |:white_check_mark: 10311       |381.127|50977                        |1611            |658     |11      |33           |99              |
 |UNDERTOW IN DOCKER|46            |280               |5,20       |10264       |:white_check_mark: 448.682|:white_check_mark: 29998                        |916             |840     |15      |:white_check_mark: 32           |99              |
 
-:white_check_mark:
-
 * [SPRING BOOT WEB](spring-boot-web/README.md)
 * [SPRING BOOT WEB NATIVE](spring-boot-web-native/README.md)
 
