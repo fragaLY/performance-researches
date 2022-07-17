@@ -9,6 +9,10 @@ group = 'by.vk'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     //region spring
     implementation("com.vladmihalcea:hibernate-types-55:2.16.3")
@@ -41,7 +45,7 @@ jib {
         image = 'service-a2b:latest'
     }
     from {
-        image = "gcr.io/distroless/java:17"
+        image = "gcr.io/distroless/java17"
     }
     container {
         jvmFlags = ['-noverify', '-XX:+UseContainerSupport', '-XX:MaxRAMPercentage=75.0', '-XX:InitialRAMPercentage=50.0', '-XX:+OptimizeStringConcat', '-XX:+UseStringDeduplication', '-XX:+ExitOnOutOfMemoryError', '-XX:+AlwaysActAsServerClassMachine', '-Xmx512m', '-Xms128m', '-XX:MaxMetaspaceSize=128m', '-XX:MaxDirectMemorySize=256m', '-XX:+HeapDumpOnOutOfMemoryError', '-XX:HeapDumpPath=/opt/tmp/heapdump.bin']

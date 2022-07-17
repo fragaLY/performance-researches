@@ -18,7 +18,7 @@ spring:
         bootstrap-mode: default
   datasource:
     driverClassName: org.postgresql.Driver
-    url: "jdbc:postgresql://postgres-a2b:5432/a2b?currentSchema=a2b" #for local solution replace 'postgres-a2b' with localhost
+    url: "jdbc:postgresql://postgres-a2b:5432/a2b?currentSchema=a2b" #for local solution replace 'postgres-a2b' with localhost and port '5432' to '5433'
     username: "postgres"
     password: "postgres"
     hikari:
