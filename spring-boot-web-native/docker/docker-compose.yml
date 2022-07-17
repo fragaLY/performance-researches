@@ -5,18 +5,22 @@ services:
     image: fragaly/postgres-a2b:1.0.0
     container_name: postgres-a2b
     hostname: postgres-a2b
-    restart: on-failure
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=a2b
     ports:
       - "5433:5432"
+    restart: always
 
   service-a2b:
     image: spring-boot-web-native:0.0.1-SNAPSHOT
     container_name: service-a2b
     hostname: service-a2b
-    restart: on-failure
+    depends_on:
+      - postgres-a2b
+    links:
+      - postgres-a2b
     ports:
       - "8080:8080"
+    restart: always
