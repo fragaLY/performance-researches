@@ -1,6 +1,7 @@
 package by.vk.springbootreactive.location.repository.location;
 
 import by.vk.springbootreactive.location.repository.city.City;
+import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,11 +36,17 @@ public class Location {
     if (!(o instanceof Location location1)) {
       return false;
     }
-    return location.equals(location1.location);
+
+    if (!Objects.equals(location, location1.location)) {
+      return false;
+    }
+    return Objects.equals(city, location1.city);
   }
 
   @Override
   public int hashCode() {
-    return location.hashCode();
+    int result = location != null ? location.hashCode() : 0;
+    result = 31 * result + (city != null ? city.hashCode() : 0);
+    return result;
   }
 }

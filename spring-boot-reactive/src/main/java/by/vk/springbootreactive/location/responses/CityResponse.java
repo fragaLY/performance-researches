@@ -1,4 +1,4 @@
-package by.vk.springbootreactive.responses;
+package by.vk.springbootreactive.location.responses;
 
 
 import by.vk.springbootreactive.location.repository.city.City;

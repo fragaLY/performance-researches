@@ -36,16 +36,21 @@ public class City {
     if (!(o instanceof City city)) {
       return false;
     }
+
     if (!Objects.equals(name, city.name)) {
       return false;
     }
-    return Objects.equals(code, city.code);
+    if (!Objects.equals(code, city.code)) {
+      return false;
+    }
+    return Objects.equals(country, city.country);
   }
 
   @Override
   public int hashCode() {
     int result = name != null ? name.hashCode() : 0;
     result = 31 * result + (code != null ? code.hashCode() : 0);
+    result = 31 * result + (country != null ? country.hashCode() : 0);
     return result;
   }
 }
