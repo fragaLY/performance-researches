@@ -25,11 +25,8 @@ public class City {
   private String name;
   private String code;
 
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "country_id", nullable = false)
   @ToString.Exclude
   private Country country;
-
 
   @Override
   public boolean equals(Object o) {
