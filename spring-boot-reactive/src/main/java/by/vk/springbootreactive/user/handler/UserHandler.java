@@ -95,7 +95,7 @@ public record UserHandler(DatabaseClient client, UserRepository userRepository,
                       it -> client.sql(CREATE_USER_TRANSFER_QUERY_VALUE).bind("userId", userId)
                                   .bind("transferId", transferId).bind("state", State.BOOKED.toString())
                                   .bind("description", it.description()).fetch().first().onErrorComplete())
-                  .flatMap(it -> ServerResponse.noContent().build());
+                  .flatMap(it -> ServerResponse.ok().build());
 
   }
 

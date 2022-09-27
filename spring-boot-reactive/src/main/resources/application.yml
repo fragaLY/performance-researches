@@ -14,6 +14,8 @@ spring:
     url: "r2dbc:postgresql://localhost:5433/a2b"
     username: "postgres"
     password: "postgres"
+    properties:
+      schema: "a2b"
 
 management:
   health:
