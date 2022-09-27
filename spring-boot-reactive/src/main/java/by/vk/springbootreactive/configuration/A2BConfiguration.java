@@ -7,14 +7,20 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RequestPredicates.contentType;
 
+import by.vk.springbootreactive.exception.BadRequestException;
+import by.vk.springbootreactive.exception.NotFoundException;
 import by.vk.springbootreactive.location.handler.LocationHandler;
 import by.vk.springbootreactive.transfer.handler.TransferHandler;
 import by.vk.springbootreactive.user.handler.UserHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
+import org.springframework.web.server.ServerWebExchange;
+import org.springframework.web.server.WebExceptionHandler;
+import reactor.core.publisher.Mono;
 
 @Configuration(proxyBeanMethods = false)
 public class A2BConfiguration {
@@ -37,6 +43,18 @@ public class A2BConfiguration {
   }
   //@formatter:on
 
-  //todo vk: add exception handling
-  //todo vk: add retry and etc.
+  @Bean
+  public WebExceptionHandler exceptionHandler() {
+    return (ServerWebExchange exchange, Throwable ex) -> {
+      if (ex instanceof BadRequestException) {
+        exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST);
+        return exchange.getResponse().setComplete();
+      } else if (ex instanceof NotFoundException) {
+        exchange.getResponse().setStatusCode(HttpStatus.NOT_FOUND);
+        return exchange.getResponse().setComplete();
+      }
+      return Mono.error(ex);
+    };
+  }
+
 }
