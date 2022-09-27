@@ -12,3 +12,11 @@ services:
       - POSTGRES_DB=a2b
     ports:
       - "5433:5432"
+
+  service-a2b:
+    image: spring-boot-reactive-native:0.0.1-SNAPSHOT
+    container_name: reactive-native-service-a2b
+    hostname: reactive-native-service-a2b
+    restart: on-failure
+    ports:
+      - "8080:8080"
