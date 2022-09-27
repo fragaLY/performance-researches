@@ -84,7 +84,7 @@ public class A2BSimulation extends Simulation {
       .pause(3, 5)
       .exec(http("[POST] The transfer is booked in the system.")
           .post("/users/#{userId}/transfers/#{transferId}")
-          .check(status().is(HttpResponseStatus.CREATED.code()))
+          .check(status().is(HttpResponseStatus.OK.code()))
           .body(
               StringBody("{ \"description\": \"My internal uuid is " + UUID.randomUUID() + "\" }"))
           .asJson()

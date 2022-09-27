@@ -1,0 +1,44 @@
+server:
+  compression:
+    enabled: true
+
+spring:
+  main:
+    banner-mode: off
+    web-application-type: reactive
+  cache:
+    type: none
+  webflux:
+    base-path: "api/v1/"
+  r2dbc:
+    url: "r2dbc:postgresql://localhost:5433/a2b" # for docker "r2dbc:postgresql://postgres-a2b:5432/a2b"
+    username: "postgres"
+    password: "postgres"
+    properties:
+      schema: "a2b"
+
+management:
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-components: never
+      show-details: never
+      group:
+        readiness:
+          include: readinessState, db
+    metrics.enabled: true
+    prometheus.enabled: true
+  endpoints.web.exposure.include: "*"
+  metrics.export.prometheus.enabled: true
+
+logging.level:
+  ROOT: info
+  by.vk.springbootreactive: info
+  org.springframework: info

@@ -1,0 +1,56 @@
+package by.vk.springbootreactivenative.location.repository.city;
+
+import by.vk.springbootreactivenative.location.repository.country.Country;
+import java.util.Objects;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table(schema = "a2b", name = "cities")
+@Getter
+@Setter
+@ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class City {
+
+  @Id
+  private Long id;
+  private String name;
+  private String code;
+
+  @ToString.Exclude
+  private Country country;
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof City city)) {
+      return false;
+    }
+
+    if (!Objects.equals(name, city.name)) {
+      return false;
+    }
+    if (!Objects.equals(code, city.code)) {
+      return false;
+    }
+    return Objects.equals(country, city.country);
+  }
+
+  @Override
+  public int hashCode() {
+    int result = name != null ? name.hashCode() : 0;
+    result = 31 * result + (code != null ? code.hashCode() : 0);
+    result = 31 * result + (country != null ? country.hashCode() : 0);
+    return result;
+  }
+}
