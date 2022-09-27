@@ -33,10 +33,11 @@ public record LocationHandler(DatabaseClient client,
   public Mono<ServerResponse> cities(ServerRequest request) {
     var countryId = Long.parseLong(request.pathVariable("countryId"));
     var body = client.sql(CITIES_BY_COUNTRY_QUERY_VALUE)
-        .bind("countryId", countryId)
-        .map(cityMapper)
-        .all()
-        .mapNotNull(CityResponse::from);
+                     .bind("countryId", countryId)
+                     .map(cityMapper)
+                     .all()
+                     .onErrorComplete()
+                     .mapNotNull(CityResponse::from);
     return ServerResponse
         .ok()
         .contentType(MediaType.APPLICATION_JSON)
@@ -47,10 +48,11 @@ public record LocationHandler(DatabaseClient client,
   public Mono<ServerResponse> locations(ServerRequest request) {
     var cityId = Long.parseLong(request.pathVariable("cityId"));
     var body = client.sql(LOCATIONS_BY_CITY_QUERY_VALUE)
-        .bind("cityId", cityId)
-        .map(locationMapper)
-        .all()
-        .mapNotNull(LocationResponse::from);
+                     .bind("cityId", cityId)
+                     .map(locationMapper)
+                     .all()
+                     .onErrorComplete()
+                     .mapNotNull(LocationResponse::from);
     return ServerResponse
         .ok()
         .contentType(MediaType.APPLICATION_JSON)

@@ -49,6 +49,7 @@ public record TransferHandler(TransferMapper transferMapper, DatabaseClient clie
                      .bind("date", date)
                      .map(transferMapper)
                      .all()
+                     .onErrorComplete()
                      .mapNotNull(TransferResponse::from);
 
     return ServerResponse

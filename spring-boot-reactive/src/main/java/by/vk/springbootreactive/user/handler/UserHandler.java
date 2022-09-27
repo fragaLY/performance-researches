@@ -17,8 +17,7 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 @Component
-public record UserHandler(DatabaseClient client,
-                          UserRepository userRepository,
+public record UserHandler(DatabaseClient client, UserRepository userRepository,
                           UserTransfersMapper userTransfersMapper) {
 
   private static final String USER_TRANSFERS_BY_USER_QUERY_VALUE =
@@ -30,16 +29,14 @@ public record UserHandler(DatabaseClient client,
           + "       oco.id as transfer_origin_country_id, oco.name as transfer_origin_country_name, oco.code as transfer_origin_country_code,\n"
           + "       dco.id as transfer_destination_country_id, dco.name as transfer_destination_country_name, dco.code as transfer_destination_country_code\n,"
           + "       ut.state as state,  ut.description as description\n"
-          + "from users_transfers ut\n"
-          + "join users u on ut.user_id = u.id\n"
+          + "from users_transfers ut\n" + "join users u on ut.user_id = u.id\n"
           + "join transfers t on t.id = ut.transfer_id\n"
           + "left join locations o on t.origin = o.id\n"
           + "left join locations d on t.destination = d.id\n"
           + "left join cities oc on oc.id = o.city_id\n"
           + "left join cities dc on dc.id = d.city_id\n"
           + "left join countries oco on oco.id = oc.country_id\n"
-          + "left join countries dco on dco.id = dc.country_id\n"
-          + "where user_id = :userId";
+          + "left join countries dco on dco.id = dc.country_id\n" + "where user_id = :userId";
 
   private static final String CREATE_USER_TRANSFER_QUERY_VALUE = "INSERT INTO users_transfers (user_id, transfer_id, state, description) VALUES (:userId, :transferId, :state, :description)";
   private static final String UPDATE_USER_TRANSFER_QUERY_VALUE = "UPDATE users_transfers SET state = :state, description = :description WHERE user_id = :userId AND transfer_id = :transferId";
@@ -47,97 +44,73 @@ public record UserHandler(DatabaseClient client,
 
   public Mono<ServerResponse> user(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
-    var body = userRepository.findById(userId).mapNotNull(UserResponse::from);
-    return ServerResponse
-        .ok()
-        .contentType(MediaType.APPLICATION_JSON)
-        .body(body, UserResponse.class)
-        .switchIfEmpty(ServerResponse.notFound().build());
+    var body = userRepository.findById(userId).mapNotNull(UserResponse::from).onErrorComplete();
+    return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
+                         .body(body, UserResponse.class)
+                         .switchIfEmpty(ServerResponse.notFound().build());
   }
 
   public Mono<ServerResponse> updateUser(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
-    return request.bodyToMono(UserEditionPayload.class)
-                  .flatMap(it -> client.sql(UPDATE_USER_QUERY_VALUE).bind("userId", userId)
-                                       .bind("firstName", it.firstName())
-                                       .bind("lastName", it.lastName()).fetch().rowsUpdated())
-                  .flatMap(it -> ServerResponse.noContent().build())
-                  .switchIfEmpty(
-                      Mono.error(new BadRequestException("User payload had not been found")));
+    return request.bodyToMono(UserEditionPayload.class).flatMap(
+                      it -> client.sql(UPDATE_USER_QUERY_VALUE).bind("userId", userId)
+                                  .bind("firstName", it.firstName()).bind("lastName", it.lastName()).fetch()
+                                  .rowsUpdated().onErrorComplete())
+                  .flatMap(it -> ServerResponse.noContent().build()).switchIfEmpty(
+            Mono.error(new BadRequestException("User payload had not been found")));
   }
 
   public Mono<ServerResponse> userTransfer(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
     var transferId = Long.parseLong(request.pathVariable("transferId"));
 
-    var sql = USER_TRANSFERS_BY_USER_QUERY_VALUE
-        + " AND transfer_id = :transferId";
+    var sql = USER_TRANSFERS_BY_USER_QUERY_VALUE + " AND transfer_id = :transferId";
 
-    var body = client.sql(sql)
-                     .bind("userId", userId)
-                     .bind("transferId", transferId)
-                     .map(userTransfersMapper)
-                     .one()
-                     .mapNotNull(UserTransferResponse::from);
+    var body = client.sql(sql).bind("userId", userId).bind("transferId", transferId)
+                     .map(userTransfersMapper).one().mapNotNull(UserTransferResponse::from)
+                     .onErrorComplete();
 
-    return ServerResponse
-        .ok()
-        .contentType(MediaType.APPLICATION_JSON)
-        .body(body, UserTransferResponse.class)
-        .switchIfEmpty(ServerResponse.notFound()
-                                     .build());
+    return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
+                         .body(body, UserTransferResponse.class)
+                         .switchIfEmpty(ServerResponse.notFound().build());
   }
 
   public Mono<ServerResponse> userTransfers(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
-    var body = client.sql(USER_TRANSFERS_BY_USER_QUERY_VALUE)
-                     .bind("userId", userId)
-                     .map(userTransfersMapper)
-                     .all()
-                     .mapNotNull(UserTransferResponse::from);
+    var body = client.sql(USER_TRANSFERS_BY_USER_QUERY_VALUE).bind("userId", userId)
+                     .map(userTransfersMapper).all().mapNotNull(UserTransferResponse::from)
+                     .onErrorComplete();
 
-    return ServerResponse
-        .ok()
-        .contentType(MediaType.APPLICATION_JSON)
-        .body(body, UserTransferResponse.class)
-        .switchIfEmpty(ServerResponse.notFound()
-                                     .build());
+    return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
+                         .body(body, UserTransferResponse.class)
+                         .switchIfEmpty(ServerResponse.notFound().build());
   }
 
   public Mono<ServerResponse> createUserTransfer(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
     var transferId = Long.parseLong(request.pathVariable("transferId"));
 
-    return request.bodyToMono(UserTransferCreationPayload.class)
-                  .switchIfEmpty(Mono.error(
-                      new BadRequestException("User's transfer payload had not been found")))
-                  .flatMap(it -> client.sql(CREATE_USER_TRANSFER_QUERY_VALUE)
-                                       .bind("userId", userId)
-                                       .bind("transferId", transferId)
-                                       .bind("state", State.BOOKED.toString())
-                                       .bind("description", it.description())
-                                       .fetch()
-                                       .first())
+    return request.bodyToMono(UserTransferCreationPayload.class).switchIfEmpty(
+                      Mono.error(new BadRequestException("User's transfer payload had not been found"))).flatMap(
+                      it -> client.sql(CREATE_USER_TRANSFER_QUERY_VALUE).bind("userId", userId)
+                                  .bind("transferId", transferId).bind("state", State.BOOKED.toString())
+                                  .bind("description", it.description()).fetch().first().onErrorComplete())
                   .flatMap(it -> ServerResponse.noContent().build());
 
   }
 
 
-  //todo vk: fix
   public Mono<ServerResponse> updateUserTransfer(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
     var transferId = Long.parseLong(request.pathVariable("transferId"));
 
-    return request.bodyToMono(UserTransferEditionPayload.class)
+    return request.bodyToMono(UserTransferEditionPayload.class).flatMap(
+                      it -> client.sql(UPDATE_USER_TRANSFER_QUERY_VALUE).bind("userId", userId)
+                                  .bind("transferId", transferId).bind("state", it.state().toString())
+                                  .bind("description", it.description()).fetch().rowsUpdated().onErrorComplete())
+                  .flatMap(it -> ServerResponse.noContent().build())
                   .switchIfEmpty(Mono.error(
-                      new BadRequestException("User's transfer payload had not been found")))
-                  .flatMap(it -> client.sql(UPDATE_USER_TRANSFER_QUERY_VALUE)
-                                       .bind("userId", userId)
-                                       .bind("transferId", transferId)
-                                       .bind("state", it.state().toString())
-                                       .bind("description", it.description())
-                                       .fetch().rowsUpdated())
-                  .flatMap(it -> ServerResponse.noContent().build());
+                      new BadRequestException("User's transfer payload had not been found")));
   }
 
 }
