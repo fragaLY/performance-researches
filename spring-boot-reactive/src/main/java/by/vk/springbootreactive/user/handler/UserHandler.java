@@ -1,12 +1,10 @@
 package by.vk.springbootreactive.user.handler;
 
 import by.vk.springbootreactive.exception.BadRequestException;
-import by.vk.springbootreactive.exception.NotFoundException;
 import by.vk.springbootreactive.user.mapper.UserTransfersMapper;
 import by.vk.springbootreactive.user.payload.UserEditionPayload;
 import by.vk.springbootreactive.user.payload.UserTransferCreationPayload;
 import by.vk.springbootreactive.user.payload.UserTransferEditionPayload;
-import by.vk.springbootreactive.user.repository.user.User;
 import by.vk.springbootreactive.user.repository.user.UserRepository;
 import by.vk.springbootreactive.user.repository.usertransfer.State;
 import by.vk.springbootreactive.user.responses.UserResponse;
@@ -45,6 +43,7 @@ public record UserHandler(DatabaseClient client,
 
   private static final String CREATE_USER_TRANSFER_QUERY_VALUE = "INSERT INTO users_transfers (user_id, transfer_id, state, description) VALUES (:userId, :transferId, :state, :description)";
   private static final String UPDATE_USER_TRANSFER_QUERY_VALUE = "UPDATE users_transfers SET state = :state, description = :description WHERE user_id = :userId AND transfer_id = :transferId";
+  private static final String UPDATE_USER_QUERY_VALUE = "UPDATE users SET first_name = :firstName, last_name = :lastName WHERE id = :userId";
 
   public Mono<ServerResponse> user(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
@@ -56,21 +55,15 @@ public record UserHandler(DatabaseClient client,
         .switchIfEmpty(ServerResponse.notFound().build());
   }
 
-  //todo vk: fix
   public Mono<ServerResponse> updateUser(ServerRequest request) {
     var userId = Long.parseLong(request.pathVariable("userId"));
-    var payload = request.bodyToMono(UserEditionPayload.class)
-                         .switchIfEmpty(Mono.error(
-                             new BadRequestException("User payload had not been found")));
-
-    return userRepository.findById(userId)
-                         .switchIfEmpty(
-                             Mono.error(new NotFoundException(User.class.getName(), userId)))
-                         .flatMap(user ->
-                             payload.flatMap(it -> userRepository.save(
-                                 user.setFirstName(it.firstName())
-                                     .setLastName(it.lastName()))))
-                         .flatMap(it -> ServerResponse.noContent().build());
+    return request.bodyToMono(UserEditionPayload.class)
+                  .flatMap(it -> client.sql(UPDATE_USER_QUERY_VALUE).bind("userId", userId)
+                                       .bind("firstName", it.firstName())
+                                       .bind("lastName", it.lastName()).fetch().rowsUpdated())
+                  .flatMap(it -> ServerResponse.noContent().build())
+                  .switchIfEmpty(
+                      Mono.error(new BadRequestException("User payload had not been found")));
   }
 
   public Mono<ServerResponse> userTransfer(ServerRequest request) {
