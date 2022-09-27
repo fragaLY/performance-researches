@@ -31,7 +31,7 @@ public class A2BConfiguration {
 
     return RouterFunctions
         .route(GET("/countries").and(accept(APPLICATION_JSON)), location::countries)
-        .andRoute(GET("/countries/{countryId:[0-9]+}/cities/").and(accept(APPLICATION_JSON)), location::cities)
+        .andRoute(GET("/countries/{countryId:[0-9]+}/cities").and(accept(APPLICATION_JSON)), location::cities)
         .andRoute(GET("/countries/{countryId:[0-9]+}/cities/{cityId:[0-9]+}/locations").and(accept(APPLICATION_JSON)), location::locations)
         .andRoute(GET("/transfers").and(accept(APPLICATION_JSON)), transfer::transfers)
         .andRoute(GET("/users/{userId:[0-9]+}").and(accept(APPLICATION_JSON)), user::user)
