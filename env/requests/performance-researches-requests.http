@@ -1,0 +1,43 @@
+### GET ALL COUNTRIES
+GET http://localhost:8080/api/v1/countries
+
+### GET ALL COUNTRY CITIES
+GET http://localhost:8080/api/v1/countries/1/cities
+
+### GET ALL CITY LOCATIONS
+GET http://localhost:8080/api/v1/countries/1/cities/1/locations
+
+### GET USER'S INFO
+GET http://localhost:8080/api/v1/users/11
+
+### GET USER'S TRANSFERS
+GET http://localhost:8080/api/v1/users/11/transfers
+
+### GET USER'S TRANSFER
+GET http://localhost:8080/api/v1/users/11/transfers/1676
+
+### UPDATE USER'S INFO
+PUT http://localhost:8080/api/v1/users/11
+Content-Type: application/json
+
+{
+  "firstName": "Vadzim",
+  "lastName": "Kavalkou"
+}
+
+### CREATE A TRANSFER FOR USER
+POST http://localhost:8080/api/v1/users/513/transfers/2676
+Content-Type: application/json
+
+{
+  "description": "Oh my!"
+}
+
+### UPDATE USER'S TRANSFER
+PUT http://localhost:8080/api/v1/users/11/transfers/1676
+
+{
+  "description": "WTF",
+  "state": "CANCELED"
+}
+
