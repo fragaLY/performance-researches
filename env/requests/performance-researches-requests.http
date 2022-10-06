@@ -1,24 +1,31 @@
 ### GET ALL COUNTRIES
 GET http://localhost:8080/api/v1/countries
+Accept: application/json
 
 ### GET ALL COUNTRY CITIES
 GET http://localhost:8080/api/v1/countries/1/cities
+Accept: application/json
 
 ### GET ALL CITY LOCATIONS
 GET http://localhost:8080/api/v1/countries/1/cities/1/locations
+Accept: application/json
 
 ### GET USER'S INFO
 GET http://localhost:8080/api/v1/users/11
+Accept: application/json
 
 ### GET USER'S TRANSFERS
 GET http://localhost:8080/api/v1/users/11/transfers
+Accept: application/json
 
 ### GET USER'S TRANSFER
 GET http://localhost:8080/api/v1/users/11/transfers/1676
+Accept: application/json
 
 ### UPDATE USER'S INFO
 PUT http://localhost:8080/api/v1/users/11
 Content-Type: application/json
+Accept: application/json
 
 {
   "firstName": "Vadzim",

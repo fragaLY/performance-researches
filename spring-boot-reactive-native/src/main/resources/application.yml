@@ -11,7 +11,7 @@ spring:
   webflux:
     base-path: "api/v1/"
   r2dbc:
-    url: "r2dbc:postgresql://localhost:5433/a2b" # for docker "r2dbc:postgresql://postgres-a2b:5432/a2b"
+    url: "r2dbc:postgresql://localhost:5433/a2b" #for in docker solution replace 'localhost' with 'postgres-a2b'
     username: "postgres"
     password: "postgres"
     properties:

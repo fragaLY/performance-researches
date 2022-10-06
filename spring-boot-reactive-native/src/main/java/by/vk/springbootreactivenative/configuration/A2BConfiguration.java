@@ -36,10 +36,10 @@ public class A2BConfiguration {
         .andRoute(GET("/transfers").and(accept(APPLICATION_JSON)), transfer::transfers)
         .andRoute(GET("/users/{userId:[0-9]+}").and(accept(APPLICATION_JSON)), user::user)
         .andRoute(GET("/users/{userId:[0-9]+}/transfers").and(accept(APPLICATION_JSON)), user::userTransfers)
-        .andRoute(GET("/users/{userId:[0-9]+}/transfers/{transferId:[0-9]+}").and(accept(APPLICATION_JSON)), user::userTransfer)
-        .andRoute(POST("/users/{userId:[0-9]+}/transfers/{transferId:[0-9]+}").and(contentType(APPLICATION_JSON)), user::createUserTransfer)
-        .andRoute(PUT("/users/{userId:[0-9]+}/transfers/{transferId:[0-9]+}").and(contentType(APPLICATION_JSON)), user::updateUserTransfer)
-        .andRoute(PUT("/users/{userId:[0-9]+}").and(contentType(APPLICATION_JSON)), user::updateUser);
+        .andRoute(GET("/users/{userId:[0-9]+}/transfers/{transferId:[0-9]+}"), user::userTransfer)
+        .andRoute(POST("/users/{userId:[0-9]+}/transfers/{transferId:[0-9]+}"), user::createUserTransfer)
+        .andRoute(PUT("/users/{userId:[0-9]+}/transfers/{transferId:[0-9]+}"), user::updateUserTransfer)
+        .andRoute(PUT("/users/{userId:[0-9]+}"), user::updateUser);
   }
   //@formatter:on
 
