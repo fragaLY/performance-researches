@@ -1,6 +1,12 @@
 greeting:
   message: "hello"
+
 quarkus:
-  hibernate-orm:
-    database:
-      generation: "drop-and-create"
+  banner:
+    enabled: false
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: postgres
+    reactive:
+      url: postgresql://localhost:5433/a2b?currentSchema=a2b
