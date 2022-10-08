@@ -43,11 +43,10 @@ public class User {
                  .onItem().transform(iterator -> iterator.hasNext() ? from(iterator.next()) : null);
   }
 
-  public static Uni<Long> update(PgPool client, Long userId, UserEditionPayload payload) {
+  public static Uni<Integer> update(PgPool client, Long userId, UserEditionPayload payload) {
     return client.preparedQuery(UPDATE_USER_QUERY_VALUE)
                  .execute(Tuple.from(List.of(payload.firstName(), payload.lastName(), userId)))
-                 .onItem().transform(RowSet::iterator)
-        .onItem().transform(iterator -> iterator.hasNext() ? iterator.next().getLong("id") : null);
+                 .onItem().transform(RowSet::rowCount);
   }
 
   static User from(Row row) {
