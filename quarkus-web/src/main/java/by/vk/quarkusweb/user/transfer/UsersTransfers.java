@@ -48,7 +48,7 @@ public class UsersTransfers {
           + "left join a2b.countries dco on dco.id = dc.country_id\n" + "where user_id = $1";
 
   private static final String CREATE_USER_TRANSFER_QUERY_VALUE = "INSERT INTO a2b.users_transfers (user_id, transfer_id, state, description) VALUES ($1, $2, $3, $4)";
-  private static final String UPDATE_USER_TRANSFER_QUERY_VALUE = "UPDATE a2b.users_transfers SET state = :state, description = :description WHERE user_id = :userId AND transfer_id = :transferId";
+  private static final String UPDATE_USER_TRANSFER_QUERY_VALUE = "UPDATE a2b.users_transfers SET state = $1, description = $2 WHERE user_id = $3 AND transfer_id = $4";
 
   private UsersTransfersId id;
   private User user;
@@ -131,6 +131,14 @@ public class UsersTransfers {
     return client.preparedQuery(USER_TRANSFERS_BY_USER_QUERY_VALUE).execute(Tuple.of(userId))
                  .onItem().transformToMulti(it -> Multi.createFrom().iterable(it))
                  .onItem().transform(UsersTransfers::from);
+  }
+
+  public static Uni<Integer> update(PgPool client, Long userId, Long transferId,
+      UserTransferEditionPayload payload) {
+    return client.preparedQuery(UPDATE_USER_TRANSFER_QUERY_VALUE).execute(
+                     Tuple.from(List.of(payload.state(), payload.description(), userId, transferId)))
+                 .onItem()
+                 .transform(RowSet::rowCount);
   }
 
   @Override

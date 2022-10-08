@@ -4,7 +4,9 @@ import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import io.vertx.mutiny.pgclient.PgPool;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -38,5 +40,18 @@ public class UserTransferResource {
                          )
                          .onItem()
                          .transform(ResponseBuilder::build);
+  }
+
+  @PUT
+  @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
+  public Uni<Response> update(Long userId, Long transferId, UserTransferEditionPayload payload) {
+    return UsersTransfers.update(client, userId, transferId, payload).onItem()
+                         .transform(
+                             it -> it != null ? Response.noContent()
+                                 : Response.status(Status.NOT_FOUND)
+                         )
+                         .onItem().transform(ResponseBuilder::build);
   }
 }
