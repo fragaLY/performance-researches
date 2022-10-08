@@ -6,6 +6,7 @@ import io.vertx.mutiny.pgclient.PgPool;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -43,15 +44,25 @@ public class UserTransferResource {
   }
 
   @PUT
-  @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
+  @Path("/{userId:[0-9]+¬}/transfers/{transferId:[0-9]+}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   public Uni<Response> update(Long userId, Long transferId, UserTransferEditionPayload payload) {
-    return UsersTransfers.update(client, userId, transferId, payload).onItem()
+    return UsersTransfers.update(client, userId, transferId, payload).onItem().transform(
+                             it -> it != null ? Response.noContent() : Response.status(Status.NOT_FOUND)).onItem()
+                         .transform(ResponseBuilder::build);
+  }
+
+  @POST
+  @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
+  @Consumes(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.APPLICATION_JSON)
+  public Uni<Response> create(Long userId, Long transferId, UserTransferCreationPayload payload) {
+    return UsersTransfers.create(client, userId, transferId, payload)
+                         .onItem()
                          .transform(
-                             it -> it != null ? Response.noContent()
-                                 : Response.status(Status.NOT_FOUND)
-                         )
-                         .onItem().transform(ResponseBuilder::build);
+                             it -> it != null ? Response.ok() : Response.status(Status.NOT_FOUND))
+                         .onItem()
+                         .transform(ResponseBuilder::build);
   }
 }

@@ -141,6 +141,14 @@ public class UsersTransfers {
                  .transform(RowSet::rowCount);
   }
 
+  public static Uni<Integer> create(PgPool client, Long userId, Long transferId,
+      UserTransferCreationPayload payload) {
+    return client.preparedQuery(CREATE_USER_TRANSFER_QUERY_VALUE).execute(
+                     Tuple.from(List.of(userId, transferId, State.BOOKED, payload.description())))
+                 .onItem()
+                 .transform(RowSet::rowCount);
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
