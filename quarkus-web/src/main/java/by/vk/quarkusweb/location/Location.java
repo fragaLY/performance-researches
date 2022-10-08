@@ -39,7 +39,6 @@ public class Location {
   static Location from(Row row) {
     var id = row.getLong("id");
     var location = row.getJsonObject("location");
-
     var point = location.mapTo(Point.class);
 
     var cityId = row.getLong("city_id");

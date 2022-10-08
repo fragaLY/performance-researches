@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import lombok.AllArgsConstructor;
 
-@Path("/countries/{country:[0-9]+}/cities/{city:[0-9]+}/locations")
+@Path("/api/v1/countries/{country:[0-9]+}/cities/{city:[0-9]+}/locations")
 @AllArgsConstructor
 public class LocationResource {
 

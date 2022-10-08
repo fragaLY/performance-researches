@@ -1,8 +1,7 @@
-greeting:
-  message: "hello"
-
 quarkus:
   banner:
+    enabled: false
+  cache:
     enabled: false
   datasource:
     db-kind: postgresql
@@ -10,3 +9,9 @@ quarkus:
     password: postgres
     reactive:
       url: postgresql://localhost:5433/a2b?currentSchema=a2b
+#  buildpack:
+#    jvm-builder-image:
+#    native-builder-image:
+#  jib:
+#    base-jvm-image:
+#    base-native-image:

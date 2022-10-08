@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import lombok.AllArgsConstructor;
 
-@Path("/countries")
+@Path("/api/v1/countries")
 @AllArgsConstructor
 public class CountryResource {
 

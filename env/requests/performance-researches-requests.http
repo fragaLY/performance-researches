@@ -28,8 +28,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "firstName": "Vadzim",
-  "lastName": "Kavalkou"
+  "firstName": "Vee",
+  "lastName": "Kay"
 }
 
 ### CREATE A TRANSFER FOR USER
