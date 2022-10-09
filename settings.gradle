@@ -1,0 +1,8 @@
+rootProject.name = 'performance-researches'
+include("datagen")
+include("gatling")
+include("quarkus-reactive")
+include("spring-reactive")
+include("spring-reactive-native")
+include("spring-web")
+include("spring-web-native")

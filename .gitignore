@@ -141,3 +141,5 @@ gradle-app.setting
 performance-researches.iml
 
 # End of https://www.toptal.com/developers/gitignore/api/gradle,intellij+all,java
+# Ignore Gradle build output directory
+build
