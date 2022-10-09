@@ -18,7 +18,8 @@ dependencies {
     implementation("io.quarkus:quarkus-arc")
 //    implementation("io.quarkus:quarkus-container-image-jib") // remove it if you want to build fast or uber jar
 //    implementation("io.quarkus:quarkus-container-image-docker") // remove it if you want to build fast or uber jar
-    implementation("io.quarkus:quarkus-container-image-s2i") // remove it if you want to build fast or uber jar
+//    implementation("io.quarkus:quarkus-container-image-s2i") // remove it if you want to build fast or uber jar
+//    implementation("io.quarkus:quarkus-container-image-buildpack") // remove it if you want to build fast or uber jar
     //endregion
     //region lombok
     annotationProcessor("org.projectlombok:lombok:${lombokVersion}")

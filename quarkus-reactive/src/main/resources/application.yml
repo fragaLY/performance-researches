@@ -2,7 +2,7 @@ quarkus:
   banner:
     enabled: false
   container-image:
-    build: true # set false for non image building procedure
+    build: true # set false for non image building procedure, should be removed for Buildpack to avoid build in build.
   datasource:
     db-kind: postgresql
     username: postgres
@@ -16,5 +16,5 @@ quarkus:
 #      compression:
 #        level: 1 # fastest, 10 is the higher read: https://quarkus.io/guides/upx
 #  buildpack:
-#    jvm-builder-image:
+#    jvm-builder-ima3ge: paketo-buildpacks/amazon-corretto:7 # no default image is provided.
 #    native-builder-image:
