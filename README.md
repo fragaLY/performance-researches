@@ -5,6 +5,7 @@ The purposes of this research are next:
 2. Gain the experience in different non-related to previous primary focused stack, be hands-on with neighbor technologies;
 3. Share results with the global community all over the world;
 
+------------------------------------------------------------------------------------------------------------------------
 
 ### COMMON INFORMATION
 
@@ -16,8 +17,13 @@ The purposes of this research are next:
 * As a load testing tool I chose [Gatling](https://gatling.io/);
 * The versions of all languages, frameworks, libraries, and databases are the latest LTS at the moment of testing.
 
+------------------------------------------------------------------------------------------------------------------------
+
 ### DATABASE STRUCTURE
+
 ![](./env/database/database-structure.png)
+
+------------------------------------------------------------------------------------------------------------------------
 
 ### DATASET DESCRIPTION
 
@@ -44,6 +50,8 @@ The DB metrics:
 * Database size: 153 MB
 * Database dump size: 130.8 MB
 * Docker image with predefined data: 160.01 MB
+
+------------------------------------------------------------------------------------------------------------------------
 
 ### USE CASES
 
@@ -72,17 +80,26 @@ As a result, we will have 16 per day and 112 hours of load per week.
 
 I've described all use cases endpoints via [OpenAPI](./env/api/a2b.yaml).
 
+------------------------------------------------------------------------------------------------------------------------
+
 ### RESULTS
 
-|TYPE              |BUILD TIME (s)|ARTIFACT SIZE (MB)|BOOT UP (s)|ACTIVE USERS|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|RAM (MB)| CPU (%)|THREADS (MAX)|POSTGRES CPU (%)|
-|:-----------------|:-------------|:-----------------|:----------|:-----------|:------|:----------------------------|:---------------|:-------|:-------|:------------|:---------------|
-|BUILD PACK        |751           |144,79            |1,585      |10201       |374.566|47831                        |584             |310     |12,5    |64           |99              |
-|NATIVE BUILD TOOLS|210           |116,20            |:white_check_mark: 0,310      |8759        |414.785|32175                        |:white_check_mark: 1829            |:white_check_mark: 263     |:white_check_mark: 8       |52           |99              |
-|UNDERTOW          |:white_check_mark: 5             |:white_check_mark: 49,70             |3,59       |:white_check_mark: 10311       |381.127|50977                        |1611            |658     |11      |33           |99              |
-|UNDERTOW IN DOCKER|46            |280               |5,20       |10264       |:white_check_mark: 448.682|:white_check_mark: 29998                        |916             |840     |15      |:white_check_mark: 32           |99              |
+|APPLICATION TYPE|BUILD TYPE        |BUILD TIME (s)|ARTIFACT SIZE (MB)|BOOT UP (s)|ACTIVE USERS|TOTAL REQUESTS|OK     |KO(%)|RPS    |RESPONSE TIME (95th pct) (ms)|SATURATION POINT|RAM (MB)|CPU (%) |THREADS (MAX)|POSTGRES CPU (%)|
+|:---------------|:-----------------|:-------------|:-----------------|:----------|:-----------|:-------------|:------|:----|:------|:----------------------------|:---------------|:-------|:-------|:------------|:---------------|
+|WEB             |BUILD PACK        |751           |144,79            |1,585      |10201       |453012        |339759 |25   |374.566|47831                        |584             |310     |12,5    |64           |99              |
+|WEB             |NATIVE BUILD TOOLS|210           |116,20            |0,310      |8759        |480763        |342782 |29   |414.785|32175                        |1829            |:white_check_mark: 263     |:white_check_mark: 8       |52           |99              |
+|WEB             |UNDERTOW          |5             |49,70             |3,59       |10311       |523756        |396071 |24   |381.127|50977                        |1611            |658     |11      |33           |99              |
+|WEB             |UNDERTOW IN DOCKER|46            |280               |5,20       |10264       |430673        |289692 |33   |448.682|29998                        |916             |840     |15      |32           |99              |
+|REACTIVE        |BUILD PACK        |1243          |98,5              |:white_check_mark: 0,103|10268       |691487        |573983 |17   |615.75	|17891                        |1904            |685     |30      |:white_check_mark: 14           |:white_check_mark: 70              |
+|REACTIVE        |NATIVE BUILD TOOLS|187           |71,7              |:white_check_mark: 0,107|10224       |1013549       |915094 |10   |934.147|12591                        |3038            |634     |32      |23           |:white_check_mark: 70              |
+|REACTIVE        |JAR               |:white_check_mark: 3,1|:white_check_mark: 40,6|2,55       |10326       |:white_check_mark: 1168782       |1079847|:white_check_mark: 8    |:white_check_mark: 1091,3 |:white_check_mark: 10406                        |:white_check_mark: 4391            |1823    |:white_check_mark: 8       |31           |:white_check_mark: 70              |
+|REACTIVE        |JAR IN DOCKER     |39            |271               |3,95       |10258       |699180        |581761 |17   |631.599|18955                        |2250            |883     |29      |31           |:white_check_mark: 70              |
 
-* [SPRING BOOT WEB](spring-boot-web/README.md)
-* [SPRING BOOT WEB NATIVE](spring-boot-web-native/README.md)
+* [SPRING WEB AND SPRING WEB AS NATIVE](https://github.com/fragaLY/blog/blob/main/spring-boot-web_vs_spring-boot-web-native/SPRING-BOOT-WEB_VS_SPRING-BOOT-WEB-NATIVE.md)
+* [SPRING REACTIVE AND SPRING REACTIVE AS NATIVE](https://github.com/fragaLY/blog/blob/main/spring-boot-reactive_vs_spring-boot-reactive-native/SPRING-BOOT-REACTIVE_VS_SPRING-BOOT-REACTIVE-NATIVE.md)
+* [QUARKUS REACTIVE AND QUARKUS REACTIVE AS NATIVE](https://github.com/fragaLY/blog/blob/main/quarkus-reactive_vs_quarkus-reactive-native/QUARKUS-REACTIVE_VS_QUARKUS-REACTIVE-NATIVE.md)
+
+------------------------------------------------------------------------------------------------------------------------
 
 ### SUPPORT THE PROJECT
 
