@@ -44,7 +44,7 @@ public class UserTransferResource {
   }
 
   @PUT
-  @Path("/{userId:[0-9]+¬}/transfers/{transferId:[0-9]+}")
+  @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
   public Uni<Response> update(Long userId, Long transferId, UserTransferEditionPayload payload) {
