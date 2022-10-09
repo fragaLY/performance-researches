@@ -12,3 +12,11 @@ services:
       - POSTGRES_DB=a2b
     ports:
       - "5433:5432"
+
+  service-a2b:
+    image: vadzim_kavalkou/quarkus-reactive:1.0-SNAPSHOT
+    container_name: service-a2b
+    hostname: service-a2b
+    restart: on-failure
+    ports:
+      - "8080:8080"

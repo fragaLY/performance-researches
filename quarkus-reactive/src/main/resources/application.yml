@@ -1,9 +1,13 @@
 quarkus:
   banner:
     enabled: false
+  container-image:
+    build: true # set false for non image building procedure
   datasource:
     db-kind: postgresql
     username: postgres
     password: postgres
     reactive:
-      url: postgresql://localhost:5433/a2b?currentSchema=a2b
+      url: postgresql://postgres-a2b:5432/a2b?currentSchema=a2b # for non-container solution replace 'postgres-a2b' with 'localhost' and port with "5433"
+  jib:
+    base-jvm-image: "gcr.io/distroless/java17"
