@@ -9,5 +9,12 @@ quarkus:
     password: postgres
     reactive:
       url: postgresql://postgres-a2b:5432/a2b?currentSchema=a2b # for non-container solution replace 'postgres-a2b' with 'localhost' and port with "5433"
-  jib:
-    base-jvm-image: "gcr.io/distroless/java17"
+#  jib:
+#    base-jvm-image: "gcr.io/distroless/java17"
+#    base-native-image:
+#  native:
+#      compression:
+#        level: 1 # fastest, 10 is the higher read: https://quarkus.io/guides/upx
+#  buildpack:
+#    jvm-builder-image:
+#    native-builder-image:
