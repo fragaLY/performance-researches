@@ -3,3 +3,12 @@
 !build/*-runner.jar
 !build/lib/*
 !build/quarkus-app/*
+
+-- for multi-stage
+
+!src/**
+!gradle.properties
+!settings.gradle
+!build.gradle
+!gradle/*
+!gradlew
