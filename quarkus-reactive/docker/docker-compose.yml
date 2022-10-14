@@ -6,6 +6,8 @@ services:
     container_name: postgres-a2b
     hostname: postgres-a2b
     restart: on-failure
+    volumes:
+      - data:/var/lib/postgres
     environment:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
@@ -19,6 +21,11 @@ services:
     hostname: service-a2b
     security_opt:
       - seccomp=unconfined
+    volumes:
+      - data:/var/lib/a2b-service
     restart: on-failure
     ports:
       - "8080:8080"
+
+volumes:
+  data:
