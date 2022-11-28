@@ -13,7 +13,7 @@ spring:
     type: none
   datasource:
     driverClassName: org.postgresql.Driver
-    url: "jdbc:postgresql://postgres-a2b:5432/a2b?currentSchema=a2b" #for local solution replace 'postgres-a2b' with localhost and port '5432' to '5433'
+    url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b" #for local solution replace 'postgres-a2b' with localhost and port '5432' to '5433'
     username: "postgres"
     password: "postgres"
     hikari:
@@ -26,7 +26,7 @@ spring:
       keepaliveTime: 30000 # default: 0 (disabled)
   jpa:
     open-in-view: false
-    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
     properties:
@@ -60,7 +60,10 @@ management:
     metrics.enabled: true
     prometheus.enabled: true
   endpoints.web.exposure.include: "*"
-  metrics.export.prometheus.enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
 
 logging.level:
   ROOT: info

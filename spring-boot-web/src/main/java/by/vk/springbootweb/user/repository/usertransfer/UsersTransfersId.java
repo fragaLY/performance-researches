@@ -1,10 +1,10 @@
 package by.vk.springbootweb.user.repository.usertransfer;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import org.hibernate.Hibernate;
 
 @Embeddable

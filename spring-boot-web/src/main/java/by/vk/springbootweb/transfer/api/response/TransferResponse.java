@@ -2,15 +2,13 @@ package by.vk.springbootweb.transfer.api.response;
 
 import by.vk.springbootweb.location.api.response.LocationResponse;
 import by.vk.springbootweb.transfer.repository.Transfer;
-import com.vladmihalcea.hibernate.type.range.Range;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 
 public record TransferResponse(Long transferId,
                                LocationResponse origin,
                                LocationResponse destination,
                                Short capacity,
-                               Range<LocalDateTime> duration,
+                               String duration,
                                BigDecimal price,
                                String description) {
 
