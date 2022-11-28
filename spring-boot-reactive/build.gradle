@@ -21,7 +21,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework:spring-context-indexer")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.12")
+    implementation("org.springdoc:springdoc-openapi-ui:1.6.13")
     //endregion
     //region logback
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
