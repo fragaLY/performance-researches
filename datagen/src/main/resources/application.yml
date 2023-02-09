@@ -4,7 +4,7 @@ spring:
     banner-mode: off
     lazy-initialization: true
   datasource:
-    driverClassName: org.postgresql.Driver
+    driverClassName: org.hibernate.dialect.PostgreSQLDialect
     url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b"
     username: "user"
     password: "password"

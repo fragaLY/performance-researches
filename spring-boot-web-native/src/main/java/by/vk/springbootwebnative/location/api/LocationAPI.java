@@ -5,7 +5,7 @@ import by.vk.springbootwebnative.location.api.response.CityResponse;
 import by.vk.springbootwebnative.location.api.response.CountryResponse;
 import by.vk.springbootwebnative.location.api.response.LocationResponse;
 import java.util.List;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
