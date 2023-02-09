@@ -11,14 +11,15 @@ import by.vk.springbootreactivenative.user.repository.usertransfer.UsersTransfer
 import by.vk.springbootreactivenative.user.repository.usertransfer.UsersTransfersId;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.r2dbc.spi.Row;
+import io.r2dbc.spi.RowMetadata;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserTransfersMapper implements Function<Row, UsersTransfers> {
+public class UserTransfersMapper implements BiFunction<Row, RowMetadata, UsersTransfers> {
 
   private final ObjectMapper mapper;
 
@@ -28,7 +29,7 @@ public class UserTransfersMapper implements Function<Row, UsersTransfers> {
 
   @Override
   @SneakyThrows
-  public UsersTransfers apply(Row row) {
+  public UsersTransfers apply(Row row, RowMetadata meta) {
 
     //region user
     var userId = row.get("user_id", Long.class);

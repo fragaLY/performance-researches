@@ -7,14 +7,15 @@ import by.vk.springbootreactivenative.location.repository.location.Point;
 import by.vk.springbootreactivenative.transfer.repository.Transfer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.r2dbc.spi.Row;
+import io.r2dbc.spi.RowMetadata;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.function.Function;
+import java.util.function.BiFunction;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TransferMapper implements Function<Row, Transfer> {
+public class TransferMapper implements BiFunction<Row, RowMetadata, Transfer> {
 
   private final ObjectMapper mapper;
 
@@ -24,7 +25,7 @@ public class TransferMapper implements Function<Row, Transfer> {
 
   @Override
   @SneakyThrows
-  public Transfer apply(Row row) {
+  public Transfer apply(Row row, RowMetadata meta) {
 
     //region origin
     var originId = row.get("transfer_origin_id", Long.class);

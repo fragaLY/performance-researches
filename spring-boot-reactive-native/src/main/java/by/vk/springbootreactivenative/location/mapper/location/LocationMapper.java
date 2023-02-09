@@ -6,12 +6,13 @@ import by.vk.springbootreactivenative.location.repository.location.Location;
 import by.vk.springbootreactivenative.location.repository.location.Point;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.r2dbc.spi.Row;
-import java.util.function.Function;
+import io.r2dbc.spi.RowMetadata;
+import java.util.function.BiFunction;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LocationMapper implements Function<Row, Location> {
+public class LocationMapper implements BiFunction<Row, RowMetadata, Location> {
 
   private final ObjectMapper mapper;
 
@@ -21,7 +22,7 @@ public class LocationMapper implements Function<Row, Location> {
 
   @Override
   @SneakyThrows
-  public Location apply(Row row) {
+  public Location apply(Row row, RowMetadata meta) {
 
     var id = row.get("id", Long.class);
     var location = row.get("location", String.class);
