@@ -1,0 +1,17 @@
+micronaut:
+  application:
+    name: micronaut-reactive
+
+r2dbc:
+  datasources:
+    default:
+      schema-generate: NONE
+      dialect: POSTGRES
+      url: r2dbc:postgresql://postgres-a2b:5432/a2b
+      username: user
+      password: password
+
+netty:
+  default:
+    allocator:
+      max-order: 3

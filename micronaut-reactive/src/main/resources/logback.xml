@@ -1,0 +1,15 @@
+<configuration>
+
+  <appender class="ch.qos.logback.core.ConsoleAppender" name="STDOUT">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%-40logger{36}) - %msg%n
+      </pattern>
+    </encoder>
+    <withJansi>true</withJansi>
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="STDOUT"/>
+  </root>
+
+</configuration>

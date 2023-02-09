@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: by.vk
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [ annotation-api, app-name, data, data-r2dbc, graalvm, gradle, h2, http-client, jackson-databind, java, java-application, jib, junit, logback, micronaut-aot, micronaut-build, netty-server, r2dbc, reactor, reactor-http-client, readme, shade, yaml ]
