@@ -1,10 +1,8 @@
-import org.springframework.aot.gradle.dsl.AotMode
-
 plugins {
     id("java")
     id("org.springframework.boot") version "3.0.2"
     id("io.spring.dependency-management") version "1.1.0"
-    id("org.springframework.experimental.aot") version "0.12.2"
+    id("org.graalvm.buildtools.native") version "0.9.19"
     id("org.hibernate.orm")
 }
 
@@ -21,9 +19,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-actuator") {
-        exclude group: 'io.micrometer', module: 'micrometer-core'
-    }
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     //endregion
     //region logback
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
@@ -44,16 +40,6 @@ bootBuildImage {
     environment = [
             "BP_NATIVE_IMAGE": "true"
     ]
-}
-
-springAot {
-    mode = AotMode.NATIVE
-    debugVerify = false
-    removeXmlSupport = true
-    removeSpelSupport = true
-    removeYamlSupport = false
-    removeJmxSupport = true
-    verify = true
 }
 
 hibernate {
