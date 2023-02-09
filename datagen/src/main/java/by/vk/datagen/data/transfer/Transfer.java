@@ -1,11 +1,6 @@
 package by.vk.datagen.data.transfer;
 
 import by.vk.datagen.data.location.Location;
-import com.vladmihalcea.hibernate.type.range.Range;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.Objects;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -17,6 +12,9 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -54,17 +52,13 @@ public class Transfer {
   @Temporal(TemporalType.DATE)
   private Date date;
 
-  @Column(columnDefinition = "tsrange")
-  private Range<LocalDateTime> duration;
+  @Column
+  private String duration;
 
   private BigDecimal price;
 
   @Column(columnDefinition = "text")
   private String description;
-
-//    @OneToMany(mappedBy = "transfer")
-//    @ToString.Exclude
-//    private Set<UsersTransfers> transfers;
 
   public Transfer(Long id) {
     this.id = id;

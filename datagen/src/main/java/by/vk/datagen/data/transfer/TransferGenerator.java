@@ -1,7 +1,6 @@
 package by.vk.datagen.data.transfer;
 
 import by.vk.datagen.data.location.Location;
-import com.vladmihalcea.hibernate.type.range.Range;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -42,8 +41,8 @@ public class TransferGenerator {
       var endDateTime = LocalDateTime.of(LocalDate.ofEpochDay(endDay), endTime);
       log.info("[TRANSFER RANGE] Start {}, End {}", formatter.format(startDateTime),
           formatter.format(endDateTime));
-      var duration = Range.localDateTimeRange(
-          "[" + formatter.format(startDateTime) + "," + formatter.format(endDateTime) + "]");
+      var duration =
+          "[" + formatter.format(startDateTime) + "," + formatter.format(endDateTime) + "]";
       log.info("[DURATION] {}", duration);
       var origin = new Location(ThreadLocalRandom.current().nextLong(1, 121));
       var destination = new Location(ThreadLocalRandom.current().nextLong(1, 121));
