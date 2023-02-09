@@ -14,8 +14,8 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
     url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b" #for local solution replace 'postgres-a2b' with localhost and port '5432' to '5433'
-    username: "postgres"
-    password: "postgres"
+    username: "user"
+    password: "password"
     hikari:
       minimumIdle: 4 # default: same as maximumPoolSize
       maximumPoolSize: 8 # cores * 2; default is 10

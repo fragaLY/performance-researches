@@ -3,14 +3,15 @@ package by.vk.springbootreactive.location.mapper.city;
 import by.vk.springbootreactive.location.repository.city.City;
 import by.vk.springbootreactive.location.repository.country.Country;
 import io.r2dbc.spi.Row;
-import java.util.function.Function;
+import io.r2dbc.spi.RowMetadata;
+import java.util.function.BiFunction;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CityMapper implements Function<Row, City> {
+public class CityMapper implements BiFunction<Row, RowMetadata, City> {
 
   @Override
-  public City apply(Row row) {
+  public City apply(Row row, RowMetadata meta) {
 
     var id = row.get("id", Long.class);
     var name = row.get("name", String.class);
