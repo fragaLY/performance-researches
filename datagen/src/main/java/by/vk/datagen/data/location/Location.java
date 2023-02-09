@@ -1,7 +1,6 @@
 package by.vk.datagen.data.location;
 
 import by.vk.datagen.data.city.City;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +17,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Table(schema = "a2b", name = "locations")
 @Entity
@@ -33,7 +34,7 @@ public class Location {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column
+  @JdbcTypeCode(SqlTypes.JSON)
   private Point location;
 
   @ManyToOne(fetch = FetchType.LAZY)
