@@ -1,3 +1,5 @@
+[![Java CI with Gradle](https://github.com/fragaLY/performance-researches/actions/workflows/gradle.yml/badge.svg?branch=master)](https://github.com/fragaLY/performance-researches/actions/workflows/gradle.yml)
+
 ### INTRODUCTION
 
 The purposes of this research are next:
