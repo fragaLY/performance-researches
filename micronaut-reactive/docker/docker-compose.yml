@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+
+  postgres-a2b:
+    image: fragaly/postgres-a2b:1.0.0
+    container_name: postgres-a2b
+    hostname: postgres-a2b
+    restart: on-failure
+    volumes:
+      - data:/var/lib/postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=a2b
+    ports:
+      - "5432:5432"
+
+volumes:
+  data:

@@ -1,17 +1,22 @@
 micronaut:
   application:
     name: micronaut-reactive
+  server:
+    port: 8080
+    context-path: "/api/v1"
+
+#todo vk: turn off caches
+
+netty:
+  default:
+    allocator:
+      max-order: 3
 
 r2dbc:
   datasources:
     default:
       schema-generate: NONE
       dialect: POSTGRES
-      url: r2dbc:postgresql://postgres-a2b:5432/a2b
-      username: user
-      password: password
-
-netty:
-  default:
-    allocator:
-      max-order: 3
+      url: r2dbc:postgresql://localhost:5432/a2b
+      username: postgres
+      password: postgres
