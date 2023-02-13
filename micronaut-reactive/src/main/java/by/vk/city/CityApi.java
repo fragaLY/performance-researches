@@ -13,8 +13,8 @@ import reactor.core.publisher.Flux;
 @Controller("/countries")
 public record CityApi(Service service) {
 
-  @Get("/{countryId}/cities")
-  public Flux<City> cities(@SuppressWarnings("unused") Long countryId) {
+  @Get("/{id}/cities")
+  public Flux<City> cities(@SuppressWarnings("unused") Long id) {
     return service.cities();
   }
 }
