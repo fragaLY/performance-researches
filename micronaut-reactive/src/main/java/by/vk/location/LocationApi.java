@@ -1,4 +1,4 @@
-package by.vk.city;
+package by.vk.location;
 
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.data.annotation.Join;
@@ -11,28 +11,27 @@ import jakarta.inject.Singleton;
 import reactor.core.publisher.Flux;
 
 @R2dbcRepository(dialect = Dialect.POSTGRES)
-interface Repository extends ReactiveStreamsCrudRepository<City, Long> {
+interface Repository extends ReactiveStreamsCrudRepository<Location, Long> {
 
   @NonNull
-  @Override
-  @Join("country")
-  Flux<City> findAll();
+  @Join("city")
+  Flux<Location> findByCityId(Long cityId);
 }
 
 @Controller("/countries")
-public record CityApi(Service service) {
+public record LocationApi(Service service) {
 
-  @Get("/{countryId}/cities")
-  public Flux<City> cities(@SuppressWarnings("unused") Long countryId) {
-    return service.cities();
+  @Get("/{country}/cities/{cityId}/locations")
+  public Flux<Location> locations(@SuppressWarnings("unused") Long country, Long cityId) {
+    return service.locations(cityId);
   }
 }
 
 @Singleton
 record Service(Repository repository) {
 
-  Flux<City> cities() {
-    return Flux.from(repository.findAll());
+  Flux<Location> locations(Long cityId) {
+    return Flux.from(repository.findByCityId(cityId));
   }
 
 }
