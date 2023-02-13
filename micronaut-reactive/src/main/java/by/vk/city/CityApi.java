@@ -10,15 +10,6 @@ import io.micronaut.http.annotation.Get;
 import jakarta.inject.Singleton;
 import reactor.core.publisher.Flux;
 
-@R2dbcRepository(dialect = Dialect.POSTGRES)
-interface Repository extends ReactiveStreamsCrudRepository<City, Long> {
-
-  @NonNull
-  @Override
-  @Join("country")
-  Flux<City> findAll();
-}
-
 @Controller("/countries")
 public record CityApi(Service service) {
 
@@ -35,4 +26,13 @@ record Service(Repository repository) {
     return Flux.from(repository.findAll());
   }
 
+}
+
+@R2dbcRepository(dialect = Dialect.POSTGRES)
+interface Repository extends ReactiveStreamsCrudRepository<City, Long> {
+
+  @NonNull
+  @Override
+  @Join("country")
+  Flux<City> findAll();
 }
