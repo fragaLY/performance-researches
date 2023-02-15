@@ -12,14 +12,20 @@ micronaut:
 netty:
   default:
     allocator:
-      max-order: 3
       use-cache-for-all-threads: false
 
+# https://micronaut-projects.github.io/micronaut-sql/latest/guide/configurationreference.html
+# https://github.com/eclipse-vertx/vert.x/blob/master/src/main/java/io/vertx/core/VertxOptions.java#L38
 r2dbc:
   datasources:
-    default:
-      schema-generate: NONE
-      dialect: POSTGRES
-      url: r2dbc:postgresql://localhost:5432/a2b
+    options:
+      useDaemonThread: true
+      driver: pool
+      protocol: postgres
+      host: localhost
+      port: 5432
       username: postgres
       password: postgres
+      database: a2b
+      connectTimeout: 35000ms
+      options:

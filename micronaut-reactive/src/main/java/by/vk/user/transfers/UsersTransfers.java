@@ -7,6 +7,7 @@ import io.micronaut.data.annotation.EmbeddedId;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.MappedProperty;
 import io.micronaut.data.annotation.Relation;
+import io.micronaut.data.annotation.Transient;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -27,9 +28,11 @@ public class UsersTransfers {
   private UsersTransfersId id;
 
   @Relation(Relation.Kind.MANY_TO_ONE)
+  @Transient
   private User user;
 
   @Relation(Relation.Kind.MANY_TO_ONE)
+  @Transient
   private Transfer transfer;
 
   @Enumerated(EnumType.STRING)
