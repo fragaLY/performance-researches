@@ -23,7 +23,7 @@ public record CountryApi(Service service) {
 record Service(Repository repository) {
 
   Flux<Country> countries() {
-    return Flux.from(repository.findAll());
+    return repository.findAll();
   }
 
 }

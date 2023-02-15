@@ -23,7 +23,7 @@ public record CityApi(Service service) {
 record Service(Repository repository) {
 
   Flux<City> cities() {
-    return Flux.from(repository.findAll());
+    return repository.findAll();
   }
 
 }

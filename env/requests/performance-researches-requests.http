@@ -15,7 +15,7 @@ PUT {{scheme}}{{host}}:{{port}}{{context}}/users/11
 Content-Type: application/json
 
 {
-  "firstName": "Vadzim",
+  "firstName": "Vadzim2",
   "lastName": "Kavalkou"
 }
 
@@ -26,10 +26,10 @@ GET {{scheme}}{{host}}:{{port}}{{context}}/users/11
 GET {{scheme}}{{host}}:{{port}}{{context}}/users/11/transfers
 
 ### GET USER'S TRANSFER
-GET {{scheme}}{{host}}:{{port}}{{context}}/users/11/transfers/1676
+GET {{scheme}}{{host}}:{{port}}{{context}}/users/513/transfers/2671
 
 ### CREATE A TRANSFER FOR USER
-POST http://${host}:${port}/api/v1/users/513/transfers/2671
+POST {{scheme}}{{host}}:{{port}}{{context}}/users/513/transfers/2671
 Content-Type: application/json
 
 {
@@ -37,7 +37,7 @@ Content-Type: application/json
 }
 
 ### UPDATE USER'S TRANSFER
-PUT http://${host}:${port}/api/v1/users/513/transfers/2671
+PUT {{scheme}}{{host}}:{{port}}{{context}}/users/513/transfers/2671
 Content-Type: application/json
 
 {

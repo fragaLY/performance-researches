@@ -23,7 +23,7 @@ public record LocationApi(Service service) {
 record Service(Repository repository) {
 
   Flux<Location> locations(Long cityId) {
-    return Flux.from(repository.findByCityId(cityId));
+    return repository.findByCityId(cityId);
   }
 
 }

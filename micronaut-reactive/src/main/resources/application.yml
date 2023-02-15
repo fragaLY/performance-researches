@@ -4,13 +4,16 @@ micronaut:
   server:
     port: 8080
     context-path: "/api/v1"
-
-#todo vk: turn off caches
+    netty:
+      responses:
+        file:
+          cache-seconds: 0
 
 netty:
   default:
     allocator:
       max-order: 3
+      use-cache-for-all-threads: false
 
 r2dbc:
   datasources:
