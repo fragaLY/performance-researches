@@ -1,7 +1,10 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("io.micronaut.application") version "3.7.0"
     id("com.google.cloud.tools.jib") version "2.8.0"
+    id("io.micronaut.minimal.application") version "3.7.2"
+    id("io.micronaut.graalvm") version "3.7.2"
+    id("io.micronaut.docker") version "3.7.2"
+    id("io.micronaut.aot") version "3.7.2"
     id("java")
 }
 
@@ -37,7 +40,7 @@ dependencies {
 tasks {
     jib {
         to {
-            image = "gcr.io/myapp/jib-image"
+            image = "a2b-service"
         }
     }
 }

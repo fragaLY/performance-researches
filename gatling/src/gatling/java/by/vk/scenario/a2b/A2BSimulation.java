@@ -93,7 +93,7 @@ public class A2BSimulation extends Simulation {
       .exec(http("[GET] The list of all my transfers (COMPLETED, CANCELED, BOOKED) is presented.")
           .get("/users/#{userId}/transfers")
           .check(status().is(HttpResponseStatus.OK.code()))
-          .check(jsonPath("$[:].transfer.id").findRandom().saveAs("selectedUserTransferId"))
+          .check(jsonPath("$[:].id.transferId").findRandom().saveAs("selectedUserTransferId"))
       )
       .exitHereIfFailed()
       .pause(1, 3)
