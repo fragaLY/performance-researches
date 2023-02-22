@@ -62,7 +62,7 @@ tasks {
     }
     dockerfile {
         exposedPorts.set([8080, 8051])
-        args = ['-noverify', '-XX:+UseContainerSupport', '-XX:MaxRAMPercentage=75.0', '-XX:InitialRAMPercentage=50.0', '-XX:+OptimizeStringConcat', '-XX:+UseStringDeduplication', '-XX:+ExitOnOutOfMemoryError', '-XX:+AlwaysActAsServerClassMachine', '-Xmx512m', '-Xms128m', '-XX:MaxMetaspaceSize=128m', '-XX:MaxDirectMemorySize=256m', '-XX:+HeapDumpOnOutOfMemoryError', '-XX:HeapDumpPath=/opt/tmp/heapdump.bin', '-Djava.rmi.server.hostname=localhost', '-Dcom.sun.management.jmxremote=true', '-Dcom.sun.management.jmxremote.rmi.port=8051','-Dcom.sun.management.jmxremote.port=8051', '-Dcom.sun.management.jmxremote.local.only=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Dcom.sun.management.jmxremote.ssl=false']
+        args = ['-XX:+UseContainerSupport', '-XX:MaxRAMPercentage=75.0', '-XX:InitialRAMPercentage=50.0', '-XX:+OptimizeStringConcat', '-XX:+UseStringDeduplication', '-XX:+ExitOnOutOfMemoryError', '-XX:+AlwaysActAsServerClassMachine', '-Xmx512m', '-Xms128m', '-XX:MaxMetaspaceSize=128m', '-XX:MaxDirectMemorySize=256m', '-XX:+HeapDumpOnOutOfMemoryError', '-XX:HeapDumpPath=/opt/tmp/heapdump.bin', '-Djava.rmi.server.hostname=localhost', '-Dcom.sun.management.jmxremote=true', '-Dcom.sun.management.jmxremote.rmi.port=8051','-Dcom.sun.management.jmxremote.port=8051', '-Dcom.sun.management.jmxremote.local.only=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Dcom.sun.management.jmxremote.ssl=false']
     }
 }
 
