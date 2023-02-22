@@ -16,7 +16,7 @@ services:
       - "5432:5432"
 
   service-a2b:
-    image: micronaut-reactive:latest
+    image: micronaut-reactive-distroless:latest
     container_name: service-a2b
     hostname: service-a2b
     security_opt:
@@ -26,6 +26,7 @@ services:
     restart: on-failure
     ports:
       - "8080:8080"
+      - "8051:8051"
 
 volumes:
   data:
