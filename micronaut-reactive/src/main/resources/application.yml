@@ -22,10 +22,9 @@ r2dbc:
       useDaemonThread: true
       driver: pool
       protocol: postgres
-      host: localhost
+      host: postgres-a2b
       port: 5432
       username: postgres
       password: postgres
       database: a2b
       connectTimeout: 35000ms
-      options:
