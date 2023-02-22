@@ -22,7 +22,7 @@ r2dbc:
       useDaemonThread: true
       driver: pool
       protocol: postgres
-      host: postgres-a2b
+      host: postgres-a2b # localhost for non-in-docker solutions
       port: 5432
       username: postgres
       password: postgres
