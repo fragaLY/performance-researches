@@ -14,7 +14,7 @@ dependencies {
     //region gatling
     implementation("io.gatling:gatling-http:3.9.1")
     implementation("io.gatling:gatling-core:3.9.1")
-    implementation("io.gatling:gatling-app:3.9.1")
+    implementation("io.gatling:gatling-app:3.9.2")
     gatlingRuntimeOnly("io.gatling:gatling-charts:3.9.1")
     gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.9.1")
     //endregion
