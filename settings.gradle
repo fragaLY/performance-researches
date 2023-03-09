@@ -6,3 +6,5 @@ include("spring-reactive")
 include("spring-reactive-native")
 include("spring-web")
 include("spring-web-native")
+include 'vertx-reactive'
+
