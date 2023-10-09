@@ -1,8 +1,8 @@
 // https://github.com/bmuschko/gradle-docker-plugin/issues/1035
 buildscript {
     dependencies {
-        classpath("com.github.docker-java:docker-java:3.3.0")
-        classpath("com.github.docker-java:docker-java-transport-httpclient5:3.3.0")
+        classpath("com.github.docker-java:docker-java:3.3.3")
+        classpath("com.github.docker-java:docker-java-transport-httpclient5:3.3.3")
     }
 }
 
