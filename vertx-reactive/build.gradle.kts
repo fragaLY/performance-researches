@@ -3,7 +3,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     java
     application
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "by.vk"
@@ -13,7 +13,7 @@ repositories {
     mavenCentral()
 }
 
-val vertxVersion = "4.4.1"
+val vertxVersion = "4.4.5"
 
 val mainVerticleName = "by.vk.vertx.reactive.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"

@@ -1,18 +1,18 @@
 // https://github.com/bmuschko/gradle-docker-plugin/issues/1035
 buildscript {
     dependencies {
-        classpath("com.github.docker-java:docker-java:3.3.0")
-        classpath("com.github.docker-java:docker-java-transport-httpclient5:3.3.0")
+        classpath("com.github.docker-java:docker-java:3.3.3")
+        classpath("com.github.docker-java:docker-java-transport-httpclient5:3.3.3")
     }
 }
 
 plugins {
-    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
     id("com.google.cloud.tools.jib") version "3.4.0"
-    id("io.micronaut.minimal.application") version "3.7.2"
-    id("io.micronaut.graalvm") version "3.7.2"
-    id("io.micronaut.docker") version "3.7.2"
-    id("io.micronaut.aot") version "3.7.2"
+    id("io.micronaut.minimal.application") version "4.1.1"
+    id("io.micronaut.graalvm") version "4.1.1"
+    id("io.micronaut.docker") version "4.1.1"
+    id("io.micronaut.aot") version "4.1.1"
     id("java")
 }
 
@@ -42,7 +42,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("io.vertx:vertx-pg-client")
     runtimeOnly("io.r2dbc:r2dbc-pool")
-    runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.1.RELEASE")
+    runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.2.RELEASE")
 }
 
 tasks {
