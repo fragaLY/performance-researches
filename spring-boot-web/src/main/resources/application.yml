@@ -1,10 +1,10 @@
 server:
   compression:
     enabled: true
-  undertow:
-    threads:
-      io: 4 # default: equals to cores count
-      worker: 8 # default: 8
+#  undertow:
+#    threads:
+#      io: 4 # default: equals to cores count
+#      worker: 8 # default: 8
 
 spring:
   main:
@@ -16,14 +16,14 @@ spring:
     url: "jdbc:postgresql://localhost:5433/a2b?currentSchema=a2b" #for local solution replace 'postgres-a2b' with localhost and port '5432' to '5433'
     username: "user"
     password: "password"
-    hikari:
-      minimumIdle: 4 # default: same as maximumPoolSize
-      maximumPoolSize: 8 # cores * 2; default is 10
-      connection-timeout: 35000 #default 30000
-      pool-name: "hikari-pool"
-      idle-timeout: 10000 # default: 600000 (10 minutes)
-      max-lifetime: 35000 # default: 1800000 (30 minutes)
-      keepaliveTime: 30000 # default: 0 (disabled)
+#    hikari:
+#      minimumIdle: 4 # default: same as maximumPoolSize
+#      maximumPoolSize: 8 # cores * 2; default is 10
+#      connection-timeout: 35000 #default 30000
+#      pool-name: "hikari-pool"
+#      idle-timeout: 10000 # default: 600000 (10 minutes)
+#      max-lifetime: 35000 # default: 1800000 (30 minutes)
+#      keepaliveTime: 30000 # default: 0 (disabled)
   jpa:
     open-in-view: false
     database-platform: org.hibernate.dialect.PostgreSQLDialect
