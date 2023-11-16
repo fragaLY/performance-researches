@@ -1,16 +1,25 @@
 plugins {
-    id("java")
+    java
+    application
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.4"
     id("org.graalvm.buildtools.native") version "0.9.28"
     id("org.hibernate.orm")
 }
 
-group = 'by.vk'
-version = '0.0.1-SNAPSHOT'
+group = "by.vk"
+version = "1.0.0-RC1"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+springBoot {
+    buildInfo()
+}
 
 repositories {
-    maven { url 'https://repo.spring.io/release' }
     mavenCentral()
 }
 
@@ -34,19 +43,17 @@ dependencies {
     //endregion
 }
 
-bootBuildImage {
-    buildpacks = ["gcr.io/paketo-buildpacks/java-native-image:7.23.0"]
-    builder = "paketobuildpacks/builder:tiny"
-    environment = [
-            "BP_NATIVE_IMAGE": "true"
-    ]
+tasks.bootBuildImage {
+    buildpacks.set(listOf("gcr.io/paketo-buildpacks/java-native-image:latest"))
+    builder.set("paketobuildpacks/builder:tiny")
+    environment.set(mapOf("BP_NATIVE_IMAGE" to "true"))
 }
 
 hibernate {
-    enhance {
+    enhance(closureOf<org.hibernate.orm.tooling.gradle.EnhanceExtension> {
         enableLazyInitialization = false
         enableDirtyTracking = true
         enableAssociationManagement = true
         enableExtendedEnhancement = false
-    }
+    })
 }
