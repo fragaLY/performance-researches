@@ -1,6 +1,14 @@
 plugins {
-    id 'java'
-    id 'io.quarkus' version '3.5.1'
+    java
+    id("io.quarkus") version "3.5.1"
+}
+
+group = "by.vk"
+version = "1.0.0-RC1"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -10,7 +18,7 @@ repositories {
 
 dependencies {
     //region quarkus
-    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.5.1"))
     implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("io.quarkus:quarkus-reactive-pg-client")
     implementation("io.quarkus:quarkus-config-yaml")
@@ -22,20 +30,19 @@ dependencies {
 //    implementation("io.quarkus:quarkus-container-image-buildpack") // remove it if you want to build fast or uber jar
     //endregion
     //region lombok
-    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
-    implementation("org.projectlombok:lombok:${lombokVersion}")
+    annotationProcessor("org.projectlombok:lombok:1.18.30")
+    implementation("org.projectlombok:lombok:1.18.30")
     //endregion
 }
 
-group 'by.vk.quarkusweb'
-version '1.0-SNAPSHOT'
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+tasks.quarkusBuild {
+    nativeArgs {
+        "container-build" to true
+        "builder-image" to "quay.io/quarkus/ubi-quarkus-mandrel-builder-image:jdk-21"
+    }
 }
 
-compileJava {
-    options.encoding = 'UTF-8'
-    options.compilerArgs << '-parameters'
+tasks.compileJava {
+    options.encoding = "UTF-8"
+    options.compilerArgs.add("-parameters")
 }

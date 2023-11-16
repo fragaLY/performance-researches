@@ -9,6 +9,6 @@
 !src/**
 !gradle.properties
 !settings.gradle
-!build.gradle
+!build.gradle.kts
 !gradle/*
 !gradlew
