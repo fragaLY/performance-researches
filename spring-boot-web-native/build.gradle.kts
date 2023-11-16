@@ -1,10 +1,11 @@
 plugins {
     java
     application
+    id("org.hibernate.orm")
     id("org.springframework.boot") version "3.1.5"
     id("io.spring.dependency-management") version "1.1.4"
     id("org.graalvm.buildtools.native") version "0.9.28"
-    id("org.hibernate.orm")
+    id("com.google.cloud.tools.jib") version "3.4.0"
 }
 
 group = "by.vk"
@@ -56,4 +57,18 @@ hibernate {
         enableAssociationManagement = true
         enableExtendedEnhancement = false
     })
+}
+
+jib {
+    to {
+        image = "swn-service:latest"
+    }
+    from {
+        image = "gcr.io/distroless/java17:latest"
+    }
+    container {
+        ports = listOf("8080")
+        labels.set(mapOf("appname" to application.applicationName, "version" to version.toString(), "maintainer" to "Vadzim Kavalkou <vadzim.kavalkou@gmail.com>"))
+        creationTime.set("USE_CURRENT_TIMESTAMP")
+    }
 }

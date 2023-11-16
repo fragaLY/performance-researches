@@ -64,10 +64,10 @@ object JVMProps {
 
 jib {
     to {
-        image = "spring-web-a2b-service:latest"
+        image = "sw-service:latest"
     }
     from {
-        image = "gcr.io/distroless/java21-debian12:latest"
+        image = "gcr.io/distroless/java17:latest"
     }
     container {
         jvmFlags = listOf(
