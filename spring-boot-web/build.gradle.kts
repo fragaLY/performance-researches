@@ -29,14 +29,13 @@ repositories {
 }
 
 dependencies {
-    //region implementation
+    //region spring
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework:spring-context-indexer")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
     //endregion
     //region logback
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
