@@ -7,6 +7,9 @@ server:
 #      worker: 8 # default: 8
 
 spring:
+  threads:
+    virtual:
+      enabled: true
   main:
     banner-mode: off
   cache:
