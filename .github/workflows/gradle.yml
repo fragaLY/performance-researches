@@ -10,8 +10,8 @@ name: Java CI with Gradle
 on:
   schedule:
     - cron: '0 0 1 * *' # every 1st day of month
-#  push:
-#    branches: [ "main" ]
+  push:
+    branches: [ "main" ]
 
 permissions:
   contents: read
