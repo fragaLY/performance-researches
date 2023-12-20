@@ -21,7 +21,7 @@ public class LocationGenerator {
             it -> new Location(null, new Point(ThreadLocalRandom.current().nextDouble(-90.0, 90.0),
                 ThreadLocalRandom.current().nextDouble(-180.0, 180.0)),
                 new City(ThreadLocalRandom.current().nextLong(1, 7))))
-        .toList();
+        .toList());
     log.info("[LOCATIONS GENERATION] Ended.");
   }
 }
