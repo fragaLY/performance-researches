@@ -1,3 +1,18 @@
-theme: jekyll-theme-minimal
+theme: no-style-please
 title: Microframeworks Performance Analysis
 description: Here you can find the comparison of performance in mostly used JVM frameworks.
+author: Vadzim Kavalkou
+email: vadzim.kavalkou@gmail.com
+#url: https://riggraz.dev # root address of the site
+
+theme_config:
+  appearance: "auto" # can be "light", "dark" or "auto"
+  back_home_text: ".." # customize text for homepage link in post layout
+  date_format: "%YYYY-%mm-%dd" # customize how date is formatted
+
+sass:
+  style: :compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
