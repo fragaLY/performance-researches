@@ -6,11 +6,6 @@ plugins {
 group = "by.vk"
 version = "1.0.0-RC1"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
 repositories {
     mavenCentral()
     mavenLocal()

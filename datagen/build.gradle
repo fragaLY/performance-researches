@@ -6,7 +6,6 @@ plugins {
 
 group = 'by.vk'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
@@ -15,11 +14,21 @@ repositories {
 dependencies {
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     implementation("org.springframework:spring-context-indexer")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
+    //endregion
+    //region logback
     implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
-    implementation("net.datafaker:datafaker:2.0.2")
-    implementation("org.projectlombok:lombok")
+    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
+    //endregion
+    //region lombok
     annotationProcessor("org.projectlombok:lombok")
+    implementation("org.projectlombok:lombok")
+    //endregion
+    //region postgres
     runtimeOnly("org.postgresql:postgresql")
+    //endregion
+    //region faker
+    implementation("net.datafaker:datafaker:2.0.2")
+    //endregion
 }

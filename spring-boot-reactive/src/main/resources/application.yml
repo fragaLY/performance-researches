@@ -3,11 +3,12 @@ server:
     enabled: true
 
 spring:
+  threads:
+    virtual:
+      enabled: true
   main:
     banner-mode: off
     web-application-type: reactive
-  cache:
-    type: none
   webflux:
     base-path: "api/v1/"
   r2dbc:

@@ -11,11 +11,6 @@ plugins {
 group = "by.vk"
 version = "1.0.0-RC1"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
 springBoot {
     buildInfo()
 }
@@ -61,10 +56,10 @@ hibernate {
 
 jib {
     to {
-        image = "swn-service:latest"
+        image = "ghcr.io/fragaly/a2b-service:${project.name}"
     }
     from {
-        image = "gcr.io/distroless/java17:latest"
+        image = "gcr.io/distroless/java21-debian12:latest"
     }
     container {
         ports = listOf("8080")

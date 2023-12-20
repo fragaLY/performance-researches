@@ -8,8 +8,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.datafaker.Faker;
@@ -25,8 +24,8 @@ public class TransferGenerator {
 
   public void generate() {
     log.info("[TRANSFERS GENERATION] Started.");
-    var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
-    var transfers = IntStream.rangeClosed(1, 12_000).parallel().mapToObj(it -> {
+    var formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    LongStream.rangeClosed(1, 12_000).parallel().mapToObj(it -> {
       var now = LocalDate.now();
       var from = now.minusMonths(1);
       var to = now.plusMonths(1);
@@ -41,16 +40,18 @@ public class TransferGenerator {
       var endDateTime = LocalDateTime.of(LocalDate.ofEpochDay(endDay), endTime);
       log.info("[TRANSFER RANGE] Start {}, End {}", formatter.format(startDateTime),
           formatter.format(endDateTime));
-      var duration =
-          "[" + formatter.format(startDateTime) + "," + formatter.format(endDateTime) + "]";
+      var duration = formatter.format(startDateTime) + "," + formatter.format(endDateTime);
       log.info("[DURATION] {}", duration);
       var origin = new Location(ThreadLocalRandom.current().nextLong(1, 121));
-      var destination = new Location(ThreadLocalRandom.current().nextLong(1, 121));
-      return new Transfer(null, origin, destination, capacity, new Date(startDay), duration, price,
+      var destination = new Location(121 - origin.getId());
+      return new Transfer(it, origin, destination, capacity, new Date(startDay), duration, price,
           description);
-    }).collect(Collectors.toList());
+    }).forEach(
+        it -> repository.create(it.getId(), it.getOrigin().getId(), it.getDestination().getId(),
+            it.getCapacity(), it.getDate(),
+            LocalDateTime.parse(it.getDuration().split(",")[0], formatter),
+            LocalDateTime.parse(it.getDuration().split(",")[1], formatter), it.getPrice(),
+            it.getDescription()));
     log.info("[TRANSFERS GENERATION] Ended.");
-    repository.saveAll(transfers);
-    log.info("[TRANSFERS GENERATION] Saved.");
   }
 }

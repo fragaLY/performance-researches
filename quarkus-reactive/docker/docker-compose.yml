@@ -16,9 +16,9 @@ services:
       - "5432:5432"
 
   service-a2b:
-    image: quarkus-reactive-distroless:latest
-    container_name: service-a2b
-    hostname: service-a2b
+    image: a2b-service:quarkus-reactive
+    container_name: a2b-service
+    hostname: a2b-service
     security_opt:
       - seccomp=unconfined
     volumes:

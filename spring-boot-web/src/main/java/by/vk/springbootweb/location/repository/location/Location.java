@@ -1,6 +1,7 @@
 package by.vk.springbootweb.location.repository.location;
 
 import by.vk.springbootweb.location.repository.city.City;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -34,6 +35,7 @@ public class Location {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  @Column(columnDefinition = "jsonb")
   @JdbcTypeCode(SqlTypes.JSON)
   private Point location;
 
@@ -50,8 +52,8 @@ public class Location {
     if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
       return false;
     }
-    Location location = (Location) o;
-    return id != null && Objects.equals(id, location.id);
+    Location other = (Location) o;
+    return id != null && Objects.equals(id, other.id);
   }
 
   @Override

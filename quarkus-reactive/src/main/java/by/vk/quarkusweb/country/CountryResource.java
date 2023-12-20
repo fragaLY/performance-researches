@@ -1,23 +1,23 @@
 package by.vk.quarkusweb.country;
 
+import io.smallrye.common.annotation.RunOnVirtualThread;
 import io.smallrye.mutiny.Multi;
 import io.vertx.mutiny.pgclient.PgPool;
-import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Path("/api/v1/countries")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CountryResource {
 
-  @Inject
   PgPool client;
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
+  @RunOnVirtualThread
   public Multi<Country> all() {
     return Country.all(client);
   }

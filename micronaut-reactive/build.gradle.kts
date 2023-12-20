@@ -11,10 +11,6 @@ plugins {
 group = "by.vk"
 version = "1.0.0-RC1"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
 
 repositories {
     mavenCentral()
@@ -41,10 +37,10 @@ dependencies {
 tasks {
     jib {
         to {
-            image = "mr-service:latest"
+            image = "ghcr.io/fragaly/a2b-service:${project.name}"
         }
         from {
-            image = "gcr.io/distroless/java17:latest"
+            image = "gcr.io/distroless/java21-debian12:latest"
         }
         container {
             jvmFlags = listOf("-XX:+UseContainerSupport", "-XX:MaxRAMPercentage=75.0", "-XX:InitialRAMPercentage=50.0", "-XX:+OptimizeStringConcat", "-XX:+UseStringDeduplication", "XX:+ExitOnOutOfMemoryError", "-XX:+AlwaysActAsServerClassMachine", "-Xmx512m", "-Xms128m", "-XX:MaxMetaspaceSize=128m", "-XX:MaxDirectMemorySize=256m", "-XX:+HeapDumpOnOutOfMemoryError", "-XX:HeapDumpPath=/opt/tmp/heapdump.bin", "-Djava.rmi.server.hostname=localhost", "-Dcom.sun.management.jmxremote=true", "-Dcom.sun.management.jmxremote.rmi.port=8051", "-Dcom.sun.management.jmxremote.port=8051", "-Dcom.sun.management.jmxremote.local.only=false", "-Dcom.sun.management.jmxremote.authenticate=false", "-Dcom.sun.management.jmxremote.ssl=false")

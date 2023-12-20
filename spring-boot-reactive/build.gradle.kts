@@ -9,11 +9,6 @@ plugins {
 group = "by.vk"
 version = "1.0.0-RC1"
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-}
-
 configurations {
     compileOnly {
         extendsFrom(configurations.annotationProcessor.get())
@@ -65,7 +60,7 @@ object JVMProps {
 
 jib {
     to {
-        image = "sr-service:latest"
+        image = "ghcr.io/fragaly/a2b-service:${project.name}"
     }
     from {
         image = "gcr.io/distroless/java21-debian12:latest"

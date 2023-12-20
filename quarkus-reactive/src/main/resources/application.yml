@@ -12,7 +12,7 @@ quarkus:
     reactive:
       url: postgresql://localhost:5432/a2b?currentSchema=a2b # for non-container solution replace 'postgres-a2b' with 'localhost'
 #  jib:
-#    base-jvm-image: "gcr.io/distroless/java17"
+#    base-jvm-image: "gcr.io/distroless/java21-debian12"
 #    base-native-image:
   native:
 #    container-build: true

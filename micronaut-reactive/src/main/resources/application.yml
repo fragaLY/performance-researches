@@ -4,15 +4,6 @@ micronaut:
   server:
     port: 8080
     context-path: "/api/v1"
-    netty:
-      responses:
-        file:
-          cache-seconds: 0
-
-netty:
-  default:
-    allocator:
-      use-cache-for-all-threads: false
 
 # https://micronaut-projects.github.io/micronaut-sql/latest/guide/configurationreference.html
 # https://github.com/eclipse-vertx/vert.x/blob/master/src/main/java/io/vertx/core/VertxOptions.java#L38

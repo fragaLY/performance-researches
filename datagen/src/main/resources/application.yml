@@ -17,7 +17,6 @@ spring:
         bootstrap-mode: deferred
   jpa:
     open-in-view: false
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
     generate-ddl: false

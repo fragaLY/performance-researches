@@ -14,13 +14,13 @@ services:
     restart: always
 
   service-a2b:
-    image: spring-boot-web-native:0.0.1-SNAPSHOT
-    container_name: service-a2b
-    hostname: service-a2b
-    depends_on:
-      - postgres-a2b
-    links:
-      - postgres-a2b
+    image: a2b-service:spring-boot-web-native
+    container_name: a2b-service
+    hostname: a2b-service
+    security_opt:
+      - seccomp=unconfined
+    volumes:
+      - data:/var/lib/a2b-service
+    restart: on-failure
     ports:
       - "8080:8080"
-    restart: always
