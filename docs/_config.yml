@@ -10,6 +10,8 @@ theme_config:
   back_home_text: ".." # customize text for homepage link in post layout
   date_format: "%YYYY-%mm-%dd" # customize how date is formatted
 
+favicon: "logo.png"
+
 sass:
   style: :compressed
 
