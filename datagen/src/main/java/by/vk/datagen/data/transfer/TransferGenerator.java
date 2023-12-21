@@ -38,10 +38,7 @@ public class TransferGenerator {
       var endDay = ThreadLocalRandom.current().nextLong(startDay, to.toEpochDay());
       var endTime = LocalTime.MIDNIGHT.plusHours(ThreadLocalRandom.current().nextLong(6, 12));
       var endDateTime = LocalDateTime.of(LocalDate.ofEpochDay(endDay), endTime);
-      log.info("[TRANSFER RANGE] Start {}, End {}", formatter.format(startDateTime),
-          formatter.format(endDateTime));
       var duration = formatter.format(startDateTime) + "," + formatter.format(endDateTime);
-      log.info("[DURATION] {}", duration);
       var origin = new Location(ThreadLocalRandom.current().nextLong(1, 121));
       var destination = new Location(121 - origin.getId());
       return new Transfer(it, origin, destination, capacity, new Date(startDay), duration, price,
