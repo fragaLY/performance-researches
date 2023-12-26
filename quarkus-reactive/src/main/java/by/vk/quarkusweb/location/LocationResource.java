@@ -17,7 +17,6 @@ public class LocationResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Multi<Location> all(Long country, Long city) {
     return Location.all(client, city);
   }
