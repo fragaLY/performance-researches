@@ -1,0 +1,43 @@
+plugins {
+    id "java"
+    id "io.gatling.gradle" version "3.10.3"
+}
+
+group 'by.vk'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //region gatling
+    implementation("io.gatling:gatling-http:3.10.3")
+    implementation("io.gatling:gatling-core:3.10.3")
+    implementation("io.gatling:gatling-app:3.10.3")
+    gatlingRuntimeOnly("io.gatling:gatling-charts:3.10.3")
+    gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.10.3")
+    //endregion
+}
+
+gatling {
+    logLevel = 'INFO'
+    logHttp = 'ALL'
+    systemProperties = ['file.encoding': 'UTF-8']
+    jvmArgs = [
+            '-server',
+            '-Xss256k',
+            '-Xms1024m',
+            '-Xmx2G',
+            '-XX:MaxMetaspaceSize=128m',
+            '-XX:+HeapDumpOnOutOfMemoryError',
+            '-XX:+UseG1GC',
+            '-XX:+ParallelRefProcEnabled',
+            '-XX:MaxInlineLevel=20',
+            '-XX:MaxTrivialSize=12',
+            '-XX:+ExitOnOutOfMemoryError',
+            '-XX:+UseStringDeduplication',
+            '-XX:+OptimizeStringConcat',
+            '-XX:HeapDumpPath=/opt/tmp/heapdump.bin'
+    ]
+}
