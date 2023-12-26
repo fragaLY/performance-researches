@@ -25,7 +25,6 @@ public class UserTransferResource {
   @GET
   @Path("/{userId:[0-9]+}/transfers")
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Multi<UsersTransfers> transfers(Long userId) {
     return UsersTransfers.transfers(client, userId);
   }
@@ -33,7 +32,6 @@ public class UserTransferResource {
   @GET
   @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Uni<Response> transfer(Long userId, Long transferId) {
     return UsersTransfers.transfer(client, userId, transferId)
                          .onItem()
@@ -48,7 +46,6 @@ public class UserTransferResource {
   @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Uni<Response> update(Long userId, Long transferId, UserTransferEditionPayload payload) {
     return UsersTransfers.update(client, userId, transferId, payload).onItem().transform(
                              it -> it != null ? Response.noContent() : Response.status(Status.NOT_FOUND)).onItem()
@@ -59,7 +56,6 @@ public class UserTransferResource {
   @Path("/{userId:[0-9]+}/transfers/{transferId:[0-9]+}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Uni<Response> create(Long userId, Long transferId, UserTransferCreationPayload payload) {
     return UsersTransfers.create(client, userId, transferId, payload)
                          .onItem()

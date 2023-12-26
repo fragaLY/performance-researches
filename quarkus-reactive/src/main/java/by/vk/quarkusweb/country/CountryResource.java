@@ -17,7 +17,6 @@ public class CountryResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Multi<Country> all() {
     return Country.all(client);
   }

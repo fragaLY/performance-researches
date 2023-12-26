@@ -1,7 +1,7 @@
 plugins {
     java
     application
-    id("org.springframework.boot") version "3.2.0"
+    id("org.springframework.boot") version "3.2.1"
     id("io.spring.dependency-management") version "1.1.4"
     id("com.google.cloud.tools.jib") version "3.4.0"
 }
@@ -55,7 +55,6 @@ object JVMProps {
     const val MAX_RAM_PERCENTAGE = "80"
     const val INITIAL_RAM_PERCENTAGE = "50"
 }
-
 
 jib {
     to {

@@ -23,7 +23,6 @@ public class UserResource {
   @GET
   @Path("/{userId:[0-9]+}")
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Uni<Response> one(Long userId) {
     return User.one(client, userId).onItem()
                .transform(it -> it != null ? Response.ok(it) : Response.status(Status.NOT_FOUND))
@@ -34,7 +33,6 @@ public class UserResource {
   @Path("/{userId:[0-9]+}")
   @Consumes(MediaType.APPLICATION_JSON)
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Uni<Response> update(Long userId, UserEditionPayload payload) {
     return User.update(client, userId, payload).onItem()
                .transform(

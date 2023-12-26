@@ -19,7 +19,6 @@ public class TransferResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Multi<Transfer> all(@RestQuery Long originId, @RestQuery Long destinationId,
       @RestQuery LocalDate date) {
     return Transfer.all(client, originId, destinationId, date);

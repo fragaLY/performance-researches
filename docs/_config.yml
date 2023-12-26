@@ -1,20 +1,29 @@
 theme: no-style-please
 title: Microframeworks Performance Analysis
 description: Here you can find the comparison of performance in mostly used JVM frameworks.
-author: Vadzim Kavalkou
-email: vadzim.kavalkou@gmail.com
-#url: https://riggraz.dev # root address of the site
+masthead_title: Home
+
+author: "Vadzim Kavalkou"
+email: "vadzim.kavalkou@gmail.com"
+url: https://www.linkedin.com/in/vadzimkavalkou/
 
 theme_config:
   appearance: "auto" # can be "light", "dark" or "auto"
   back_home_text: ".." # customize text for homepage link in post layout
   date_format: "%YYYY-%mm-%dd" # customize how date is formatted
+  show_description: true # show blog description in home page
 
 favicon: "logo.png"
+permalink: /:slug.html
 
 sass:
   style: :compressed
 
 plugins:
-  - jekyll-feed
+  - jekyll-include-cache
   - jekyll-seo-tag
+  - jekyll-feed
+
+locale: en-US
+
+copyright: 1989-2024 Vadzim Kavalkou ([Legal](/legal/))

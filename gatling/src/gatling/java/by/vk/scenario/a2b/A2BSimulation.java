@@ -28,7 +28,7 @@ public class A2BSimulation extends Simulation {
 
   final HttpProtocolBuilder protocol = http
       .warmUp("https://www.google.com")
-      .baseUrl("http://localhost:8080/api/v1")
+      .baseUrl("http://a2b-service:8080/api/v1")
       .acceptHeader("application/json")
       .acceptLanguageHeader("en-US,en;q=0.5")
       .acceptEncodingHeader("gzip, deflate")

@@ -17,7 +17,6 @@ public class CityResource {
 
   @GET
   @Produces(MediaType.APPLICATION_JSON)
-  @RunOnVirtualThread
   public Multi<City> all(Long country) {
     return City.all(client, country);
   }
