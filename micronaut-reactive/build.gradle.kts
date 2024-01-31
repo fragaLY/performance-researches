@@ -29,7 +29,7 @@ dependencies {
     implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("ch.qos.logback:logback-classic:1.4.14")
-    runtimeOnly("io.vertx:vertx-pg-client:4.5.1")
+    runtimeOnly("io.vertx:vertx-pg-client:4.5.2")
     runtimeOnly("io.r2dbc:r2dbc-pool:1.0.1.RELEASE")
     runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.4.RELEASE")
 }
