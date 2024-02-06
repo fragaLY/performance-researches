@@ -3,7 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("com.google.cloud.tools.jib") version "3.4.0"
     id("io.micronaut.minimal.application") version "4.2.1"
-    id("io.micronaut.graalvm") version "4.2.1"
+    id("io.micronaut.graalvm") version "4.3.1"
     id("io.micronaut.docker") version "4.2.1"
     id("io.micronaut.aot") version "4.2.1"
 }
