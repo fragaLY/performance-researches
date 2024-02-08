@@ -5,7 +5,7 @@ plugins {
     id("io.micronaut.minimal.application") version "4.3.2"
     id("io.micronaut.graalvm") version "4.3.2"
     id("io.micronaut.docker") version "4.3.2"
-    id("io.micronaut.aot") version "4.2.1"
+    id("io.micronaut.aot") version "4.3.2"
 }
 
 group = "by.vk"
@@ -24,12 +24,12 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.serde:micronaut-serde-jackson:2.8.1")
-    implementation("io.micronaut.data:micronaut-data-r2dbc:4.5.0")
+    implementation("io.micronaut.data:micronaut-data-r2dbc:4.6.0")
     implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.2.1")
     implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("ch.qos.logback:logback-classic:1.4.14")
-    runtimeOnly("io.vertx:vertx-pg-client:4.5.1")
+    runtimeOnly("io.vertx:vertx-pg-client:4.5.3")
     runtimeOnly("io.r2dbc:r2dbc-pool:1.0.1.RELEASE")
     runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.4.RELEASE")
 }
