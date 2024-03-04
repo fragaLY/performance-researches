@@ -28,7 +28,7 @@ dependencies {
     implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.2.1")
     implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
     runtimeOnly("org.yaml:snakeyaml")
-    runtimeOnly("ch.qos.logback:logback-classic:1.5.0")
+    runtimeOnly("ch.qos.logback:logback-classic:1.5.2")
     runtimeOnly("io.vertx:vertx-pg-client:4.5.3")
     runtimeOnly("io.r2dbc:r2dbc-pool:1.0.1.RELEASE")
     runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.4.RELEASE")
