@@ -23,7 +23,7 @@ application {
 dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    implementation("io.micronaut.serde:micronaut-serde-jackson:2.8.2")
+    implementation("io.micronaut.serde:micronaut-serde-jackson:2.9.0")
     implementation("io.micronaut.data:micronaut-data-r2dbc:4.6.2")
     implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.2.1")
     implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
