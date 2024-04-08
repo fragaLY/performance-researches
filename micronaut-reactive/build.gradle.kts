@@ -5,7 +5,7 @@ plugins {
     id("io.micronaut.minimal.application") version "4.3.5"
     id("io.micronaut.graalvm") version "4.3.5"
     id("io.micronaut.docker") version "4.3.5"
-    id("io.micronaut.aot") version "4.3.5"
+    id("io.micronaut.aot") version "4.3.6"
 }
 
 group = "by.vk"
