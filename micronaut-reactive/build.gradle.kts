@@ -31,7 +31,7 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic:1.5.3")
     runtimeOnly("io.vertx:vertx-pg-client:4.5.7")
     runtimeOnly("io.r2dbc:r2dbc-pool:1.0.1.RELEASE")
-    runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.4.RELEASE")
+    runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.5.RELEASE")
 }
 
 tasks {
