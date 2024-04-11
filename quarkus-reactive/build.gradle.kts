@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     //region quarkus
-    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.9.1"))
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.9.3"))
     implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("io.quarkus:quarkus-reactive-pg-client")
     implementation("io.quarkus:quarkus-config-yaml")
