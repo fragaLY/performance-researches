@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
     //region gatling
-    implementation("io.gatling:gatling-http:3.10.5")
+    implementation("io.gatling:gatling-http:3.11.1")
     implementation("io.gatling:gatling-core:3.10.5")
     implementation("io.gatling:gatling-app:3.11.1")
     gatlingRuntimeOnly("io.gatling:gatling-charts:3.10.5")
