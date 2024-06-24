@@ -16,7 +16,7 @@ dependencies {
     implementation("io.gatling:gatling-core:3.11.2")
     implementation("io.gatling:gatling-app:3.11.2")
     gatlingRuntimeOnly("io.gatling:gatling-charts:3.11.2")
-    gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.11.2")
+    gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.11.4")
     //endregion
 }
 
