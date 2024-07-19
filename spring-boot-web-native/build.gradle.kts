@@ -56,7 +56,7 @@ hibernate {
 
 jib {
     to {
-        image = "ghcr.io/fragaly/a2b-service:${project.name}"
+        image = "fragaly/a2b-service:${project.name}"
     }
     from {
         image = "gcr.io/distroless/java21-debian12:latest"

@@ -35,7 +35,6 @@ object JVMProps {
 }
 
 gatling {
-    logLevel = LogLevel.INFO.toString()
     logHttp = LogHttp.ALL
     systemProperties = mapOf("file.encoding" to "UTF-8")
     jvmArgs = listOf("-server",

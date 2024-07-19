@@ -21,7 +21,6 @@ dependencies {
 }
 
 gatling {
-    logLevel = 'INFO'
     logHttp = 'ALL'
     systemProperties = ['file.encoding': 'UTF-8']
     jvmArgs = [
