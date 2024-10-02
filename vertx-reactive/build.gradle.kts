@@ -13,7 +13,7 @@ repositories {
     mavenCentral()
 }
 
-val vertxVersion = "4.5.9"
+val vertxVersion = "4.5.10"
 
 val mainVerticleName = "by.vk.vertx.reactive.MainVerticle"
 val launcherClassName = "io.vertx.core.Launcher"
