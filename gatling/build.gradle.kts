@@ -1,5 +1,3 @@
-import io.gatling.gradle.LogHttp
-
 plugins {
     id("java")
     id("io.gatling.gradle") version "3.12.0.2"
@@ -35,7 +33,6 @@ object JVMProps {
 }
 
 gatling {
-    logHttp = LogHttp.ALL
     systemProperties = mapOf("file.encoding" to "UTF-8")
     jvmArgs = listOf("-server",
             "-Xss${JVMProps.XSS}",
