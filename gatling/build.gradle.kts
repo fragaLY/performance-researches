@@ -1,7 +1,7 @@
 plugins {
     id("java")
     id("io.gatling.gradle") version "3.12.0.3"
-    id("com.google.cloud.tools.jib") version "3.4.3"
+    id("com.google.cloud.tools.jib") version "3.4.4"
 }
 
 group = "by.vk"
