@@ -1,6 +1,6 @@
 plugins {
     java
-    id("io.quarkus") version "3.15.1"
+    id("io.quarkus") version "3.16.0"
 }
 
 group = "by.vk"
