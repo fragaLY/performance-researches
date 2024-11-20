@@ -29,6 +29,6 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     //endregion
     //region faker
-    implementation("net.datafaker:datafaker:2.4.0")
+    implementation("net.datafaker:datafaker:2.4.2")
     //endregion
 }
