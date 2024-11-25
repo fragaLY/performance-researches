@@ -24,7 +24,7 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.serde:micronaut-serde-jackson:2.12.0")
-    implementation("io.micronaut.data:micronaut-data-r2dbc:4.9.5")
+    implementation("io.micronaut.data:micronaut-data-r2dbc:4.10.4")
     implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.6.0")
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     runtimeOnly("org.yaml:snakeyaml")
