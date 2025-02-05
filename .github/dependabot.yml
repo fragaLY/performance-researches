@@ -49,12 +49,6 @@ updates:
       interval: "daily"
     open-pull-requests-limit: 99
 
-  - package-ecosystem: "gradle"
-    directory: "/vertx-reactive"
-    schedule:
-      interval: "daily"
-    open-pull-requests-limit: 99
-
   - package-ecosystem: github-actions
     directory: "/.github"
     schedule:
