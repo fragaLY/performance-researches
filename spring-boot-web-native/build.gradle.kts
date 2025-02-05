@@ -1,7 +1,7 @@
 plugins {
     java
     application
-    id("org.hibernate.orm")
+    id("org.hibernate.orm") version "6.6.6.Final"
     id("org.springframework.boot") version "3.4.2"
     id("io.spring.dependency-management") version "1.1.7"
     id("org.graalvm.buildtools.native") version "0.10.5"
@@ -15,6 +15,15 @@ springBoot {
     buildInfo()
 }
 
+//hibernate {
+//    enhancement {
+//        enableDirtyTracking.set(true)
+//        enableLazyInitialization.set(false)
+//        enableAssociationManagement.set(true)
+//        enableExtendedEnhancement.set(false)
+//    }
+//}
+
 repositories {
     mavenCentral()
 }
@@ -25,10 +34,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
-    //endregion
-    //region logback
-    implementation("ch.qos.logback.contrib:logback-jackson:0.1.5")
-    implementation("ch.qos.logback.contrib:logback-json-classic:0.1.5")
     //endregion
     //region lombok
     annotationProcessor("org.projectlombok:lombok")
@@ -43,15 +48,6 @@ tasks.bootBuildImage {
     buildpacks.set(listOf("gcr.io/paketo-buildpacks/java-native-image:latest"))
     builder.set("paketobuildpacks/builder:tiny")
     environment.set(mapOf("BP_NATIVE_IMAGE" to "true"))
-}
-
-hibernate {
-    enhance(closureOf<org.hibernate.orm.tooling.gradle.EnhanceExtension> {
-        enableLazyInitialization = false
-        enableDirtyTracking = true
-        enableAssociationManagement = true
-        enableExtendedEnhancement = false
-    })
 }
 
 jib {
