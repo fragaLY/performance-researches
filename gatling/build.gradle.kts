@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("io.gatling.gradle") version "3.13.1"
+    id("io.gatling.gradle") version "3.13.3.1"
     id("com.google.cloud.tools.jib") version "3.4.4"
 }
 
@@ -13,11 +13,11 @@ repositories {
 
 dependencies {
     //region gatling
-    implementation("io.gatling:gatling-http:3.13.1")
-    implementation("io.gatling:gatling-core:3.13.1")
-    implementation("io.gatling:gatling-app:3.13.1")
-    gatlingRuntimeOnly("io.gatling:gatling-charts:3.13.1")
-    gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.13.1")
+    implementation("io.gatling:gatling-http:3.13.3")
+    implementation("io.gatling:gatling-core:3.13.3")
+    implementation("io.gatling:gatling-app:3.13.3")
+    gatlingRuntimeOnly("io.gatling:gatling-charts:3.13.3")
+    gatlingRuntimeOnly("io.gatling.highcharts:gatling-charts-highcharts:3.13.3")
     //endregion
 }
 
