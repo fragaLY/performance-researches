@@ -1,4 +1,14 @@
-[![Java CI with Gradle](https://github.com/fragaLY/performance-researches/actions/workflows/gradle.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/gradle.yml)
+[![SPRING BOOT WEB](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-web.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-web.yml)
+
+[![SPRING BOOT WEB NATIVE](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-web-native.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-web-native.yml)
+
+[![SPRING BOOT REACTIVE](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-reactive.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-reactive.yml)
+
+[![SPRING BOOT REACTIVE NATIVE](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-reactive-native.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/spring-boot-reactive-native.yml)
+
+[![QUARKUS REACTIVE NATIVE](https://github.com/fragaLY/performance-researches/actions/workflows/quarkus-reactive-native.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/quarkus-reactive-native.yml)
+
+[![MICRONAUT REACTIVE NATIVE](https://github.com/fragaLY/performance-researches/actions/workflows/micronaut-reactive-native.yml/badge.svg?branch=main)](https://github.com/fragaLY/performance-researches/actions/workflows/micronaut-reactive-native.yml)
 
 ### INTRODUCTION
 
