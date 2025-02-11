@@ -23,13 +23,13 @@ application {
 dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    implementation("io.micronaut.serde:micronaut-serde-jackson:2.13.1")
+    implementation("io.micronaut.serde:micronaut-serde-jackson:2.14.0")
     implementation("io.micronaut.data:micronaut-data-r2dbc:4.11.1")
-    implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.6.0")
+    implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.7.0")
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     runtimeOnly("org.yaml:snakeyaml")
     runtimeOnly("ch.qos.logback:logback-classic:1.5.16")
-    runtimeOnly("io.vertx:vertx-pg-client:4.5.12")
+    runtimeOnly("io.vertx:vertx-pg-client:4.5.13")
     runtimeOnly("io.r2dbc:r2dbc-pool:1.0.2.RELEASE")
     runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.7.RELEASE")
 }
