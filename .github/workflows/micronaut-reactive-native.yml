@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - ".github/workflows/**"
+      - ".github/workflows/micronaut-reactive-native.yml"
       - "micronaut-reactive/src/**"
       - "micronaut-reactive/gradle/**"
       - "micronaut-reactive/docker/**"
@@ -28,7 +28,7 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon compileJava -q
+      - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon compileJava -q
 
   tests:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon -x test -q
+      - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon -x test -q
 
   build:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon build -x check -q
+      - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon build -x check -q
 
   delivery:
     runs-on: ubuntu-latest
@@ -73,4 +73,4 @@ jobs:
         id: setup-gradle
         with:
           gradle-version: current
-      - run: ./gradlew --parallel --no-daemon jib -x check -q -Djib.to.auth.username=${{ secrets.GH_USER }} -Djib.to.auth.password=${{ secrets.GH_TOKEN }}
+      - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon jib -x check -q -Djib.to.auth.username=${{ secrets.GH_USER }} -Djib.to.auth.password=${{ secrets.GH_TOKEN }}
