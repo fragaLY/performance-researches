@@ -59,18 +59,18 @@ jobs:
           gradle-version: current
       - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon build -x check -q
 
-  delivery:
-    runs-on: ubuntu-latest
-    needs: [ "build" ]
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      - uses: graalvm/setup-graalvm@v1
-        with:
-          distribution: graalvm-community
-          java-version: 21
-      - uses: gradle/gradle-build-action@v2
-        id: setup-gradle
-        with:
-          gradle-version: current
-      - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon jib -x check -q -Djib.to.auth.username=${{ secrets.GH_USER }} -Djib.to.auth.password=${{ secrets.GH_TOKEN }}
+#  delivery:
+#    runs-on: ubuntu-latest
+#    needs: [ "build" ]
+#    if: github.ref == 'refs/heads/main'
+#    steps:
+#      - uses: actions/checkout@v4
+#      - uses: graalvm/setup-graalvm@v1
+#        with:
+#          distribution: graalvm-community
+#          java-version: 21
+#      - uses: gradle/gradle-build-action@v2
+#        id: setup-gradle
+#        with:
+#          gradle-version: current
+#      - run: cd micronaut-reactive && ./gradlew --parallel --no-daemon jib -x check -q -Djib.to.auth.username=${{ secrets.GH_USER }} -Djib.to.auth.password=${{ secrets.GH_TOKEN }}
