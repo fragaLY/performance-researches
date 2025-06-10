@@ -1,6 +1,6 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.4.2"
+    id("org.springframework.boot") version "3.4.5"
     id("io.spring.dependency-management") version "1.1.7"
 }
 
@@ -25,6 +25,6 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     //endregion
     //region faker
-    implementation("net.datafaker:datafaker:2.4.2")
+    implementation("net.datafaker:datafaker:2.4.3")
     //endregion
 }
