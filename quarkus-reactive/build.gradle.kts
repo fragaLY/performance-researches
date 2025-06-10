@@ -1,6 +1,6 @@
 plugins {
     java
-    id("io.quarkus") version "3.18.2"
+    id("io.quarkus") version "3.22.2"
 }
 
 group = "by.vk"
@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     //region quarkus
-    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.18.2"))
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.22.2"))
     implementation("io.quarkus:quarkus-rest-jackson")
     implementation("io.quarkus:quarkus-reactive-pg-client")
     implementation("io.quarkus:quarkus-config-yaml")
@@ -25,8 +25,8 @@ dependencies {
 //    implementation("io.quarkus:quarkus-container-image-buildpack") // remove it if you want to build fast or uber jar
     //endregion
     //region lombok
-    annotationProcessor("org.projectlombok:lombok:1.18.36")
-    implementation("org.projectlombok:lombok:1.18.36")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+    implementation("org.projectlombok:lombok:1.18.38")
     //endregion
 }
 
