@@ -1,11 +1,11 @@
 plugins {
     java
     id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("com.google.cloud.tools.jib") version "3.4.4"
-    id("io.micronaut.minimal.application") version "4.4.5"
-    id("io.micronaut.graalvm") version "4.4.5"
-    id("io.micronaut.docker") version "4.4.5"
-    id("io.micronaut.aot") version "4.4.5"
+    id("com.google.cloud.tools.jib") version "3.4.5"
+    id("io.micronaut.minimal.application") version "4.5.3"
+    id("io.micronaut.graalvm") version "4.5.3"
+    id("io.micronaut.docker") version "4.5.3"
+    id("io.micronaut.aot") version "4.5.3"
 }
 
 group = "by.vk"
@@ -24,12 +24,12 @@ dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
     implementation("io.micronaut.serde:micronaut-serde-jackson:2.14.1")
-    implementation("io.micronaut.data:micronaut-data-r2dbc:4.11.1")
+    implementation("io.micronaut.data:micronaut-data-r2dbc:4.12.1")
     implementation("io.micronaut.reactor:micronaut-reactor-http-client:3.7.0")
     implementation("jakarta.persistence:jakarta.persistence-api:3.2.0")
     runtimeOnly("org.yaml:snakeyaml")
-    runtimeOnly("ch.qos.logback:logback-classic:1.5.16")
-    runtimeOnly("io.vertx:vertx-pg-client:4.5.13")
+    runtimeOnly("ch.qos.logback:logback-classic:1.5.18")
+    runtimeOnly("io.vertx:vertx-pg-client:4.5.14")
     runtimeOnly("io.r2dbc:r2dbc-pool:1.0.2.RELEASE")
     runtimeOnly("org.postgresql:r2dbc-postgresql:1.0.7.RELEASE")
 }
