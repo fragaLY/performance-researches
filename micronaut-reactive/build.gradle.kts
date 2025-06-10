@@ -4,7 +4,7 @@ plugins {
     id("com.google.cloud.tools.jib") version "3.4.5"
     id("io.micronaut.minimal.application") version "4.5.3"
     id("io.micronaut.graalvm") version "4.5.3"
-    id("io.micronaut.docker") version "4.4.5"
+    id("io.micronaut.docker") version "4.5.3"
     id("io.micronaut.aot") version "4.5.3"
 }
 
