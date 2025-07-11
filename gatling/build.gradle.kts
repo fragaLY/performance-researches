@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("io.gatling.gradle") version "3.14.3"
+    id("io.gatling.gradle") version "3.14.3.2"
     id("com.google.cloud.tools.jib") version "3.4.5"
 }
 
