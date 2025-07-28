@@ -1,6 +1,6 @@
 plugins {
     java
-    id("io.quarkus") version "3.24.3"
+    id("io.quarkus") version "3.25.0"
 }
 
 group = "by.vk"
@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     //region quarkus
-    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.24.3"))
+    implementation(enforcedPlatform("io.quarkus.platform:quarkus-bom:3.24.5"))
     implementation("io.quarkus:quarkus-rest-jackson")
     implementation("io.quarkus:quarkus-reactive-pg-client")
     implementation("io.quarkus:quarkus-config-yaml")
