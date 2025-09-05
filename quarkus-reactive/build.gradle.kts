@@ -25,8 +25,8 @@ dependencies {
 //    implementation("io.quarkus:quarkus-container-image-buildpack") // remove it if you want to build fast or uber jar
     //endregion
     //region lombok
-    annotationProcessor("org.projectlombok:lombok:1.18.38")
-    implementation("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.40")
+    implementation("org.projectlombok:lombok:1.18.40")
     //endregion
 }
 
